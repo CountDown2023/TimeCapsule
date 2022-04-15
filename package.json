@@ -1,14 +1,18 @@
 {
-  "name": "text",
+  "name": "TimeCapsule",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.27",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
     "axios": "^0.26.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-hook-form": "^7.29.0",
     "react-query": "^3.34.19",
     "react-router-dom": "^6.3.0",
@@ -65,7 +69,6 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.21",
     "@storybook/testing-library": "^0.0.9",
-    "msw": "^0.39.2",
-    "webpack": "^5.72.0"
+    "msw": "^0.39.2"
   }
 }
