@@ -1,0 +1,31 @@
+input {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  border: none;
+}
+
+.input-txt__small {
+  width: 50vw;
+  height: 5vh;
+  padding: 0 2rem;
+  font-size: small;
+  border-radius: 30px;
+}
+
+.input-txt__medium {
+  width: 70vw;
+  height: 6vh;
+  padding: 0 2rem;
+  font-size: larger;
+  border-radius: 30px;
+}
+
+.input-txt__large {
+  width: 70vw;
+  height: 10vh;
+  padding: 0 2.5rem;
+  font-size: x-large;
+  border-radius: 35px;
+}
