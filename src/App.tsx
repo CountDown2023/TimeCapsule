@@ -9,6 +9,7 @@ import FindPassword from "./pages/FindPassword";
 import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 const Main = () => {
   return (
@@ -35,6 +36,15 @@ const User = () => {
 };
 
 function App() {
+  function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+  
+  useEffect(() => {
+    setScreenSize();
+  });
+
   return (
     <div className="App">
       <Routes>

@@ -1,0 +1,36 @@
+.signIn-wrap {
+  height: 100vh;
+  background-color: #D6F2F2;
+}
+
+.logo-wrap {
+  height: 55vh;
+  display: grid;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  display: table;
+  border-radius: 50%;
+  margin: auto;
+  text-align: center;
+  background-color: darkgray;
+}
+
+.logo-txt {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.input-comp-wrap {
+  height: 30vh;
+  position: relative;
+}
+
+.signIn-btn-wrap {
+  height: 15vh;
+  display: grid;
+  align-items: flex-end;
+}
