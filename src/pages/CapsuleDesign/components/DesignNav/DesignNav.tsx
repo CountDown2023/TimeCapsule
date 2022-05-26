@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./DesignNav.css";
 import { Link } from "react-router-dom";
 const DesignNav = (activeNav: any) => {
-  // let [activeNav, setActiveNav] = useState(0);
+  // const [activeNav, setActiveNav] = useState(0);
   return (
     <nav className="wrapper">
       <Link

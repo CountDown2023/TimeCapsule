@@ -5,24 +5,20 @@ const DesignSettings = () => {
   let [tab, setTab] = useState(0);
   return (
     <div className="settings">
-      <Tabs
-        defaultActiveKey="profile"
-        id="uncontrolled-tab-example"
-        className="mb-3"
-      >
-        <Tab eventKey="1" title="1">
+      <Tabs defaultActiveKey="1" id="uncontrolled-tab-example" className="mb-3">
+        <Tab eventKey="병" title="병">
           1111
         </Tab>
-        <Tab eventKey="2" title="2">
+        <Tab eventKey="편지지" title="편지지">
           2222
         </Tab>
-        <Tab eventKey="3" title="3">
+        <Tab eventKey="편지지 줄" title="편지지 줄">
           333
         </Tab>
-        <Tab eventKey="4" title="4">
+        <Tab eventKey="색상" title="색상">
           4444
         </Tab>
-        <Tab eventKey="5" title="5">
+        <Tab eventKey="뚜껑" title="뚜껑">
           5555
         </Tab>
       </Tabs>

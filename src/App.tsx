@@ -9,9 +9,7 @@ import FindPassword from "./pages/FindPassword";
 import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
-import DesignNav from "./pages/DesignNav";
-import CapsuleInput from "./pages/CapsuleInput";
-import Design from "./pages/Design";
+import CapsuleDesign from "./pages/CapsuleDesign";
 
 const Main = () => {
   return (
@@ -40,9 +38,7 @@ const User = () => {
 const Capsule = () => {
   return (
     <Routes>
-      <Route path={UrlPaths.capsule.design} element={<Design />} />
-      <Route path={UrlPaths.capsule.input} element={<CapsuleInput />} />
-      <Route element={<DesignNav />} />
+      <Route path={UrlPaths.capsule.design} element={<CapsuleDesign />} />
     </Routes>
   );
 };
