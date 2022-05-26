@@ -7,7 +7,6 @@ const Design = () => {
     <div className="designWrapper">
       <div className="preview">미리보기</div>
       <DesignSettings />
-      <DesignNav activeNav={1} />
     </div>
   );
 };

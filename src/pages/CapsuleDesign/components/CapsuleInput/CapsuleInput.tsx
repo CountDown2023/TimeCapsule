@@ -23,7 +23,6 @@ const CapsuleInput = () => {
           placeholder="12월 31일의 나에게 한마디"
         />
       </div>
-      <DesignNav activeNav={2} />
     </div>
   );
 };

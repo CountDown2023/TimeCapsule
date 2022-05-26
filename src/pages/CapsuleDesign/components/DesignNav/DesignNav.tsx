@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import "./DesignNav.css";
 import { Link } from "react-router-dom";
-const DesignNav = (activeNav: any) => {
-  // const [activeNav, setActiveNav] = useState(0);
+
+interface Props {
+  current: number;
+  setCurrent: (next: number) => void;
+  items: string[];
+}
+
+const DesignNav = ({ current, items, setCurrent }: Props) => {
   return (
     <nav className="wrapper">
-      <Link
-        to="../design"
-        // onClick={() => setActiveNav(1)}
-        className={activeNav === 1 ? "nav-item active" : "nav-item"}
-      >
-        design
-      </Link>
-
-      <Link
-        to="../input"
-        // onClick={() => setActiveNav(2)}
-        className={activeNav === 2 ? "nav-item active" : "nav-item"}
-      >
-        input
-      </Link>
+      {items.map((item, index) => (
+        <div
+          className={index === current ? "active" : "nav-item"}
+          onClick={() => setCurrent(index)}
+        >
+          {index}
+        </div>
+      ))}
     </nav>
   );
 };
