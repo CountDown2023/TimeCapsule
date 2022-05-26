@@ -15,5 +15,6 @@ export const UrlPaths = {
   capsule: {
     index: "/capsule/*",
     design: "/design",
+    input: "/input",
   },
 };
