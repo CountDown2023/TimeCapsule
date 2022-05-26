@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./static/fonts/font.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 const queryClient = new QueryClient();
 

@@ -1,0 +1,11 @@
+.settings {
+  width: 90%;
+  height: 250px;
+  background-color: skyblue;
+  margin: 50px auto 0;
+}
+
+.tab {
+  background-color: white;
+  width: 100px;
+}

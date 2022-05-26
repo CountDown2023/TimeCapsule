@@ -9,6 +9,9 @@ import FindPassword from "./pages/FindPassword";
 import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
+import DesignNav from "./pages/DesignNav";
+import CapsuleInput from "./pages/CapsuleInput";
+import Design from "./pages/Design";
 
 const Main = () => {
   return (
@@ -34,6 +37,16 @@ const User = () => {
   );
 };
 
+const Capsule = () => {
+  return (
+    <Routes>
+      <Route path={UrlPaths.capsule.design} element={<Design />} />
+      <Route path={UrlPaths.capsule.input} element={<CapsuleInput />} />
+      <Route element={<DesignNav />} />
+    </Routes>
+  );
+};
+
 function App() {
 
   return (
@@ -41,6 +54,7 @@ function App() {
       <Routes>
         <Route path={UrlPaths.main.index} element={<Main />} />
         <Route path={UrlPaths.user.index} element={<User />} />
+        <Route path={UrlPaths.capsule.index} element={<Capsule />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
