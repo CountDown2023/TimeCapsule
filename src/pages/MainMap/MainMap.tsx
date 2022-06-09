@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { getCapsuleInfo } from "../../api/capsule";
+import MainMapView from "./MainMap.view";
 
 const MainMap = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const MainMap = () => {
       >
         바다로 가기
       </button>
-      메인 화면 - 지도
+      <MainMapView days={data ? "" : ""} />
     </div>
   );
 };
