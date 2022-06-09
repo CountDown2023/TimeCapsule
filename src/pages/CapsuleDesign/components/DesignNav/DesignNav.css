@@ -9,11 +9,11 @@
   flex-direction: row;
 }
 
-nav {
+.tab {
   overflow: hidden;
 }
 
-.nav-item {
+.tab-item {
   text-align: center;
   margin: auto;
   width: 45px;
@@ -23,7 +23,7 @@ nav {
   background-color: darkgray;
 }
 
-.active {
+.activeTab {
   text-align: center;
   margin: auto;
   width: 45px;

@@ -10,16 +10,16 @@ interface Props {
 
 const DesignNav = ({ current, items, setCurrent }: Props) => {
   return (
-    <nav className="wrapper">
+    <div className="wrapper">
       {items.map((item, index) => (
         <div
-          className={index === current ? "active" : "nav-item"}
+          className={index === current ? "activeTab" : "tab-item"}
           onClick={() => setCurrent(index)}
         >
           {index}
         </div>
       ))}
-    </nav>
+    </div>
   );
 };
 
