@@ -1,9 +1,22 @@
 import React from "react";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { UrlPaths } from "../../routes";
+import { hasCapsule, hasUnknownCapsule } from "../../api/capsule";
 
 const MainSea = () => {
   const navigate = useNavigate();
+
+  const {
+    isLoading: isUnknownCapsuleLoading,
+    data: unknownCapsule,
+    isError: isUnknownCapsuleError,
+  } = useQuery("hasUnknownCapsule", () => hasUnknownCapsule());
+
+  const {
+    isLoading: isCapsuleLoading,
+    data: capsule,
+    isError: isCapsuleError,
+  } = useQuery("hasCapsule", () => hasCapsule());
 
   return (
     <div>

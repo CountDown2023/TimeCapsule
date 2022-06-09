@@ -1,9 +1,14 @@
 import React from "react";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { UrlPaths } from "../../routes";
+import { getCapsuleInfo } from "../../api/capsule";
 
 const MainMap = () => {
   const navigate = useNavigate();
+
+  const { isLoading, data, isError } = useQuery("getCapsuleInfo", () =>
+    getCapsuleInfo()
+  );
 
   return (
     <div>
