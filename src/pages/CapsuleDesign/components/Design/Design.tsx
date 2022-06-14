@@ -6,6 +6,7 @@ import DesignSettings from "../DesignSettings";
 import LetterLine from "../LetterLine";
 import LetterPaper from "../LetterPaper";
 import "./Design.css";
+
 const Design = () => {
   const [tab, setTab] = useState<number>(0);
   return (

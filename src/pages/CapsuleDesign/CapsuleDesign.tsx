@@ -5,6 +5,7 @@ import DesignNav from "./components/DesignNav";
 
 const CapsuleDesign = () => {
   const [page, setPage] = useState<number>(0);
+
   return (
     <>
       {page === 0 && <Design />}

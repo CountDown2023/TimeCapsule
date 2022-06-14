@@ -1,6 +1,7 @@
 import React from "react";
 import DesignNav from "../DesignNav";
 import "./CapsuleInput.css";
+
 const CapsuleInput = () => {
   return (
     <div className="inputWrapper">
