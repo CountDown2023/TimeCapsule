@@ -1,27 +1,22 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
 import { getCapsuleInfo } from "../../api/capsule";
+import MainMapView from "./MainMap.view";
 
 const MainMap = () => {
-  const navigate = useNavigate();
-
   const { isLoading, data, isError } = useQuery("getCapsuleInfo", () =>
     getCapsuleInfo()
   );
 
-  return (
-    <div>
-      <button
-        onClick={() => {
-          navigate("/main/sea");
-        }}
-      >
-        바다로 가기
-      </button>
-      메인 화면 - 지도
-    </div>
-  );
+  if (isLoading) {
+    return <>로딩중입니다...</>;
+  }
+
+  if (isError) {
+    return <>에러가 발생했습니다. 다시 시도해주세요.</>;
+  }
+
+  return <MainMapView days={data ? "" : ""} />;
 };
 
 export default MainMap;
