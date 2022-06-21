@@ -1,5 +1,5 @@
 import React from "react";
-import "./inputTxt.css";
+import "./inputText.css";
 
 interface InputTxtProps extends React.HTMLProps<HTMLInputElement>  {
   type: string;
@@ -12,7 +12,7 @@ interface InputTxtProps extends React.HTMLProps<HTMLInputElement>  {
   // onChangeMode: (val: "normal" | "warning" | "focus") => void;
 }
 
-export const InputTxt = ({
+export const InputText = ({
   type = "text",
   widthSize = "medium",
   // mode = "normal",
