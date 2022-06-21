@@ -15,9 +15,7 @@ const DesignNav = ({ current, items, setCurrent }: Props) => {
         <div
           className={index === current ? "activeTab" : "tab-item"}
           onClick={() => setCurrent(index)}
-        >
-          {index}
-        </div>
+        ></div>
       ))}
     </div>
   );

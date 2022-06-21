@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Choice.css";
 
-const Choice = () => {
-  return <div className="choice"></div>;
+interface Props {
+  imgSrc: string;
+  isSelect: boolean;
+  idx: number;
+  onClick: (c: number) => void;
+}
+
+const Choice = ({ imgSrc, isSelect, idx, onClick }: Props) => {
+  return (
+    <div
+      onClick={() => onClick(idx)}
+      className={isSelect ? "choice" : "notChoice"}
+    >
+      <img className="choiceImg" src={imgSrc} alt="" />
+    </div>
+  );
 };
 
 export default Choice;
