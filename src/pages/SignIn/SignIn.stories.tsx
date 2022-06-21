@@ -24,6 +24,6 @@ export const Inactive = Template.bind({});
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const loginButton = await canvas.getByRole('button', { name: /Log in/i });
+  const loginButton = await canvas.getByRole('button', { name: /로그인/i });
   await userEvent.click(loginButton);
 };
