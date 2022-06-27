@@ -9,28 +9,25 @@ interface InputTxtProps extends React.HTMLProps<HTMLInputElement>  {
   placeholder: string;
   onFocus?: () => void;
   onChangeValue: (val: string) => void;
-  // onChangeMode: (val: "normal" | "warning" | "focus") => void;
 }
 
 export const InputText = ({
   type = "text",
   widthSize = "medium",
-  // mode = "normal",
   placeholder = "placeholder",
   ...props
 }: InputTxtProps) => {
-  const [propsValue, setPropsValue] = React.useState({ "mode": props.mode, "placeholder": placeholder });
 
   return (
     <>
     { props.mode !== "normal" &&
-      <label htmlFor={props.inputId} className={propsValue.mode}>{placeholder}</label>
+      <label htmlFor={props.inputId} className={props.mode}>{placeholder}</label>
     }
       <input 
         id={props.inputId}
         type={type}
-        className={`input-txt__${widthSize} ${propsValue.mode}`}
-        placeholder={propsValue.placeholder}
+        className={`input-txt__${widthSize} ${props.mode}`}
+        placeholder={props.mode !== 'normal'? '' : placeholder}
         onChange={(e) => props.onChangeValue(e.target.value)}
       />
     </>

@@ -2,7 +2,7 @@ input {
   display: block;
   position: relative;
   text-align: center;
-  margin: 0 auto 2rem auto;
+  margin: 1.5rem auto 3.5rem auto;
   border: none;
 }
 
@@ -28,4 +28,27 @@ input {
   padding: 0 2.5rem;
   font-size: x-large;
   border-radius: 35px;
+}
+
+input.focus, input.warning {
+  margin: 0 auto 2rem auto;
+}
+
+input.warning {
+  border: 4px solid #F22D2D;
+}
+
+label {
+  display: flex;
+    transition: all 0.3s ease-in-out;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-left: 12vw;
+    margin-bottom: 0.3rem;
+}
+
+label.warning {
+  color: #F22D2D;
+  font-size: large;
+  font-weight: 600;
 }

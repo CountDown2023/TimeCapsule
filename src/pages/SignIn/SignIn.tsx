@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { InputText } from "../../components/common/InputText";
 import { Button } from "../../components/common/Button";
 
+import { UrlPaths } from "../../routes/index";
+
 import "./signIn.css";
 
 const SignIn = () => {
-  
-  const PWD_PATH = "/user/password";
-  const SIGNUP_PATH = "/user/signUp";
 
   const navigate = useNavigate();
   
@@ -56,13 +55,13 @@ const SignIn = () => {
         <Button
           size='medium'
           label='비밀번호 찾기'
-          onClick={() => navigate(PWD_PATH)}
+          onClick={() => navigate(UrlPaths.user.signIn)}
         />
         |
         <Button
           size='medium'
           label='회원가입'
-          onClick={() => navigate(SIGNUP_PATH)}
+          onClick={() => navigate(UrlPaths.user.signUp)}
         />
       </div>
       <div className='signIn-btn-wrap'>
