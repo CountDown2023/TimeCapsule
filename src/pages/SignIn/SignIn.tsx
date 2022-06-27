@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { InputText } from "../../components/common/InputText";
 import { Button } from "../../components/common/Button";
 
-import { UrlPaths } from "../../routes/index";
+import { UrlPaths } from "../../routes";
 
 import "./signIn.css";
 
