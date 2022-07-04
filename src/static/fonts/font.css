@@ -1,0 +1,12 @@
+@font-face {
+  /* 사용할 폰트의 이름 */
+  font-family: "Jua";
+  font-display: fallback;
+
+  src: url("./Jua-Regular.ttf") format("truetype"), url("./Jua-Regular.woff")
+      format("woff"), url("./Jua-Regular.eot?iefix") format("embedded-opentype");
+
+  /* 사용할 폰트의 기본 스타일 */
+  font-weight: 400;
+  font-style: normal;
+}
