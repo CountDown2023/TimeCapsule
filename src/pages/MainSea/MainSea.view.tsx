@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
+import Setting from "../../components/Setting";
+import useDiscloser from "../../hooks/useDiscloser";
 import "./MainSea.scss";
 
 export interface Props {
@@ -20,10 +22,11 @@ const MainSeaView = ({
   );
   const [isShowDescription, setIsShowDescription] =
     useState<boolean>(showDescription);
+  const { isOpen, setToggle } = useDiscloser();
 
   return (
     <div className="main-sea">
-      <button>설정</button>
+      <button onClick={setToggle}>설정</button>
       {hasCapsule ? (
         <button
           onClick={() => {
@@ -55,26 +58,25 @@ const MainSeaView = ({
           setIsShowDescription(false);
         }}
       />
-      <div>
-        <Dialog
-          isShow={isShowUnknownCapsule}
-          title={
-            <>
-              익명의 캡슐이 있네요.
-              <br />
-              보시겠습니까?
-            </>
-          }
-          okButton="예, 볼래요!"
-          cancleButton="아니요, 괜찮아요!"
-          onClickOkButton={() => {
-            setIsShowUnknownCapsule(false);
-          }}
-          onClickCancleButton={() => {
-            setIsShowUnknownCapsule(false);
-          }}
-        />
-      </div>
+      <Dialog
+        isShow={isShowUnknownCapsule}
+        title={
+          <>
+            익명의 캡슐이 있네요.
+            <br />
+            보시겠습니까?
+          </>
+        }
+        okButton="예, 볼래요!"
+        cancleButton="아니요, 괜찮아요!"
+        onClickOkButton={() => {
+          setIsShowUnknownCapsule(false);
+        }}
+        onClickCancleButton={() => {
+          setIsShowUnknownCapsule(false);
+        }}
+      />
+      <Setting isShow={isOpen} onClose={setToggle} />
     </div>
   );
 };
