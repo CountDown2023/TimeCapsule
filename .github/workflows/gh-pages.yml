@@ -3,7 +3,7 @@ name: 타임캡슐
 on:
   push:
     branches:
-      - feature/marsh/setting-githubs-actions
+      - develop
 
 jobs:
   deploy:
