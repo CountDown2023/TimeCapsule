@@ -9,6 +9,7 @@ import FindPassword from "./pages/FindPassword";
 import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
+import CapsuleDesign from "./pages/CapsuleDesign";
 
 const Main = () => {
   return (
@@ -34,6 +35,14 @@ const User = () => {
   );
 };
 
+const Capsule = () => {
+  return (
+    <Routes>
+      <Route path={UrlPaths.capsule.design} element={<CapsuleDesign />} />
+    </Routes>
+  );
+};
+
 function App() {
 
   return (
@@ -41,6 +50,7 @@ function App() {
       <Routes>
         <Route path={UrlPaths.main.index} element={<Main />} />
         <Route path={UrlPaths.user.index} element={<User />} />
+        <Route path={UrlPaths.capsule.index} element={<Capsule />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
