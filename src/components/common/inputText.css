@@ -43,7 +43,7 @@ label {
   transition: all 0.3s ease-in-out;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  margin-right: 43vw;
+  /* margin-right: 43vw; */
   margin-bottom: 0.3rem;
 }
 
