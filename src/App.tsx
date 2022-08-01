@@ -44,7 +44,6 @@ const Capsule = () => {
 };
 
 function App() {
-
   return (
     <div className="App">
       <Routes>
