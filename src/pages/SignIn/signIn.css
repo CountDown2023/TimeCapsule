@@ -34,7 +34,7 @@
 } */
 
 .signIn-btn-wrap {
-  height: 20vh;
-  display: grid;
-  align-items: flex-end;
+  display: grid;    
+  position: absolute;
+  bottom: 0;
 }

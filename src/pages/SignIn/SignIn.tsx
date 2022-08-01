@@ -61,13 +61,13 @@ const SignIn = ({
         <Button
           size='medium'
           label='비밀번호 찾기'
-          onClick={() => navigate(UrlPaths.user.signIn)}
+          onClick={() => navigate("/user/password")}
         />
         |
         <Button
           size='medium'
           label='회원가입'
-          onClick={() => navigate(UrlPaths.user.signUp)}
+          onClick={() => navigate("/user/signUp")}
         />
       </div>
       <div className='signIn-btn-wrap'>

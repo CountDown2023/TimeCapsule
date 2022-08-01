@@ -10,9 +10,9 @@ export default {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as ComponentMeta<Props>;
+} as Meta<Props>;
 
-const Template: ComponentStory<Props> = (args) => <SignIn {...args}/>;
+const Template: Story<Props> = (args) => <SignIn {...args}/>;
 
 export const 기본 = Template.bind({});
 
