@@ -10,9 +10,6 @@ import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
 import CapsuleDesign from "./pages/CapsuleDesign";
-import DesignNav from "./pages/DesignNav";
-import CapsuleInput from "./pages/CapsuleInput";
-import Design from "./pages/Design";
 
 const Main = () => {
   return (
