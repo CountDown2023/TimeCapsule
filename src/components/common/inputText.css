@@ -2,7 +2,7 @@ input {
   display: block;
   position: relative;
   text-align: center;
-  margin: 1.5rem auto 3.5rem auto;
+  margin: 1.5rem auto 3.5rem auto !important;
   border: none;
 }
 
@@ -31,7 +31,7 @@ input {
 }
 
 input.focus, input.warning {
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 2rem auto !important;
 }
 
 input.warning {
@@ -40,11 +40,11 @@ input.warning {
 
 label {
   display: flex;
-    transition: all 0.3s ease-in-out;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    margin-left: 12vw;
-    margin-bottom: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* margin-right: 43vw; */
+  margin-bottom: 0.3rem;
 }
 
 label.warning {
