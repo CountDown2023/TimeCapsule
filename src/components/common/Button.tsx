@@ -4,8 +4,8 @@ import './button.css'
 interface ButtonProps {
   primary?: boolean;
   backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large' | 'bottom';
-  label: string;
+  size?: 'small' | 'medium' | 'large' | 'bottom' | 'backBtn';
+  label?: string;
   onClick?: () => void;
 }
 
@@ -13,7 +13,7 @@ export const Button = ({
   primary = false,
   size = 'medium',
   backgroundColor,
-  label,
+  label = '',
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'button--primary' : 'button--secondary';
@@ -24,7 +24,7 @@ export const Button = ({
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      {size === 'backBtn'? '<' : label}
     </button>
   );
 };

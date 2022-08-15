@@ -1,22 +1,21 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta, Meta, Story } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
-import SignIn, { Props } from './SignIn';
+import SignUp, { SignUpProps } from './SignUp';
 
 export default {
-  title: 'Page/SignIn',
-  component: SignIn,
+  title: 'Page/SignUp',
+  component: SignUp,
   parameters: {
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as Meta<Props>;
+} as Meta<SignUpProps>;
 
-const Template: Story<Props> = (args) => <SignIn {...args}/>;
+const Template: Story<SignUpProps> = (args) => <SignUp {...args}/>;
 
 export const 기본 = Template.bind({});
 기본.args = {
-  isLoggedIn: true
+  isJoined : true
 };
 
 export const 텍스트창_포커스 = Template.bind({});
@@ -26,8 +25,7 @@ export const 텍스트창_포커스 = Template.bind({});
   await userEvent.click(loginButton);
 };
 
-export const 로그인_실패 = Template.bind({});
-로그인_실패.args = {
-  isLoggedIn : false
+export const 회원가입_실패 = Template.bind({});
+회원가입_실패.args = {
+  isJoined : false
 };
-// More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing

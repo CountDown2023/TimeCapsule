@@ -1,0 +1,18 @@
+.signUp-wrap {
+  height: 100vh;
+  background-color: #d6f2f2;
+}
+
+.signUp-wrap > .input-comp-wrap {
+  position: absolute;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signUp-btn-wrap {
+  display: grid;
+  position: absolute;
+  bottom: 0;
+}

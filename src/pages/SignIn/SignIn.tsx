@@ -8,11 +8,17 @@ import { UrlPaths } from "../../routes";
 
 import "./signIn.css";
 
-const SignIn = () => {
+export interface Props {
+  isLoggedIn?: boolean;
+}
+
+const SignIn = ({
+  isLoggedIn = true
+}: Props) => {
 
   const navigate = useNavigate();
   
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">("normal")
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isLoggedIn ? "warning" : "normal")
   const [stateValues, setStateValues] = useState({
     email: "",
     password: "",
@@ -55,13 +61,13 @@ const SignIn = () => {
         <Button
           size='medium'
           label='비밀번호 찾기'
-          onClick={() => navigate(UrlPaths.user.signIn)}
+          onClick={() => navigate("/user/password")}
         />
         |
         <Button
           size='medium'
           label='회원가입'
-          onClick={() => navigate(UrlPaths.user.signUp)}
+          onClick={() => navigate("/user/signUp")}
         />
       </div>
       <div className='signIn-btn-wrap'>
