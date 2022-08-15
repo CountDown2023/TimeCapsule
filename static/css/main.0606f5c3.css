@@ -6,7 +6,7 @@ input {
   display: block;
   position: relative;
   text-align: center;
-  margin: 1.5rem auto 3.5rem auto;
+  margin: 1.5rem auto 3.5rem auto !important;
   border: none;
 }
 
@@ -35,7 +35,7 @@ input {
 }
 
 input.focus, input.warning {
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 2rem auto !important;
 }
 
 input.warning {
@@ -44,11 +44,11 @@ input.warning {
 
 label {
   display: flex;
-    transition: all 0.3s ease-in-out;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    margin-left: 12vw;
-    margin-bottom: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* margin-right: 43vw; */
+  margin-bottom: 0.3rem;
 }
 
 label.warning {
@@ -101,6 +101,15 @@ label.warning {
   border-radius: 0;
 }
 
+.button--backBtn {
+  font-size: 50px;
+  color: white;
+  font-family: inherit;
+  position: absolute;
+  left: 0;
+  margin: 1rem;
+}
+
 .signIn-wrap {
   height: 100vh;
   background-color: #d6f2f2;
@@ -137,9 +146,29 @@ label.warning {
 } */
 
 .signIn-btn-wrap {
-  height: 20vh;
+  display: grid;    
+  position: absolute;
+  bottom: 0;
+}
+
+.signUp-wrap {
+  height: 100vh;
+  background-color: #d6f2f2;
+}
+
+.signUp-wrap > .input-comp-wrap {
+  position: absolute;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.signUp-btn-wrap {
   display: grid;
-  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
 }
 
 .storybook-button {
@@ -277,4 +306,4 @@ section .tip-wrapper svg path {
 }
 
 
-/*# sourceMappingURL=main.e40d249b.css.map*/
+/*# sourceMappingURL=main.0606f5c3.css.map*/
