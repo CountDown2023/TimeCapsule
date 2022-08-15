@@ -1,5 +1,4 @@
 import React from "react";
-import DesignNav from "../DesignNav";
 import "./CapsuleInput.css";
 
 const CapsuleInput = () => {
@@ -33,11 +32,11 @@ const CapsuleInput = () => {
             <input className="capsuleLiInput" type="text" />
           </li>
         </ul>
-        <input
+
+        <textarea
           className="toMe"
-          type="text"
           placeholder="12월 31일의 나에게 한마디"
-        />
+        ></textarea>
       </div>
     </div>
   );

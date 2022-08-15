@@ -65,8 +65,6 @@ const Design = () => {
     { tab: 2, idx: -1 },
     { tab: 3, idx: -1 },
   ]);
-  // 객체로 해보기
-  console.log(saveTabIdx);
 
   return (
     <div className="designWrapper">
