@@ -9,16 +9,16 @@ import { UrlPaths } from "../../routes";
 import "./signIn.css";
 
 export interface Props {
-  isLogedIn?: boolean;
+  isLoggedIn?: boolean;
 }
 
 const SignIn = ({
-  isLogedIn = true
+  isLoggedIn = true
 }: Props) => {
 
   const navigate = useNavigate();
   
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isLogedIn ? "warning" : "normal")
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isLoggedIn ? "warning" : "normal")
   const [stateValues, setStateValues] = useState({
     email: "",
     password: "",

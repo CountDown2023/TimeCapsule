@@ -16,7 +16,7 @@ const Template: Story<Props> = (args) => <SignIn {...args}/>;
 
 export const 기본 = Template.bind({});
 기본.args = {
-  isLogedIn: true
+  isLoggedIn: true
 };
 
 export const 텍스트창_포커스 = Template.bind({});
@@ -28,6 +28,6 @@ export const 텍스트창_포커스 = Template.bind({});
 
 export const 로그인_실패 = Template.bind({});
 로그인_실패.args = {
-  isLogedIn : false
+  isLoggedIn : false
 };
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
