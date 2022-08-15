@@ -61,6 +61,7 @@ const MainSeaView = ({
         cancleButton="아니요, 괜찮아요!"
         onClickOkButton={() => {
           setIsShowUnknownCapsule(false);
+          // TODO: 화면 전환? 아니면 모달?
         }}
         onClickCancleButton={() => {
           setIsShowUnknownCapsule(false);
