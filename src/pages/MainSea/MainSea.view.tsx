@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
 import Setting from "../../components/Setting";
 import useDiscloser from "../../hooks/useDiscloser";
@@ -9,14 +8,17 @@ export interface Props {
   unknownCapsule?: string;
   hasCapsule: boolean;
   showDescription: boolean;
+  onClickMap: () => void;
+  onClickCapsule: () => void;
 }
 
 const MainSeaView = ({
   unknownCapsule,
   hasCapsule,
   showDescription,
+  onClickMap,
+  onClickCapsule,
 }: Props) => {
-  const navigate = useNavigate();
   const [isShowUnknownCapsule, setIsShowUnknownCapsule] = useState<boolean>(
     unknownCapsule ? true : false
   );
@@ -28,21 +30,9 @@ const MainSeaView = ({
     <div className="main-sea">
       <button onClick={setToggle}>설정</button>
       {hasCapsule ? (
-        <button
-          onClick={() => {
-            navigate("/main/map");
-          }}
-        >
-          지도로 가기
-        </button>
+        <button onClick={onClickMap}>지도로 가기</button>
       ) : (
-        <button
-          onClick={() => {
-            navigate("/capsule/design");
-          }}
-        >
-          캡술 만들러 가기
-        </button>
+        <button onClick={onClickCapsule}>캡술 만들러 가기</button>
       )}
       <Dialog
         isShow={isShowDescription}

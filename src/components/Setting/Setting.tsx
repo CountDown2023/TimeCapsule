@@ -17,18 +17,16 @@ const Setting = ({ isShow, onClose }: Props) => {
       {isShow && (
         <div className="setting">
           <div className="setting-view">
-            {/* TODO: 버튼 클릭 이벤트 수정 */}
             <button className="setting-view__btn-close" onClick={onClose}>
               <AiOutlineClose size={40} />
             </button>
             <div className="setting-view__btn-main">
-              <button onClick={() => navigation("/password/:nickname")}>
+              <button onClick={() => navigation("/user/password/:nickname")}>
                 <IoMdLock size={40} />
                 <br />
                 비밀번호 수정
               </button>
-              {/* TODO: 버튼 클릭 이벤트 수정 */}
-              <button onClick={() => navigation("/info")}>
+              <button onClick={() => navigation("/information")}>
                 <AiOutlineInfoCircle size={40} />
                 <br />
                 정보
