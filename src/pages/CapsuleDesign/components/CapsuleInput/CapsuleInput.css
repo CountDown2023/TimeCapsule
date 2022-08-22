@@ -22,6 +22,7 @@
 }
 
 .capsuleName {
+  display: block;
   text-align: center;
   border: none;
   width: 70%;
@@ -51,11 +52,12 @@
 }
 
 .capsuleLi {
-  border-bottom: 1px solid black;
+  border-bottom: px solid black;
   height: 12%;
-  margin-bottom: 1%;
+  margin-bottom: 10px;
 }
 .toMe {
+  display: block;
   background-color: white;
   width: 80%;
   height: 20%;
