@@ -16,4 +16,5 @@ export const UrlPaths = {
     index: "/capsule/*",
     design: "/design",
   },
+  setting: "/setting",
 };
