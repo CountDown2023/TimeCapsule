@@ -33,10 +33,7 @@ const CapsuleInput = () => {
           </li>
         </ul>
 
-        <textarea
-          className="toMe"
-          placeholder="12월 31일의 나에게 한마디"
-        ></textarea>
+        <textarea className="toMe" placeholder="12월 31일의 나에게 한마디" />
       </div>
     </div>
   );
