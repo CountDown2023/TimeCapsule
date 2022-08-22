@@ -1,9 +1,11 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { hasCapsule, hasUnknownCapsule } from "../../api/capsule";
 import MainSeaView from "./MainSea.view";
 
 const MainSea = () => {
+  const navigate = useNavigate();
   const {
     isLoading: isUnknownCapsuleLoading,
     data: unknownCapsule,
@@ -29,6 +31,8 @@ const MainSea = () => {
       unknownCapsule={unknownCapsule ? "" : ""}
       hasCapsule={capsule ? true : false}
       showDescription
+      onClickMap={() => navigate("/main/map")}
+      onClickCapsule={() => navigate("/capsule/design")}
     />
   );
 };
