@@ -26,7 +26,7 @@ const Setting = ({ isShow, onClose }: Props) => {
                 <br />
                 비밀번호 수정
               </button>
-              <button onClick={() => navigation("/information")}>
+              <button onClick={() => navigation("/setting")}>
                 <AiOutlineInfoCircle size={40} />
                 <br />
                 정보
