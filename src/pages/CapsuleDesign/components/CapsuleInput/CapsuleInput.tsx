@@ -12,7 +12,7 @@ const CapsuleInput = () => {
           placeholder="캡슐 이름을 입력하세요."
         />
         <ul className="capsuleInput">
-          <h6>이루고싶은 목표를 적어보세요</h6>
+          <div className="capsuleDescription">이루고싶은 목표를 적어보세요</div>
           <li className="capsuleLi">
             <input className="capsuleLiInput" type="text" />
           </li>
