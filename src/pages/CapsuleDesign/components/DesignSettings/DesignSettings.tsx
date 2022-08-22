@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import "./DesignSettings.css";
+import classNames from "classnames";
 
 interface Props {
   current: number;
@@ -8,14 +8,14 @@ interface Props {
 }
 
 const DesignSettings = ({ current, items, setCurrent }: Props) => {
-  let [tab, setTab] = useState(0);
   return (
     <div className="settings">
       {items.map((item, index) => (
         <div
-          className={
-            index === current ? "activeSettingsTab" : "settingsTab-item"
-          }
+          className={classNames([
+            "settingsTab-item",
+            `${index === current && "activeSettingsTab"}`,
+          ])}
           onClick={() => setCurrent(index)}
         >
           {item}
