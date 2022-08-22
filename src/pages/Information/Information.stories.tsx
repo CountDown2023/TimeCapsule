@@ -7,6 +7,6 @@ export default {
   component: Information,
 } as Meta;
 
-const Template: Story<any> = (args) => <Information {...args} />;
+const Template: Story = (args) => <Information {...args} />;
 
 export const 기본 = Template.bind({});
