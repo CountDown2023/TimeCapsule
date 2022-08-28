@@ -23,7 +23,7 @@ const SignUp = ({
     passwordConfirm: ""
   });
 
-  const test = () => {
+  const clickSubmit = () => {
     console.log("회원가입 테스트");
   }
 
@@ -37,7 +37,7 @@ const SignUp = ({
         <InputText
           type='text'
           inputId="signUpNickNm"
-          mode={modeValue as "normal" | "warning" | "focus"}
+          mode={modeValue}
           widthSize="medium"
           placeholder='닉네임'
           onChangeValue={(value: string) =>
@@ -47,7 +47,7 @@ const SignUp = ({
         <InputText
           type='password'
           inputId="signUpPw"
-          mode={modeValue as "normal" | "warning" | "focus"}
+          mode={modeValue}
           widthSize="medium"
           placeholder='비밀번호'
           onChangeValue={(value: string) =>
@@ -57,7 +57,7 @@ const SignUp = ({
         <InputText
           type='password'
           inputId="signUpPwConfirm"
-          mode={modeValue as "normal" | "warning" | "focus"}
+          mode={modeValue}
           widthSize="medium"
           placeholder='비밀번호 확인'
           onChangeValue={(value: string) =>
@@ -66,7 +66,7 @@ const SignUp = ({
         />
       </div>
       <div className='signUp-btn-wrap'>
-        <Button size='bottom' label='회원가입' onClick={test} />
+        <Button size='bottom' label='회원가입' onClick={clickSubmit} />
       </div>
     </div>
   );
