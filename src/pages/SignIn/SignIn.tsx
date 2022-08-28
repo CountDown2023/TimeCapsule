@@ -25,6 +25,7 @@ const SignIn = ({
   });
 
   const clickSubmit = () => {
+    //TODO: 클릭 이벤트 적용하기
     console.log("회원가입 테스트");
   }
 
