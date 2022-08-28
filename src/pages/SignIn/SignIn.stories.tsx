@@ -1,13 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta, Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import SignIn, { Props } from './SignIn';
 
 export default {
-  title: 'Page/SignIn',
+  title: 'User/SignIn',
   component: SignIn,
   parameters: {
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
 } as Meta<Props>;
@@ -30,4 +28,3 @@ export const 로그인_실패 = Template.bind({});
 로그인_실패.args = {
   isLoggedIn : false
 };
-// More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing

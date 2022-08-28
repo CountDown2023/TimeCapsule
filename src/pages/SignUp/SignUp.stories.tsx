@@ -1,10 +1,9 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta, Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import SignUp, { SignUpProps } from './SignUp';
 
 export default {
-  title: 'Page/SignUp',
+  title: 'User/SignUp',
   component: SignUp,
   parameters: {
     layout: 'fullscreen',
