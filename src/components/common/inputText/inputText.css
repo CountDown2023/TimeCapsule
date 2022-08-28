@@ -44,7 +44,6 @@ label {
   transition: all 0.3s ease-in-out;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  /* margin-right: 43vw; */
   margin-bottom: 0.3rem;
 }
 
@@ -52,4 +51,10 @@ label.warning {
   color: #f22d2d;
   font-size: large;
   font-weight: 600;
+}
+
+label.focus , label.warning {
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
 }

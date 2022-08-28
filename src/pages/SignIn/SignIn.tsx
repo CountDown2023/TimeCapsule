@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { InputText } from "../../components/common/InputText";
-import { Button } from "../../components/common/Button";
+import { InputText } from "../../components/common/inputText/InputText";
+import { Button } from "../../components/common/button/Button";
 
 import { UrlPaths } from "../../routes";
 
