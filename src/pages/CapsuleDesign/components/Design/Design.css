@@ -2,8 +2,7 @@
   background-color: gray;
   height: 100vh;
   width: 100%;
-  padding-top: 10%;
-  padding-bottom: 5%;
+  padding: 50px 0;
 }
 
 .preview {
@@ -11,11 +10,12 @@
   height: 60%;
   margin: auto;
   background-color: white;
+  text-align: center;
 }
 
 .settingWrapper {
   width: 90%;
   height: 25%;
   background-color: white;
-  margin: 5% auto;
+  margin: 50px auto 0;
 }

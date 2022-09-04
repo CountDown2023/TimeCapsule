@@ -1,15 +1,13 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Story, Meta } from "@storybook/react";
 
 import CapsuleDesign from "./CapsuleDesign";
 
 export default {
   title: "Page/CapsuleDesign",
   component: CapsuleDesign,
-} as ComponentMeta<typeof CapsuleDesign>;
+} as Meta;
 
-const Template: ComponentStory<typeof CapsuleDesign> = (args) => (
-  <CapsuleDesign />
-);
+const Template: Story = () => <CapsuleDesign />;
 
 export const Default = Template.bind({});

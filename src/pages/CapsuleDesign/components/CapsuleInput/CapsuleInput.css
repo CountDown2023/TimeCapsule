@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
   background-color: gray;
-  padding: 10% 0;
+  padding: 50px 0;
 }
 
 .capsuleInputBtn {
@@ -15,13 +15,14 @@
 .inputWrapper2 {
   width: 90%;
   background-color: skyblue;
-  border-radius: 2%;
-  height: 95%;
+  border-radius: 30px;
+  height: 85vh;
   margin: auto;
   padding: 20px 0;
 }
 
 .capsuleName {
+  display: block;
   text-align: center;
   border: none;
   width: 70%;
@@ -31,6 +32,11 @@
   height: 50px;
   margin: 0 auto 30px;
   outline: none;
+}
+
+.capsuleDescription {
+  text-align: center;
+  font-size: 25px;
 }
 
 .capsuleInput {
@@ -43,19 +49,25 @@
   box-sizing: border-box;
 }
 
+.capsuleLi {
+  height: 12%;
+  margin-bottom: 10px;
+}
+
 .capsuleLiInput {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-style: none;
+  border-bottom: 1px solid black;
   width: 100%;
   height: 100%;
   outline: none;
   text-align: left;
 }
 
-.capsuleLi {
-  border-bottom: 1px solid black;
-  height: 12%;
-  margin-bottom: 1%;
-}
 .toMe {
+  display: block;
   background-color: white;
   width: 80%;
   height: 20%;
