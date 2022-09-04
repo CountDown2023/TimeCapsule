@@ -10,6 +10,7 @@ import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
 import CapsuleDesign from "./pages/CapsuleDesign";
+import Information from "pages/Information";
 
 const Main = () => {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path={UrlPaths.main.index} element={<Main />} />
         <Route path={UrlPaths.user.index} element={<User />} />
         <Route path={UrlPaths.capsule.index} element={<Capsule />} />
+        <Route path={UrlPaths.information} element={<Information />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
