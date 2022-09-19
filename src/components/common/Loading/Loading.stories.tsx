@@ -10,8 +10,20 @@ export default {
 
 const Template: Story<Props> = (args) => <Loading {...args} />;
 
-export const 기본 = Template.bind({});
-기본.args = {
+export const 전체화면_배경있음 = Template.bind({});
+전체화면_배경있음.args = {
   isFull: true,
   hasDarkBackground: true,
 };
+
+export const 전체화면_배경없음 = Template.bind({});
+전체화면_배경없음.args = {
+  isFull: true,
+};
+
+export const 부분화면_배경있음 = Template.bind({});
+부분화면_배경있음.args = {
+  hasDarkBackground: true,
+};
+
+export const 부분화면_배경없음 = Template.bind({});
