@@ -1,0 +1,31 @@
+.sea-day {
+  &__container {
+    width: 100%;
+
+    & > img {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__sky {}
+
+  &__sea {}
+
+  &__sun {
+    margin: 0 auto;
+    position: fixed;
+    width: 200px !important;
+    height: 200px;
+    top: 0px;
+    left: 50%;
+
+  }
+
+  &__bubble {
+    &__center {}
+
+    &__front {}
+  }
+}
