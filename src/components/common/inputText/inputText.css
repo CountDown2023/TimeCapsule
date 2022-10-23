@@ -8,7 +8,7 @@
 
 .input-txt__small {
   width: 50vw;
-  height: 5vh;
+  height: 3rem;
   padding: 0 2rem;
   font-size: small;
   border-radius: 30px;
@@ -16,7 +16,7 @@
 
 .input-txt__medium {
   width: 70vw;
-  height: 6vh;
+  height: 3rem;
   padding: 0 2rem;
   font-size: larger;
   border-radius: 30px;
@@ -24,7 +24,7 @@
 
 .input-txt__large {
   width: 70vw;
-  height: 10vh;
+  height: 4rem;
   padding: 0 2.5rem;
   font-size: x-large;
   border-radius: 35px;
