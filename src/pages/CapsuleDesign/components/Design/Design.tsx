@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import DesignItem from "../DesignItem";
-
 import DesignNav from "../DesignNav";
 import DesignSettings from "../DesignSettings";
-
 import "./Design.css";
+import light from "assets/images/palette/light.png";
+import circle from "assets/images/letterPaper/circle.png";
+import cloud from "assets/images/letterPaper/cloud.png";
+import cross from "assets/images/letterPaper/cross.png";
+import flower from "assets/images/letterPaper/flower.png";
+import grass from "assets/images/letterPaper/grass.png";
+import heart from "assets/images/letterPaper/heart.png";
+import note from "assets/images/letterPaper/note.png";
+import star from "assets/images/letterPaper/star.png";
 
 const Design = () => {
   const [tab, setTab] = useState<number>(0);
@@ -20,30 +27,32 @@ const Design = () => {
     { idx: 7, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
   ]);
 
+  const red = light;
+
   const [bottleColors, setBottleColors] = useState<
     { idx: number; imgSrc: string }[]
   >([
-    { idx: 0, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 1, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 2, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 3, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 4, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 5, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 6, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 7, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
+    { idx: 0, imgSrc: light },
+    { idx: 1, imgSrc: light },
+    { idx: 2, imgSrc: light },
+    { idx: 3, imgSrc: light },
+    { idx: 4, imgSrc: light },
+    { idx: 5, imgSrc: light },
+    { idx: 6, imgSrc: light },
+    { idx: 7, imgSrc: light },
   ]);
 
   const [letterPapers, setLetterPapers] = useState<
     { idx: number; imgSrc: string }[]
   >([
-    { idx: 0, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 1, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 2, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 3, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 4, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 5, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 6, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { idx: 7, imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
+    { idx: 0, imgSrc: circle },
+    { idx: 1, imgSrc: cloud },
+    { idx: 2, imgSrc: cross },
+    { idx: 3, imgSrc: flower },
+    { idx: 4, imgSrc: grass },
+    { idx: 5, imgSrc: heart },
+    { idx: 6, imgSrc: note },
+    { idx: 7, imgSrc: star },
   ]);
 
   const [letterLines, setLetterLines] = useState<
