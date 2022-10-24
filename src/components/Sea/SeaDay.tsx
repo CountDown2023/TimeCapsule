@@ -1,21 +1,66 @@
+import { useEffect, useRef, useState } from "react";
 import {
   SkyDay,
-  SunMoon,
-  WaterDay,
+  SeaDay,
   BubbleCenter,
-  BubbleFront,
+  BubbleAll,
+  CloudLeft,
+  CloudRight,
 } from "../../assets/images/sea";
 import "./Sea.scss";
 
-const SeaDay = () => {
+const Sea = () => {
+  const skyRef = useRef<HTMLImageElement>(null);
+  const [top, setTop] = useState<number>(180);
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  const handleResize = () => {
+    setTop(skyRef.current?.height ?? 180);
+  }
+
   return (
-    <div className="sea-day__container">
-      {/* TODO: 수정하기 */}
-      <img className="sea-day__sky" src={SkyDay} alt="" />
-      <img className="sea-day__sea" src={WaterDay} alt="" />
-      <img className="sea-day__bubble__center" src={BubbleCenter} alt="" />
+    <div className="sea__container">
+      <img
+        className="sea__sea"
+        src={SeaDay}
+        alt=""
+        style={{ top: `${top}px` }}
+      />
+      <img
+        className="sea__bubble__center"
+        src={BubbleCenter}
+        alt=""
+        style={{ top: `${top}px` }}
+      />
+      <img
+        className="sea__bubble__all"
+        src={BubbleAll}
+        alt=""
+        style={{ top: `${top}px` }}
+      />
+      <img ref={skyRef} className="sea__sky" src={SkyDay} alt="" />
+      <img
+        className="sea__cloud__left"
+        src={CloudLeft}
+        alt=""
+        style={{ top: `${top}px` }}
+      />
+      <img
+        className="sea__cloud__right"
+        src={CloudRight}
+        alt=""
+        style={{ top: `${top}px` }}
+      />
     </div>
   );
 };
 
-export default SeaDay;
+export default Sea;
