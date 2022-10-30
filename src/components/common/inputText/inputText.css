@@ -2,37 +2,37 @@
   display: block;
   position: relative;
   text-align: center;
-  margin: 1.5rem auto 3.5rem auto !important;
+  margin: 24px auto 56px auto !important;
   border: none;
 }
 
 .input-txt__small {
   width: 50vw;
-  height: 3rem;
-  padding: 0 2rem;
+  height: 48px;
+  padding: 0 32px;
   font-size: small;
   border-radius: 30px;
 }
 
 .input-txt__medium {
   width: 70vw;
-  height: 3rem;
-  padding: 0 2rem;
+  height: 48px;
+  padding: 0 32px;
   font-size: larger;
   border-radius: 30px;
 }
 
 .input-txt__large {
   width: 70vw;
-  height: 4rem;
-  padding: 0 2.5rem;
+  height: 64px;
+  padding: 0 40px;
   font-size: x-large;
   border-radius: 35px;
 }
 
 input.focus,
 input.warning {
-  margin: 0 auto 2rem auto !important;
+  margin: 0 auto 32px auto !important;
 }
 
 input.warning {
@@ -44,7 +44,7 @@ label {
   transition: all 0.3s ease-in-out;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  margin-bottom: 0.3rem;
+  margin-bottom: 4.8px;
 }
 
 label.warning {
@@ -56,5 +56,5 @@ label.warning {
 label.focus , label.warning {
   width: 100%;
   text-align: left;
-  padding-left: 1rem;
+  padding-left: 16px;
 }
