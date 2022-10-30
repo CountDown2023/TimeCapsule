@@ -31,7 +31,7 @@ const SignIn = ({
   }
 
   return (
-    <InputForm pageName={"SignIn"}>
+    <InputForm showBackBtn={false} onClickBackBtn={false}>
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>

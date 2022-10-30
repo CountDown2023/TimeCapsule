@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import "./InputForm.css";
 
 export interface InputFormProps {
-  pageName: String;
+  showBackBtn: Boolean;
+  onClickBackBtn: Boolean;
   children: ReactNode;
 }
 
@@ -18,7 +19,7 @@ export const InputForm = ({
 
   return  (
     <div className="page-wrap">
-      {props.pageName != "SignIn" && (
+      {(props.showBackBtn && props.onClickBackBtn) && (
         <Button
           size='backBtn'
           onClick={() => navigate(-1)}

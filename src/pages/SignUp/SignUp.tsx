@@ -35,7 +35,7 @@ const SignUp = ({
   }
 
   return (
-    <InputForm pageName={"SignUp"}>
+    <InputForm showBackBtn={true} onClickBackBtn={true}>
       <div className='signUp-wrap'>
         <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
           <InputText
