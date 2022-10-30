@@ -1,6 +1,7 @@
 .signIn-wrap {
   height: 100vh;
   background-color: #d6f2f2;
+  text-align: center;
 }
 
 .logo-wrap {
@@ -26,12 +27,8 @@
 
 .input-comp-wrap {
   height: 35vh;
-  position: relative;
+  display: inline-block;
 }
-
-/* .input-comp-wrap button {
-  margin: 0 0.1rem;
-} */
 
 .signIn-btn-wrap {
   display: grid;    

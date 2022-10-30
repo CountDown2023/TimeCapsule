@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { InputText } from "../../components/common/InputText";
-import { Button } from "../../components/common/Button";
+import { InputText } from "../../components/common/inputText/InputText";
+import { Button } from "../../components/common/button/Button";
 
 import { UrlPaths } from "../../routes";
 
@@ -24,9 +24,10 @@ const SignIn = ({
     password: "",
   });
 
-  const test = () => {
-    console.log(stateValues);
-  };
+  const clickSubmit = () => {
+    //TODO: 클릭 이벤트 적용하기
+    console.log("회원가입 테스트");
+  }
 
   return (
     <div className='signIn-wrap'>
@@ -40,7 +41,7 @@ const SignIn = ({
           <InputText
             type='text'
             inputId="signInNickNm"
-            mode={modeValue as "normal" | "warning" | "focus"}
+            mode={modeValue}
             widthSize="medium"
             placeholder='닉네임'
             onChangeValue={(value: string) =>
@@ -50,7 +51,7 @@ const SignIn = ({
           <InputText
             type='password'
             inputId="signInPw"
-            mode={modeValue as "normal" | "warning" | "focus"}
+            mode={modeValue}
             widthSize="medium"
             placeholder='비밀번호'
             onChangeValue={(value: string) =>
@@ -71,7 +72,7 @@ const SignIn = ({
         />
       </div>
       <div className='signIn-btn-wrap'>
-        <Button size='bottom' label='로그인' onClick={test} />
+        <Button size='bottom' label='로그인' onClick={clickSubmit} />
       </div>
     </div>
   );
