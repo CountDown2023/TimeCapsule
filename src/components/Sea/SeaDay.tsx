@@ -4,27 +4,27 @@ import {
   SeaDay,
   BubbleCenter,
   BubbleAll,
-  CloudLeft,
-  CloudRight,
+  CloudDayLeft,
+  CloudDayRight,
 } from "../../assets/images/sea";
 import "./Sea.scss";
 
-const Sea = () => {
+const SeaDayView = () => {
   const skyRef = useRef<HTMLImageElement>(null);
   const [top, setTop] = useState<number>(180);
 
   useEffect(() => {
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
-    }
+    };
   }, []);
 
   const handleResize = () => {
     setTop(skyRef.current?.height ?? 180);
-  }
+  };
 
   return (
     <div className="sea__container">
@@ -49,13 +49,13 @@ const Sea = () => {
       <img ref={skyRef} className="sea__sky" src={SkyDay} alt="" />
       <img
         className="sea__cloud__left"
-        src={CloudLeft}
+        src={CloudDayLeft}
         alt=""
         style={{ top: `${top}px` }}
       />
       <img
         className="sea__cloud__right"
-        src={CloudRight}
+        src={CloudDayRight}
         alt=""
         style={{ top: `${top}px` }}
       />
@@ -63,4 +63,4 @@ const Sea = () => {
   );
 };
 
-export default Sea;
+export default SeaDayView;
