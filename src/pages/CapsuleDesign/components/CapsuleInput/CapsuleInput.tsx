@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CapsuleInput.css";
+import Dialog from "../../../../components/common/dialog";
 
 const CapsuleInput = () => {
+  const [isShowDialog, setIsShowDialog] = useState<boolean>(false);
+  const [saveComplete, setIsSaveComplete] = useState<boolean>(false);
   return (
     <div className="inputWrapper">
-      <button className="capsuleInputBtn">작성완료</button>
+      <button className="capsuleInputBtn" onClick={() => setIsShowDialog(true)}>
+        작성완료
+      </button>
+      <Dialog
+        className="saveDialog"
+        isShow={isShowDialog}
+        title={<>캡슐 생성이 완료되었습니다.</>}
+        okButton="확인"
+        onClickOkButton={() => setIsShowDialog(false)}
+      />
       <div className="inputWrapper2">
         <input
           className="capsuleName"
