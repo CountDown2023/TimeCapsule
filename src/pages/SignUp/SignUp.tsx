@@ -35,7 +35,13 @@ const SignUp = ({
   }
 
   return (
-    <InputForm showBackBtn={true} onClickBackBtn={true}>
+    <InputForm 
+      showBackBtn={true} 
+      onClickBackBtn={true}
+      submitButtonText={"회원가입"}
+      disabledSubmitButton={true}
+      onSubmit={clickSubmit}
+    >
       <div className='signUp-wrap'>
         <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
           <InputText
@@ -68,9 +74,6 @@ const SignUp = ({
               setStateValues({ ...stateValues, passwordConfirm: value })
             }
           />
-        </div>
-        <div className='signUp-btn-wrap'>
-          <Button size='bottom' label='회원가입' onClick={clickSubmit} />
         </div>
       </div>
     </InputForm>

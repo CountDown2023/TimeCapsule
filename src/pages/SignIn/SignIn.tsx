@@ -27,11 +27,11 @@ const SignIn = ({
 
   const clickSubmit = () => {
     //TODO: 클릭 이벤트 적용하기
-    console.log("회원가입 테스트");
+    console.log("로그인 테스트");
   }
 
   return (
-    <InputForm showBackBtn={false} onClickBackBtn={false}>
+    <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={clickSubmit}>
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>
@@ -72,9 +72,6 @@ const SignIn = ({
             label='회원가입'
             onClick={() => navigate("/user/signUp")}
           />
-        </div>
-        <div className='signIn-btn-wrap'>
-          <Button size='bottom' label='로그인' onClick={clickSubmit} />
         </div>
       </div>
     </InputForm>
