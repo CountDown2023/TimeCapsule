@@ -4,14 +4,16 @@ import DesignNav from "../DesignNav";
 import DesignSettings from "../DesignSettings";
 import "./Design.css";
 import light from "assets/images/palette/light.png";
-import circle from "assets/images/letterPaper/circle.png";
-import cloud from "assets/images/letterPaper/cloud.png";
-import cross from "assets/images/letterPaper/cross.png";
-import flower from "assets/images/letterPaper/flower.png";
-import grass from "assets/images/letterPaper/grass.png";
-import heart from "assets/images/letterPaper/heart.png";
-import note from "assets/images/letterPaper/note.png";
-import star from "assets/images/letterPaper/star.png";
+import {
+  CirclePaper,
+  CloudPaper,
+  CrossPaper,
+  FlowerPaper,
+  GrassPaper,
+  HeartPaper,
+  NotePaper,
+  StarPaper,
+} from "assets/images/letterPaper/index";
 
 const Design = () => {
   const [tab, setTab] = useState<number>(0);
@@ -45,14 +47,14 @@ const Design = () => {
   const [letterPapers, setLetterPapers] = useState<
     { idx: number; imgSrc: string }[]
   >([
-    { idx: 0, imgSrc: circle },
-    { idx: 1, imgSrc: cloud },
-    { idx: 2, imgSrc: cross },
-    { idx: 3, imgSrc: flower },
-    { idx: 4, imgSrc: grass },
-    { idx: 5, imgSrc: heart },
-    { idx: 6, imgSrc: note },
-    { idx: 7, imgSrc: star },
+    { idx: 0, imgSrc: CirclePaper },
+    { idx: 1, imgSrc: CloudPaper },
+    { idx: 2, imgSrc: CrossPaper },
+    { idx: 3, imgSrc: FlowerPaper },
+    { idx: 4, imgSrc: GrassPaper },
+    { idx: 5, imgSrc: HeartPaper },
+    { idx: 6, imgSrc: NotePaper },
+    { idx: 7, imgSrc: StarPaper },
   ]);
 
   const [letterLines, setLetterLines] = useState<
