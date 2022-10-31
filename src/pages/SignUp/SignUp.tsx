@@ -1,5 +1,6 @@
 import { Button } from "components/common/button/Button";
 import { InputText } from "components/common/inputText/InputText";
+import { InputForm } from "pages/common/InputForm/InputForm";
 import React, { useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
@@ -24,52 +25,58 @@ const SignUp = ({
   });
 
   const clickSubmit = () => {
-    //TODO: 클릭 이벤트 적용하기
     console.log("회원가입 테스트");
+    console.log("email : ", stateValues.email);
+    console.log("pwd : ", stateValues.password);
+    console.log("pwd confirm : ", stateValues.passwordConfirm);
+
+    //TODO: 회원가입 API 연동 로직 구현
+
   }
 
   return (
-    <div className='signUp-wrap'>
-      <Button
-        size='backBtn'
-        onClick={() => navigate(-1)}
-      />
-      <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
-        <InputText
-          type='text'
-          inputId="signUpNickNm"
-          mode={modeValue}
-          widthSize="medium"
-          placeholder='닉네임'
-          onChangeValue={(value: string) =>
-            setStateValues({ ...stateValues, email: value})
-          }
-        />
-        <InputText
-          type='password'
-          inputId="signUpPw"
-          mode={modeValue}
-          widthSize="medium"
-          placeholder='비밀번호'
-          onChangeValue={(value: string) =>
-            setStateValues({ ...stateValues, password: value })
-          }
-        />
-        <InputText
-          type='password'
-          inputId="signUpPwConfirm"
-          mode={modeValue}
-          widthSize="medium"
-          placeholder='비밀번호 확인'
-          onChangeValue={(value: string) =>
-            setStateValues({ ...stateValues, passwordConfirm: value })
-          }
-        />
+    <InputForm 
+      showBackBtn={true} 
+      onClickBackBtn={true}
+      submitButtonText={"회원가입"}
+      disabledSubmitButton={true}
+      onSubmit={clickSubmit}
+    >
+      <div className='signUp-wrap'>
+        <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
+          <InputText
+            type='text'
+            inputId="signUpNickNm"
+            mode={modeValue}
+            widthSize="medium"
+            placeholder='닉네임'
+            onChangeValue={(value: string) =>
+              setStateValues({ ...stateValues, email: value})
+            }
+          />
+          <InputText
+            type='password'
+            inputId="signUpPw"
+            mode={modeValue}
+            widthSize="medium"
+            placeholder='비밀번호'
+            onChangeValue={(value: string) =>
+              setStateValues({ ...stateValues, password: value })
+            }
+          />
+          <InputText
+            type='password'
+            inputId="signUpPwConfirm"
+            mode={modeValue}
+            widthSize="medium"
+            placeholder='비밀번호 확인'
+            onChangeValue={(value: string) =>
+              setStateValues({ ...stateValues, passwordConfirm: value })
+            }
+          />
+        </div>
       </div>
-      <div className='signUp-btn-wrap'>
-        <Button size='bottom' label='회원가입' onClick={clickSubmit} />
-      </div>
-    </div>
+    </InputForm>
   );
 };
 
