@@ -8,6 +8,7 @@ import { InputForm } from "pages/common/InputForm/InputForm";
 import { UrlPaths } from "routes";
 
 import "./signIn.css";
+import { BlueLogo } from "static/logo";
 
 export interface Props {
   isLoggedIn?: boolean;
@@ -35,7 +36,7 @@ const SignIn = ({
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>
-            <p className='logo-txt'>logo</p>
+            <img src={BlueLogo} />
           </div>
         </div>
         <div className='input-comp-wrap'>
