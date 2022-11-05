@@ -34,7 +34,7 @@ export const InputForm = ({
         />
       )}
       {children}
-      <div className='signIn-btn-wrap'>
+      <div className='btn-wrap'>
         {/* TODO: isDisable 처리용 로직 필요 */}
         <Button size='bottom' label={submitButtonText} onClick={onSubmit} />
       </div>

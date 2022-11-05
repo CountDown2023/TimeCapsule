@@ -27,9 +27,3 @@
   height: 35vh;
   display: inline-block;
 }
-
-.signIn-btn-wrap {
-  display: grid;    
-  position: absolute;
-  bottom: 0;
-}
