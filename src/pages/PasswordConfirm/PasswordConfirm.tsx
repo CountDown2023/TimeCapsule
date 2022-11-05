@@ -46,7 +46,7 @@ const PasswordConfirm = ({
         </div>
         <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
           <InputText
-            type='text'
+            type='password'
             inputId="confirmPwd"
             mode={modeValue}
             widthSize="medium"
