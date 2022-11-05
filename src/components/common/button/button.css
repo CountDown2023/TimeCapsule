@@ -2,7 +2,7 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 3em;
+  border-radius: 48px;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
@@ -35,7 +35,7 @@
 
 .button--bottom {
   width: 100vw;
-  height: 10vh;
+  height: 80px;
   color: #fff;
   font-size: xx-large;
   background-color: #3180F6;
@@ -48,5 +48,5 @@
   font-family: inherit;
   position: absolute;
   left: 0;
-  margin: 1rem;
+  margin: 16px;
 }

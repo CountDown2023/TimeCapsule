@@ -6,6 +6,7 @@ interface ButtonProps {
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large' | 'bottom' | 'backBtn';
   label?: string;
+  isDisable?: boolean;
   onClick?: () => void;
 }
 
@@ -14,13 +15,14 @@ export const Button = ({
   size = 'medium',
   backgroundColor,
   label = '',
+  isDisable = true,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'button--primary' : 'button--secondary';
   return (
     <button
       type="button"
-      className={['button', `button--${size}`, mode].join(' ')}
+      className={['button', `button--${size}`, mode, (isDisable)? 'btn-disabled': ''].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >

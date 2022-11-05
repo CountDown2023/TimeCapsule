@@ -16,24 +16,27 @@ export const InputText = ({
   type = "text",
   widthSize = "medium",
   placeholder = "placeholder",
-  ...props
+  inputId="",
+  mode,
+  onFocus,
+  onChangeValue
 }: InputTxtProps) => {
   return (
     <>
-      {props.mode !== "normal" && (
-        <label htmlFor={props.inputId} className={props.mode}>
+      {mode !== "normal" && (
+        <label htmlFor={inputId} className={mode}>
           {placeholder}
         </label>
       )}
       <input
-        id={props.inputId}
+        id={inputId}
         type={type}
         className={classNames([
           "input",
-          `input-txt__${widthSize} ${props.mode}`,
+          `input-txt__${widthSize} ${mode}`,
         ])}
-        placeholder={props.mode !== "normal" ? "" : placeholder}
-        onChange={(e) => props.onChangeValue(e.target.value)}
+        placeholder={mode !== "normal" ? "" : placeholder}
+        onChange={(e) => onChangeValue(e.target.value)}
       />
     </>
   );
