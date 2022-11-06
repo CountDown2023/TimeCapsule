@@ -1,12 +1,17 @@
 .dialog{
     width: fit-content;
-    height: inherit;
+    min-width: 240px;
     margin: auto;
     padding: 30px 40px;
     background-color: #C1FEFA;
     border-radius: 20px;
     border: 1px solid black;
     text-align: center;
+    z-index: 10;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     
     &__title{
         font-size: 20px;

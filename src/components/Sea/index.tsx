@@ -1,1 +1,1 @@
-export { default } from "./SeaDay";
+export { default } from "./Sea";

@@ -25,7 +25,7 @@ const Dialog = ({
   return (
     <>
       {isShow && (
-        <div className={`dialog ${className}`}>
+        <div className={`dialog`}>
           <div className="dialog__title">{title}</div>
           <div className="dialog__description">{description}</div>
           <div className="dialog__button">

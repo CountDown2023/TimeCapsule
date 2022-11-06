@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  SkyDay,
-  SeaDay,
+  SkyNight,
+  SeaNight,
   BubbleCenter,
   BubbleAll,
-  CloudDayLeft,
-  CloudDayRight,
+  CloudNightLeft,
+  CloudNightRight,
 } from "../../assets/images/sea";
 import "./Sea.scss";
 
-const SeaDayView = () => {
+const SeaNightView = () => {
   const skyRef = useRef<HTMLImageElement>(null);
   const [top, setTop] = useState<number>(180);
 
@@ -30,7 +30,7 @@ const SeaDayView = () => {
     <div className="sea__container">
       <img
         className="sea__sea"
-        src={SeaDay}
+        src={SeaNight}
         alt=""
         style={{ top: `${top}px` }}
       />
@@ -46,16 +46,16 @@ const SeaDayView = () => {
         alt=""
         style={{ top: `${top}px` }}
       />
-      <img ref={skyRef} className="sea__sky" src={SkyDay} alt="" />
+      <img ref={skyRef} className="sea__sky" src={SkyNight} alt="" />
       <img
         className="sea__cloud__left"
-        src={CloudDayLeft}
+        src={CloudNightLeft}
         alt=""
         style={{ top: `${top}px` }}
       />
       <img
         className="sea__cloud__right"
-        src={CloudDayRight}
+        src={CloudNightRight}
         alt=""
         style={{ top: `${top}px` }}
       />
@@ -63,4 +63,4 @@ const SeaDayView = () => {
   );
 };
 
-export default SeaDayView;
+export default SeaNightView;
