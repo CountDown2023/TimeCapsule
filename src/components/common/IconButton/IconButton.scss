@@ -1,0 +1,10 @@
+.icon-button {
+  &__container {
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    word-break: keep-all;
+    word-wrap: break-word;
+  }
+}
