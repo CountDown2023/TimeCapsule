@@ -1,4 +1,4 @@
-import { Button } from "components/common/Button";
+import { Button } from "components/common/button/Button";
 import useDiscloser from "hooks/useDiscloser";
 import styles from "./Information.module.scss";
 
@@ -24,7 +24,7 @@ const Information = () => {
         <>
           <textarea className={styles.voc} />
           {/* TODO: 버튼 컴포넌트 수정 후 재 사용 */}
-          {/* <Button size="bottom" label="제출하기" onClick={setClose} /> */}
+          <Button size="bottom" label="제출하기" onClick={setClose} />
         </>
       )}
     </div>
