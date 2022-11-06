@@ -1,3 +1,4 @@
+import IconButton from "components/common/IconButton";
 import Sea from "components/Sea";
 import { useState } from "react";
 import Dialog from "../../components/common/dialog";
@@ -30,12 +31,14 @@ const MainSeaView = ({
   return (
     <div className="main-sea">
       <Sea />
-      <button onClick={setToggle}>설정</button>
-      {hasCapsule ? (
-        <button onClick={onClickMap}>지도로 가기</button>
-      ) : (
-        <button onClick={onClickCapsule}>캡술 만들러 가기</button>
-      )}
+      <div className="main-sea__button-container">
+        <IconButton alt="설정" onClick={setToggle} />
+        {hasCapsule ? (
+          <IconButton alt="지도로 가기" onClick={onClickMap} />
+        ) : (
+          <IconButton alt="캡술 만들러 가기" onClick={onClickCapsule} />
+        )}
+      </div>
       <Dialog
         isShow={isShowDescription}
         title={
