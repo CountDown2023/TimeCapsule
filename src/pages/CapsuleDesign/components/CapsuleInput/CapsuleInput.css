@@ -9,7 +9,13 @@
   position: absolute;
   right: 0;
   top: 0;
-  height: 4.5%;
+  height: 5%;
+}
+.goMainBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5%;
 }
 
 .inputWrapper2 {

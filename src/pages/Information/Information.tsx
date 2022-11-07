@@ -1,4 +1,4 @@
-import { Button } from "components/common/Button";
+// import { Button } from "components/common/Button";
 import useDiscloser from "hooks/useDiscloser";
 import styles from "./Information.module.scss";
 
