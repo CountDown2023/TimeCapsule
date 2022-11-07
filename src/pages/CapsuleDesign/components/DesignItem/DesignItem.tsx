@@ -3,7 +3,7 @@ import Choice from "../Choice";
 import "./DesignItem.css";
 
 interface Props {
-  items: { idx: number; imgSrc: string }[];
+  items: { imgSrc: string }[];
   tab: number;
   selected: number;
   selectTabIdx: (tab: number, idx: number) => void;
@@ -16,10 +16,10 @@ const DesignItem = ({ items, tab, selected, selectTabIdx }: Props) => {
 
   return (
     <div className="choiceWrapper">
-      {items.map((item) => (
+      {items.map((item, idx) => (
         <Choice
-          idx={item.idx}
-          isSelect={selected === item.idx}
+          idx={idx}
+          isSelect={selected === idx}
           onClick={selectIdx}
           imgSrc={item.imgSrc}
         />
