@@ -14,7 +14,13 @@
   position: absolute;
   right: 0;
   top: 0;
-  height: 4.5%;
+  height: 5%;
+}
+.goMainBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5%;
 }
 
 .inputWrapper2 {
@@ -81,6 +87,19 @@
   text-align: center;
   font-size: 1em;
   border: none;
+}
+
+.saveDialog {
+  width: 80%;
+  height: 150px;
+  z-index: 3;
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .choice {
@@ -370,4 +389,4 @@ label.focus , label.warning {
 }
 
 
-/*# sourceMappingURL=main.5399d257.css.map*/
+/*# sourceMappingURL=main.7d6fa803.css.map*/
