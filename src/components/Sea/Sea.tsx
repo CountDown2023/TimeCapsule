@@ -1,11 +1,24 @@
-import "./Sea.scss";
+import moment from "moment";
+import { useEffect, useState } from "react";
 import SeaDayView from "./SeaDay";
+import SeaNightView from "./SeaNight";
+import "./Sea.scss";
 
 const Sea = () => {
-  // TODO: 시간대에 따라 낮, 밤 보여지게 하기
+  const [mode, setMode] = useState<"DAY" | "NIGHT">("DAY");
+
+  useEffect(() => {
+    const time = parseInt(moment().format("HH"));
+
+    // 오후 6시부터 새벽 6시까지는 밤 이미지로 노출
+    if (time <= 6 || time >= 18) {
+      setMode("NIGHT");
+    }
+  }, []);
+
   return (
     <div className="sea__fixed">
-      <SeaDayView />
+      {mode === "DAY" ? <SeaDayView /> : <SeaNightView />}
     </div>
   );
 };
