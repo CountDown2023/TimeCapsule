@@ -319,6 +319,12 @@ label.focus , label.warning {
   background-color: #d6f2f2;
 }
 
+.btn-wrap {
+  display: grid;
+  position: absolute;
+  bottom: 0;
+}
+
 .signIn-wrap {
   text-align: center;
 }
@@ -330,29 +336,28 @@ label.focus , label.warning {
 }
 
 .logo {
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   display: table;
   border-radius: 50%;
   margin: auto;
+  overflow: hidden;
   text-align: center;
-  background-color: darkgray;
+  background-color: white;
 }
 
-.logo-txt {
+/* .logo-txt {
   display: table-cell;
   vertical-align: middle;
-}
+} */
 
 .input-comp-wrap {
   height: 35vh;
   display: inline-block;
 }
 
-.signIn-btn-wrap {
-  display: grid;    
-  position: absolute;
-  bottom: 0;
+.logo-container {
+  top: 30px;
 }
 
 .signUp-wrap > .input-comp-wrap {
@@ -364,11 +369,5 @@ label.focus , label.warning {
           transform: translate(-50%, -50%);
 }
 
-.signUp-btn-wrap {
-  display: grid;
-  position: absolute;
-  bottom: 0;
-}
 
-
-/*# sourceMappingURL=main.9794927a.css.map*/
+/*# sourceMappingURL=main.5399d257.css.map*/
