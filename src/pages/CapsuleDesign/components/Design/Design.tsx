@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import DesignItem from "../DesignItem";
-import DesignNav from "../DesignNav";
 import DesignSettings from "../DesignSettings";
-import "./Design.css";
-import light from "assets/images/palette/light.png";
 import {
   CirclePaper,
   CloudPaper,
@@ -13,109 +10,60 @@ import {
   HeartPaper,
   NotePaper,
   StarPaper,
-} from "assets/images/letterPaper/index";
+} from "assets/images/letterPaper";
+import styles from "./Design.module.css";
 
 const Design = () => {
-  const [tab, setTab] = useState<number>(0);
+  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+  // TODO: 추후 타입 처리
+  const categoryLabelList: ("병" | "병색상" | "편지지")[] = [
+    "병",
+    "병색상",
+    "편지지",
+  ];
 
-  const [bottles, setBottles] = useState<{ imgSrc: string }[]>([
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-  ]);
-
-  const red = light;
-
-  const [bottleColors, setBottleColors] = useState<{ imgSrc: string }[]>([
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-    { imgSrc: light },
-  ]);
-
-  const [letterPapers, setLetterPapers] = useState<{ imgSrc: string }[]>([
-    { imgSrc: CirclePaper },
-    { imgSrc: CloudPaper },
-    { imgSrc: CrossPaper },
-    { imgSrc: FlowerPaper },
-    { imgSrc: GrassPaper },
-    { imgSrc: HeartPaper },
-    { imgSrc: NotePaper },
-    { imgSrc: StarPaper },
-  ]);
-
-  const [letterLines, setLetterLines] = useState<{ imgSrc: string }[]>([
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-    { imgSrc: process.env.PUBLIC_URL + "/images/bottle/bottle1.png" },
-  ]);
-
-  const [saveTabIdx, setSaveTabIdx] = useState<{ tab: number; idx: number }[]>([
-    { tab: 0, idx: -1 },
-    { tab: 1, idx: -1 },
-    { tab: 2, idx: -1 },
-    { tab: 3, idx: -1 },
-  ]);
+  const bottles: string[] = [];
+  const bottlesColors: string[] = [];
+  const letterPapers: string[] = [
+    CirclePaper,
+    CloudPaper,
+    CrossPaper,
+    FlowerPaper,
+    GrassPaper,
+    HeartPaper,
+    NotePaper,
+    StarPaper,
+  ];
+  const categoryItemList = [bottles, bottlesColors, letterPapers];
+  // TODO: 추후 변수 처리
+  const [selectedItem, setSelectedItem] = useState<
+    Record<"병" | "병색상" | "편지지", number | null>
+  >({
+    병: null,
+    병색상: null,
+    편지지: null,
+  });
 
   return (
-    <div className="designWrapper">
-      <div className="preview">
-        {saveTabIdx.map((item, idx) => (
-          <h3>
-            {item.tab === 0
-              ? "병"
-              : item.tab === 1
-              ? "병색상"
-              : item.tab === 2
-              ? "편지지"
-              : "편지지줄"}
-            {item.idx}
-          </h3>
+    <div className={styles.container}>
+      <div className={styles.preview}>
+        {categoryLabelList.map((item) => (
+          <h3 key={item}>{item}</h3>
         ))}
       </div>
-      <div className="settingWrapper">
+      <div className={styles.wrapper}>
         <DesignSettings
-          setCurrent={setTab}
-          items={["병", "병색상", "편지지", "편지지줄"]}
-          current={tab}
+          setCurrent={setSelectedCategory}
+          items={categoryLabelList}
+          current={selectedCategory}
         />
 
         <DesignItem
-          items={
-            tab === 0
-              ? bottles
-              : tab === 1
-              ? bottleColors
-              : tab === 2
-              ? letterPapers
-              : letterLines
-          }
-          tab={tab}
-          selected={saveTabIdx[tab].idx}
+          items={categoryItemList[selectedCategory]}
+          category={selectedCategory}
+          selectedItem={selectedItem[categoryLabelList[selectedCategory]]}
           selectTabIdx={(tab: number, idx: number) => {
-            setSaveTabIdx(
-              saveTabIdx.map((item) => {
-                if (tab === item.tab) {
-                  return { ...item, idx: idx };
-                } else {
-                  return item;
-                }
-              })
-            );
+            setSelectedItem({ ...selectedItem, [categoryLabelList[tab]]: idx });
           }}
         />
       </div>

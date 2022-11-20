@@ -1,0 +1,20 @@
+.container {
+  height: 30px;
+  display: flex;
+  background-color: gray;
+  flex-direction: row;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.item {
+  border: 1px solid black;
+  border-radius: 5px 5px 0px 0px;
+  background-color: skyblue;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.active {
+  background-color: blue;
+}

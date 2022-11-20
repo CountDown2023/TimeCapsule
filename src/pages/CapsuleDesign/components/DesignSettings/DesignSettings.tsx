@@ -1,6 +1,5 @@
-import "./DesignSettings.css";
 import classNames from "classnames";
-
+import styles from "./DesignSettings.module.css";
 interface Props {
   current: number;
   setCurrent: (next: number) => void;
@@ -9,12 +8,13 @@ interface Props {
 
 const DesignSettings = ({ current, items, setCurrent }: Props) => {
   return (
-    <div className="settings">
+    <div className={styles.container}>
       {items.map((item, index) => (
         <div
+          key={item}
           className={classNames([
-            "settingsTab-item",
-            `${index === current && "activeSettingsTab"}`,
+            styles.item,
+            `${index === current && styles.active}`,
           ])}
           onClick={() => setCurrent(index)}
         >

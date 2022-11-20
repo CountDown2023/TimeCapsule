@@ -3,15 +3,15 @@ import Choice from "../Choice";
 import "./DesignItem.css";
 
 interface Props {
-  items: { imgSrc: string }[];
-  tab: number;
-  selected: number;
+  items: string[];
+  category: number;
+  selectedItem: number | null;
   selectTabIdx: (tab: number, idx: number) => void;
 }
 
-const DesignItem = ({ items, tab, selected, selectTabIdx }: Props) => {
+const DesignItem = ({ items, category, selectedItem, selectTabIdx }: Props) => {
   const selectIdx = (idx: number) => {
-    selectTabIdx(tab, idx);
+    selectTabIdx(category, idx);
   };
 
   return (
@@ -19,9 +19,10 @@ const DesignItem = ({ items, tab, selected, selectTabIdx }: Props) => {
       {items.map((item, idx) => (
         <Choice
           idx={idx}
-          isSelect={selected === idx}
-          onClick={selectIdx}
-          imgSrc={item.imgSrc}
+          key={idx}
+          isSelect={selectedItem === idx}
+          onClick={() => selectIdx(idx)}
+          imgSrc={item}
         />
       ))}
     </div>
