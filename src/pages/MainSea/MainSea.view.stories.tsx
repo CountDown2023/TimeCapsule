@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import MainSeaView, { Props } from "./MainSea.view";
 
 export default {
-  title: "Main/Sea",
+  title: "Main/Sea/views",
   component: MainSeaView,
 } as Meta<Props>;
 

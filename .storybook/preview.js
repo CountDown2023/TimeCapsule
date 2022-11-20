@@ -1,5 +1,8 @@
 import React from "react";
+import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const queryClient = new QueryClient();
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,10 +16,12 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={Story()} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={Story()} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   ),
 ];
