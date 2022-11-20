@@ -35,7 +35,6 @@ const InformationView = ({ onSubmitVoc }: Props) => {
               setContent(e.target.value);
             }}
           />
-          {/* TODO: 버튼 컴포넌트 수정 후 재 사용 */}
           <Button
             size="bottom"
             label="제출하기"
@@ -43,6 +42,7 @@ const InformationView = ({ onSubmitVoc }: Props) => {
               onSubmitVoc(content);
               setClose();
             }}
+            isDisable={content.length === 0}
           />
         </>
       )}
