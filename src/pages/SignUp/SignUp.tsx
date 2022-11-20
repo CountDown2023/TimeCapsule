@@ -1,6 +1,5 @@
-import { Button } from "components/common/button/Button";
-import { InputText } from "components/common/inputText/InputText";
-import { InputForm } from "pages/common/InputForm/InputForm";
+import InputText from "components/common/inputText";
+import InputForm from "components/common/InputForm";
 import React, { useState } from "react";
 
 import { useNavigate } from 'react-router-dom';

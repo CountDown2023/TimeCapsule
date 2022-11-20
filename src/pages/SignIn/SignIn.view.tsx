@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { InputText } from "components/common/inputText/InputText";
-import { Button } from "components/common/button/Button";
-import { InputForm } from "pages/common/InputForm/InputForm";
-
-import { UrlPaths } from "routes";
+import InputText from "components/common/inputText";
+import Button from "components/common/button";
+import InputForm from "components/common/InputForm";
 
 import "./signIn.css";
 import Icon from "components/common/Icon"

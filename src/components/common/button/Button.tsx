@@ -10,15 +10,17 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button = ({
+const Button = ({
   primary = false,
   size = 'medium',
   backgroundColor,
   label = '',
-  isDisable = true,
+  isDisable = false,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'button--primary' : 'button--secondary';
+  
+  // TODO disabled 로직, css 추가하기
   return (
     <button
       type="button"
@@ -30,3 +32,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;
