@@ -1,12 +1,12 @@
 .wrapper {
-  position: fixed;
-  margin: 10px auto;
-  width: 30%;
-  bottom: 0;
-  left: 50%;
-  height: 45px;
   display: flex;
   flex-direction: row;
+  margin: 10px auto;
+  width: 100px;
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -15,13 +15,12 @@
 }
 
 .tab {
-  text-align: center;
+  width: 20px;
+  height: 20px;
   margin: auto;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
   border-radius: 50%;
   background-color: darkgray;
+  text-align: center;
 }
 
 .active {
