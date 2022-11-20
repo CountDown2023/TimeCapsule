@@ -1,5 +1,5 @@
-import { Button } from "components/common/button/Button";
-import React, { ReactNode, useState } from "react";
+import Button from "components/common/button";
+import React, { ReactNode } from "react";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ export interface InputFormProps {
   onSubmit: () => void;
 }
 
-export const InputForm = ({
+const InputForm = ({
   showBackBtn = false,
   onClickBackBtn = false,
   submitButtonText = "",
@@ -34,10 +34,12 @@ export const InputForm = ({
         />
       )}
       {children}
-      <div className='signIn-btn-wrap'>
+      <div className='btn-wrap'>
         {/* TODO: isDisable 처리용 로직 필요 */}
-        <Button size='bottom' label={submitButtonText} onClick={onSubmit} />
+        <Button size='bottom' label={submitButtonText} isDisable={disabledSubmitButton} onClick={onSubmit} />
       </div>
     </div>
   );
 };
+
+export default InputForm;

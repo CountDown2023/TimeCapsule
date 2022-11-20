@@ -12,7 +12,7 @@ interface InputTxtProps extends React.HTMLProps<HTMLInputElement> {
   onChangeValue: (val: string) => void;
 }
 
-export const InputText = ({
+const InputText = ({
   type = "text",
   widthSize = "medium",
   placeholder = "placeholder",
@@ -41,3 +41,5 @@ export const InputText = ({
     </>
   );
 };
+
+export default InputText

@@ -1,16 +1,16 @@
 import { Meta, Story } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
-import SignIn, { Props } from './SignIn';
+import SignInView, { Props } from './SignIn.view';
 
 export default {
   title: 'User/SignIn',
-  component: SignIn,
+  component: SignInView,
   parameters: {
     layout: 'fullscreen',
   },
 } as Meta<Props>;
 
-const Template: Story<Props> = (args) => <SignIn {...args}/>;
+const Template: Story<Props> = (args) => <SignInView {...args}/>;
 
 export const 기본 = Template.bind({});
 기본.args = {
