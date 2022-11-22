@@ -131,86 +131,73 @@
   flex-wrap: wrap;
 }
 
-.settings {
-  height: 10%;
+.DesignSettings_container__jjn1H {
+  height: 30px;
   display: flex;
   background-color: gray;
   flex-direction: row;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.settingsTab-item {
-  width: 25%;
-  border-top-left-radius: 20%;
-  border-top-right-radius: 20%;
+.DesignSettings_item__wB3HY {
   border: 1px solid black;
+  border-radius: 5px 5px 0px 0px;
   background-color: skyblue;
   text-align: center;
+  flex-grow: 1;
 }
 
-.settingsTab-item.activeSettingsTab {
+.DesignSettings_active__y-ibl {
   background-color: blue;
 }
-
-/* 
-.tab {
-  background-color: white;
-  width: 100px;
-} */
-
-.designWrapper {
+.Design_container__2w68y {
   background-color: gray;
   height: 100vh;
   width: 100%;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
-.preview {
-  width: 90%;
-  height: 60%;
-  margin: auto;
+.Design_preview__ImaJC {
+  margin: 0px 24px 16px;
+  height: 500px;
   background-color: white;
   text-align: center;
 }
 
-.settingWrapper {
-  width: 90%;
-  height: 25%;
+.Design_wrapper__hLHD5 {
+  margin: 0px 24px;
+  height: 230px;
   background-color: white;
-  margin: 50px auto 0;
 }
 
-.wrapper {
-  position: fixed;
-  margin: 10px auto;
-  width: 30%;
-  bottom: 0;
-  left: 35%;
-  height: 45px;
+.DesignNav_wrapper__Tzz7P {
   display: flex;
   flex-direction: row;
+  margin: 10px auto;
+  width: 100px;
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
-.tab {
+.DesignNav_tab__BslLk {
   overflow: hidden;
 }
 
-.tab-item {
-  text-align: center;
+.DesignNav_tab__BslLk {
+  width: 20px;
+  height: 20px;
   margin: auto;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
   border-radius: 50%;
   background-color: darkgray;
+  text-align: center;
 }
 
-.activeTab {
-  text-align: center;
-  margin: auto;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
-  border-radius: 50%;
+.DesignNav_active__ZmE\+j {
   background-color: black;
 }
 
@@ -389,4 +376,4 @@ label.focus , label.warning {
 }
 
 
-/*# sourceMappingURL=main.7d6fa803.css.map*/
+/*# sourceMappingURL=main.8771cc64.css.map*/
