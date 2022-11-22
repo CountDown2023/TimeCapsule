@@ -11,6 +11,7 @@ import {
   NotePaper,
   StarPaper,
 } from "assets/images/letterPaper";
+import { Bottle01Src } from "assets/images/bottle";
 import { Light } from "assets/images/palette";
 import classnames from "classnames";
 import styles from "./Design.module.scss";
@@ -21,8 +22,17 @@ const Design = () => {
   const [selectedCategory, setSelectedCategory] = useState<number>(0);
   const categoryLabelList: Category[] = ["병", "병색상", "편지지"];
 
-  // TODO: 병 이미지 추가
-  const bottles: string[] = [];
+  // TODO: 병 이미지 수정
+  const bottles: string[] = [
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+    Bottle01Src,
+  ];
   const bottlesColors: string[] = [
     "#F24C4C",
     "#EC9B3B",
