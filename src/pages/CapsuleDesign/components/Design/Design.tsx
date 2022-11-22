@@ -11,7 +11,7 @@ import {
   NotePaper,
   StarPaper,
 } from "assets/images/letterPaper";
-import { Bottle01Src } from "assets/images/bottle";
+import { Bottle01Src, Bottle01 } from "assets/images/bottle";
 import { Light } from "assets/images/palette";
 import classnames from "classnames";
 import styles from "./Design.module.scss";
@@ -56,7 +56,7 @@ const Design = () => {
   const [selectedItem, setSelectedItem] = useState<
     Record<Category, number | null>
   >({
-    병: null,
+    병: 0,
     병색상: null,
     편지지: null,
   });
@@ -86,7 +86,7 @@ const Design = () => {
             })
           }
           className={classnames(styles.colorItem, [
-            selectedItem["병색상"] && styles.active,
+            selectedItem["병색상"] === idx && styles.active,
           ])}
         >
           <div className={styles.circle} style={{ backgroundColor: color }} />
@@ -110,13 +110,21 @@ const Design = () => {
   );
 
   const ChoiceComponentList = [BottleItem(), ColorItem(), PaperItem()];
+  const PreviewBottleList = [
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+  ];
 
   return (
     <div className={styles.container}>
       <div className={styles.preview}>
-        {categoryLabelList.map((item) => (
-          <h3 key={item}>{item}</h3>
-        ))}
+        {PreviewBottleList[selectedItem["병"] as number]}
       </div>
 
       <DesignSettings
