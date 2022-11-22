@@ -14,7 +14,7 @@ const SignUpView = ({
   clickSubmit
 }: SignUpProps) => {
 
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isJoined ? "warning" : "normal")
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isJoined ? "normal" : "warning")
   const [stateValues, setStateValues] = useState({
     email: "",
     password: "",
@@ -26,7 +26,7 @@ const SignUpView = ({
   }
 
   useEffect(() => {
-    setModeValue(!isJoined ? "warning" : "normal");
+    setModeValue(isJoined ? "normal" : "warning");
   }, [isJoined])
 
 

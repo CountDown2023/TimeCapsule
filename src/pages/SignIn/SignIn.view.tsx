@@ -20,7 +20,7 @@ const SignInView = ({
 
   const navigate = useNavigate();
   
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isLoggedIn ? "warning" : "normal")
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
   const [stateValues, setStateValues] = useState({
     email: "",
     password: "",
@@ -31,7 +31,7 @@ const SignInView = ({
   }
 
   useEffect(() => {
-    setModeValue(!isLoggedIn ? "warning" : "normal");
+    setModeValue(isLoggedIn ? "normal" : "warning");
   }, [isLoggedIn])
 
   return (
