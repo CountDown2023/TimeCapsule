@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
@@ -23,6 +23,10 @@ const PasswordConfirmView = ({
   const handleClickEvent = () => {
     clickSubmit(stateValues);
   }
+
+  useEffect(() => {
+    setModeValue(isFailed ? "warning" : "normal");
+  }, [isFailed])
 
   return (
     <InputForm 

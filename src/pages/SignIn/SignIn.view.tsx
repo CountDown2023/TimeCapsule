@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import InputText from "components/common/inputText";
@@ -29,6 +29,10 @@ const SignInView = ({
   const handleButtonEvent = () => {
     clickSubmit(stateValues);
   }
+
+  useEffect(() => {
+    setModeValue(!isLoggedIn ? "warning" : "normal");
+  }, [isLoggedIn])
 
   return (
     <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={handleButtonEvent}>

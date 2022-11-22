@@ -1,6 +1,6 @@
 import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import './signUp.css';
 
@@ -24,6 +24,10 @@ const SignUpView = ({
   const handleButtonEvent = () => {
     clickSubmit(stateValues);
   }
+
+  useEffect(() => {
+    setModeValue(!isJoined ? "warning" : "normal");
+  }, [isJoined])
 
 
   return (
