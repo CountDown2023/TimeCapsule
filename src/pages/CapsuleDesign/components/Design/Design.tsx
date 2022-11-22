@@ -53,12 +53,10 @@ const Design = () => {
     NotePaper,
     StarPaper,
   ];
-  const [selectedItem, setSelectedItem] = useState<
-    Record<Category, number | null>
-  >({
+  const [selectedItem, setSelectedItem] = useState<Record<Category, number>>({
     병: 0,
-    병색상: null,
-    편지지: null,
+    병색상: 0,
+    편지지: 0,
   });
 
   const BottleItem = () => (
@@ -111,20 +109,27 @@ const Design = () => {
 
   const ChoiceComponentList = [BottleItem(), ColorItem(), PaperItem()];
   const PreviewBottleList = [
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"] ?? 9] ?? "#eeeeee"} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
   ];
 
   return (
     <div className={styles.container}>
       <div className={styles.preview}>
-        {PreviewBottleList[selectedItem["병"] as number]}
+        <img
+          className={styles.previewPaper}
+          src={letterPapers[selectedItem["편지지"]]}
+          alt=""
+        />
+        <div className={styles.preiewBottle}>
+          {PreviewBottleList[selectedItem["병"] as number]}
+        </div>
       </div>
 
       <DesignSettings
@@ -132,6 +137,7 @@ const Design = () => {
         items={categoryLabelList}
         current={selectedCategory}
       />
+
       <div className={styles.wrapper}>
         {ChoiceComponentList[selectedCategory]}
       </div>
