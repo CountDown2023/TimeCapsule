@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./DesignNav.css";
-import { Link } from "react-router-dom";
+import React from "react";
+import classNames from "classnames";
+import styles from "./DesignNav.module.css";
 
 interface Props {
   current: number;
@@ -10,12 +10,16 @@ interface Props {
 
 const DesignNav = ({ current, items, setCurrent }: Props) => {
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       {items.map((item, index) => (
         <div
-          className={index === current ? "activeTab" : "tab-item"}
+          key={item}
+          className={classNames([
+            styles.tab,
+            index === current && styles.active,
+          ])}
           onClick={() => setCurrent(index)}
-        ></div>
+        />
       ))}
     </div>
   );
