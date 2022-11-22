@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import styles from "./DesignSettings.module.css";
+import styles from "./DesignSettings.module.scss";
 interface Props {
   current: number;
   setCurrent: (next: number) => void;
