@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import InputText from "components/common/inputText";
@@ -10,10 +10,12 @@ import Icon from "components/common/Icon"
 
 export interface Props {
   isLoggedIn?: boolean;
+  clickSubmit: (data: {email: string, password: string}) => void;
 }
 
 const SignInView = ({
-  isLoggedIn = true
+  isLoggedIn = true,
+  clickSubmit
 }: Props) => {
 
   const navigate = useNavigate();
@@ -24,13 +26,12 @@ const SignInView = ({
     password: "",
   });
 
-  const clickSubmit = () => {
-    //TODO: 클릭 이벤트 적용하기
-    console.log("로그인 테스트");
+  const handleButtonEvent = () => {
+    clickSubmit(stateValues);
   }
 
   return (
-    <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={clickSubmit}>
+    <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={handleButtonEvent}>
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>
