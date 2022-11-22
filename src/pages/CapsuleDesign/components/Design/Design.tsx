@@ -11,18 +11,17 @@ import {
   NotePaper,
   StarPaper,
 } from "assets/images/letterPaper";
+import { Light } from "assets/images/palette";
 import classnames from "classnames";
-import styles from "./Design.module.css";
+import styles from "./Design.module.scss";
+
+type Category = "병" | "병색상" | "편지지";
 
 const Design = () => {
   const [selectedCategory, setSelectedCategory] = useState<number>(0);
-  // TODO: 추후 타입 처리
-  const categoryLabelList: ("병" | "병색상" | "편지지")[] = [
-    "병",
-    "병색상",
-    "편지지",
-  ];
+  const categoryLabelList: Category[] = ["병", "병색상", "편지지"];
 
+  // TODO: 병 이미지 추가
   const bottles: string[] = [];
   const bottlesColors: string[] = [
     "#8B0000",
@@ -44,9 +43,8 @@ const Design = () => {
     NotePaper,
     StarPaper,
   ];
-  // TODO: 추후 변수 처리
   const [selectedItem, setSelectedItem] = useState<
-    Record<"병" | "병색상" | "편지지", number | null>
+    Record<Category, number | null>
   >({
     병: null,
     병색상: null,
@@ -81,6 +79,7 @@ const Design = () => {
           ])}
         >
           <div className={styles.circle} style={{ backgroundColor: color }} />
+          <img src={Light} alt="" />
         </div>
       ))}
     </div>
