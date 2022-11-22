@@ -24,14 +24,14 @@ const Design = () => {
   // TODO: 병 이미지 추가
   const bottles: string[] = [];
   const bottlesColors: string[] = [
-    "#8B0000",
-    "#FF8C00",
-    "#FFFF00",
-    "#008000",
-    "#1E90FF",
-    "#000080",
-    "#4B0082",
-    "#FF69B4",
+    "#F24C4C",
+    "#EC9B3B",
+    "#F9D923",
+    "#6BCB77",
+    "#4D96FF",
+    "#293462",
+    "#52006A",
+    "#FF577F",
   ];
   const letterPapers: string[] = [
     CirclePaper,
@@ -68,6 +68,7 @@ const Design = () => {
     <div className={styles.itemWrapper}>
       {bottlesColors.map((color, idx) => (
         <div
+          key={color}
           onClick={() =>
             setSelectedItem({
               ...selectedItem,
