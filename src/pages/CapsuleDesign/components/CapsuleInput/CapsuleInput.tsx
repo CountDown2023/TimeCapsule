@@ -7,6 +7,7 @@ const CapsuleInput = () => {
     useState<boolean>(false);
   const [isShowGoMainDialog, setIsShowGoMainDialog] = useState<boolean>(false);
   const [saveComplete, setIsSaveComplete] = useState<boolean>(false);
+
   return (
     <div className="inputWrapper">
       <button

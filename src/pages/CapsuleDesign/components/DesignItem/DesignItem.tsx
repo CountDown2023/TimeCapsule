@@ -4,14 +4,13 @@ import "./DesignItem.css";
 
 interface Props {
   items: string[];
-  category: number;
   selectedItem: number | null;
-  selectTabIdx: (tab: number, idx: number) => void;
+  selectTabIdx: (idx: number) => void;
 }
 
-const DesignItem = ({ items, category, selectedItem, selectTabIdx }: Props) => {
+const DesignItem = ({ items, selectedItem, selectTabIdx }: Props) => {
   const selectIdx = (idx: number) => {
-    selectTabIdx(category, idx);
+    selectTabIdx(idx);
   };
 
   return (
