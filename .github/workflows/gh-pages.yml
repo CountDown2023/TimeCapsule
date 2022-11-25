@@ -1,32 +1,42 @@
-name: 타임캡슐
-
-on:
+name: Deploy # Workflow 이름
+on: # Event 감지
   push:
     branches:
-      - develop
-
-jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+      - master # 마스터 브랜치의 푸쉬가 일어날 때 CI/CD를 진행하겠다는 뜻
+jobs: # Job 설정
+  build:
+	# 내 EC2는 CentOS라서 바꿔야 할 것 같지만, 여기는 아래 상태로 둔다. 
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Checkout source code. # Repo checkout
+        uses: actions/checkout@v2
+      - name: Check Node v # Node v 확인
+        run: node -v
+      - name: Install Dependencies # 의존 파일 설치
+        run: yarn install --frozen-lockfile
+      - name: Build # React Build
+        run: yarn build
+      - name: zip create 
+# zip 파일을 만듭니다(파일명은 자유, 대신 아래 workflow에 적을 파일명과 동일하게 맞춰주세요).
+        run: zip -qq -r ./build-fe.zip .
+        shell: bash
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          node-version: '16.x'
-          cache: npm
+	
+          aws-access-key-id: AKIA4ZD4GKWXI32YJEZD
+          aws-secret-access-key: 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
+          aws-region: ap-northeast-2
+      - name: Upload to S3 # Upload build file to S3
+        env:
+          AWS_ACCESS_KEY_ID: AKIA4ZD4GKWXI32YJEZD
+          AWS_SECRET_ACCESS_KEY: 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
 
-      - name: Install packages
-        run: npm ci
-
-      - name: Build Project
-        run: npm run build-storybook
-        env: 
-          CI: false
-    
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./storybook-static
+        run: |
+          aws s3 cp --region ap-northeast-2 ./build-fe.zip s3://bongbong.practice.co.kr/deployTest/build-fe.zip
+      - name: Deploy # Deploy to EC2
+        run: aws deploy create-deployment
+          --application-name bongbong-practice
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name bongbong-deploy-groupName
+          --s3-location bucket=bongbong.practice.co.kr,key=deployTest/build-fe.zip,bundleType=zip
