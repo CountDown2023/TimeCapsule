@@ -3,11 +3,11 @@ import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
 import './findPassword.css';
-import { findPwdForm } from "./FindPassword";
+import { FindPwdForm } from "./FindPassword";
 
 export interface FindPwdProps {
   isFailed?: boolean;
-  onSubmit: (data: findPwdForm) => void;
+  onSubmit: (data: FindPwdForm) => void;
 }
 
 const FindPasswordView = ({
@@ -16,10 +16,7 @@ const FindPasswordView = ({
 }: FindPwdProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState({
-    nickname: "",
-    email: ""
-  });
+  const [stateValues, setStateValues] = useState<FindPwdForm>({} as FindPwdForm);
 
   const handleClickEvent = () => {
     onSubmit(stateValues);

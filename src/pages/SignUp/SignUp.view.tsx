@@ -3,11 +3,11 @@ import InputForm from "components/common/InputForm";
 import React, { useEffect, useState } from "react";
 
 import './signUp.css';
-import { signUpForm } from "./SignUp";
+import { SignUpForm } from "./SignUp";
 
 export interface SignUpProps {
   isJoined?: boolean;
-  clickSubmit: (data: signUpForm) => void;
+  clickSubmit: (data: SignUpForm) => void;
 }
 
 const SignUpView = ({
@@ -16,11 +16,7 @@ const SignUpView = ({
 }: SignUpProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isJoined ? "normal" : "warning")
-  const [stateValues, setStateValues] = useState({
-    nickname: "",
-    password: "",
-    passwordConfirm: ""
-  });
+  const [stateValues, setStateValues] = useState<SignUpForm>({} as SignUpForm);
 
   const handleButtonEvent = () => {
     clickSubmit(stateValues);

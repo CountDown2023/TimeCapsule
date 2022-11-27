@@ -7,11 +7,11 @@ import InputForm from "components/common/InputForm";
 
 import "./signIn.css";
 import Icon from "components/common/Icon"
-import { signInForm } from "./SignIn";
+import { SignInForm } from "./SignIn";
 
 export interface Props {
   isLoggedIn?: boolean;
-  clickSubmit: (data: signInForm) => void;
+  clickSubmit: (data: SignInForm) => void;
 }
 
 const SignInView = ({
@@ -22,10 +22,7 @@ const SignInView = ({
   const navigate = useNavigate();
   
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
-  const [stateValues, setStateValues] = useState({
-    nickname: "",
-    password: "",
-  });
+  const [stateValues, setStateValues] = useState<SignInForm>({} as SignInForm);
 
   const handleButtonEvent = () => {
     clickSubmit(stateValues);

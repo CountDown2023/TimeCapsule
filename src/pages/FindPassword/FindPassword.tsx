@@ -1,10 +1,10 @@
 import FindPasswordView from "./FindPassword.view";
 
-export type findPwdForm = {nickname: string, email: string};
+export type FindPwdForm = {nickname: string, email: string};
 
 const FindPassword = () => {
 
-  const clickSubmit = (data: findPwdForm) => {
+  const clickSubmit = (data: FindPwdForm) => {
     console.log("비밀번호 찾기 테스트");
     console.log("nickname : ", data.nickname);
     console.log("email : ", data.email);

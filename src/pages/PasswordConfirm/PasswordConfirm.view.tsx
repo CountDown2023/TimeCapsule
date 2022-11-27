@@ -3,11 +3,11 @@ import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
 import './passwordConfirm.css';
-import { pwdConfirmForm } from "./PasswordConfirm";
+import { PwdConfirmForm } from "./PasswordConfirm";
 
 export interface PwdConfirmProps {
   isFailed?: boolean;
-  clickSubmit: (data: pwdConfirmForm) => void;
+  clickSubmit: (data: PwdConfirmForm) => void;
 }
 
 const PasswordConfirmView = ({
@@ -15,9 +15,7 @@ const PasswordConfirmView = ({
   clickSubmit
 }: PwdConfirmProps) => {
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState({
-    currentPwd: ""
-  });
+  const [stateValues, setStateValues] = useState<PwdConfirmForm>({} as PwdConfirmForm);
 
   const handleClickEvent = () => {
     clickSubmit(stateValues);

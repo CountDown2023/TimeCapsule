@@ -3,11 +3,11 @@ import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
 import './newPassword.css';
-import { newPwdForm } from "./NewPassword";
+import { NewPwdForm } from "./NewPassword";
 
 export interface NewPwdProps {
   isFailed?: boolean;
-  onSubmit: (data: newPwdForm) => void
+  onSubmit: (data: NewPwdForm) => void
 }
 
 const NewPasswordView = ({
@@ -16,10 +16,7 @@ const NewPasswordView = ({
 }:NewPwdProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState({
-    newPwd: "",
-    newPwdConfirm: ""
-  });
+  const [stateValues, setStateValues] = useState<NewPwdForm>({} as NewPwdForm);
 
   const handleClickEvent = () => {
     onSubmit(stateValues);
