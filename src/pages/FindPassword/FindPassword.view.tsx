@@ -16,7 +16,10 @@ const FindPasswordView = ({
 }: FindPwdProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState<FindPwdForm>({} as FindPwdForm);
+  const [stateValues, setStateValues] = useState<FindPwdForm>({
+    nickname: "",
+    email: ""
+  });
 
   const handleClickEvent = () => {
     onSubmit(stateValues);

@@ -15,7 +15,9 @@ const PasswordConfirmView = ({
   clickSubmit
 }: PwdConfirmProps) => {
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState<PwdConfirmForm>({} as PwdConfirmForm);
+  const [stateValues, setStateValues] = useState<PwdConfirmForm>({
+    currentPwd: ""
+  });
 
   const handleClickEvent = () => {
     clickSubmit(stateValues);

@@ -22,7 +22,10 @@ const SignInView = ({
   const navigate = useNavigate();
   
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
-  const [stateValues, setStateValues] = useState<SignInForm>({} as SignInForm);
+  const [stateValues, setStateValues] = useState<SignInForm>({
+    nickname: "",
+    password: ""
+  });
 
   const handleButtonEvent = () => {
     clickSubmit(stateValues);

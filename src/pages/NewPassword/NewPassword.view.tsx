@@ -16,7 +16,10 @@ const NewPasswordView = ({
 }:NewPwdProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isFailed ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState<NewPwdForm>({} as NewPwdForm);
+  const [stateValues, setStateValues] = useState<NewPwdForm>({
+    newPwd: "",
+    newPwdConfirm: ""
+  });
 
   const handleClickEvent = () => {
     onSubmit(stateValues);

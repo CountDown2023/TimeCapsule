@@ -16,7 +16,11 @@ const SignUpView = ({
 }: SignUpProps) => {
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isJoined ? "normal" : "warning")
-  const [stateValues, setStateValues] = useState<SignUpForm>({} as SignUpForm);
+  const [stateValues, setStateValues] = useState<SignUpForm>({
+    nickname: "",
+    password: "",
+    passwordConfirm: ""
+  });
 
   const handleButtonEvent = () => {
     clickSubmit(stateValues);
