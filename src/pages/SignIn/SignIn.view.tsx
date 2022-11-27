@@ -7,10 +7,11 @@ import InputForm from "components/common/InputForm";
 
 import "./signIn.css";
 import Icon from "components/common/Icon"
+import { signInForm } from "./SignIn";
 
 export interface Props {
   isLoggedIn?: boolean;
-  clickSubmit: (data: {email: string, password: string}) => void;
+  clickSubmit: (data: signInForm) => void;
 }
 
 const SignInView = ({
@@ -22,7 +23,7 @@ const SignInView = ({
   
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
   const [stateValues, setStateValues] = useState({
-    email: "",
+    nickname: "",
     password: "",
   });
 
@@ -35,7 +36,7 @@ const SignInView = ({
   }, [isLoggedIn])
 
   return (
-    <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={handleButtonEvent}>
+    <InputForm submitButtonText="로그인" disabledSubmitButton={true} onSubmit={handleButtonEvent}>
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>
@@ -51,7 +52,7 @@ const SignInView = ({
               widthSize="medium"
               placeholder='닉네임'
               onChangeValue={(value: string) =>
-                setStateValues({ ...stateValues, email: value})
+                setStateValues({ ...stateValues, nickname: value})
               }
             />
             <InputText

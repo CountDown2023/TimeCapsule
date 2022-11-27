@@ -3,10 +3,11 @@ import InputForm from "components/common/InputForm";
 import React, { useEffect, useState } from "react";
 
 import './signUp.css';
+import { signUpForm } from "./SignUp";
 
 export interface SignUpProps {
   isJoined?: boolean;
-  clickSubmit: (data: {email: string, password: string, passwordConfirm: string}) => void;
+  clickSubmit: (data: signUpForm) => void;
 }
 
 const SignUpView = ({
@@ -16,7 +17,7 @@ const SignUpView = ({
 
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isJoined ? "normal" : "warning")
   const [stateValues, setStateValues] = useState({
-    email: "",
+    nickname: "",
     password: "",
     passwordConfirm: ""
   });
@@ -33,8 +34,7 @@ const SignUpView = ({
   return (
     <InputForm 
       showBackBtn={true} 
-      onClickBackBtn={true}
-      submitButtonText={"회원가입"}
+      submitButtonText="회원가입"
       disabledSubmitButton={true}
       onSubmit={handleButtonEvent}
     >
@@ -47,7 +47,7 @@ const SignUpView = ({
             widthSize="medium"
             placeholder='닉네임'
             onChangeValue={(value: string) =>
-              setStateValues({ ...stateValues, email: value})
+              setStateValues({ ...stateValues, nickname: value})
             }
           />
           <InputText

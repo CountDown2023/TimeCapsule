@@ -3,10 +3,11 @@ import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
 import './findPassword.css';
+import { findPwdForm } from "./FindPassword";
 
 export interface FindPwdProps {
   isFailed?: boolean;
-  onSubmit: (data: {nickname: string, email: string}) => void;
+  onSubmit: (data: findPwdForm) => void;
 }
 
 const FindPasswordView = ({
@@ -31,8 +32,7 @@ const FindPasswordView = ({
   return (
     <InputForm 
       showBackBtn={true} 
-      onClickBackBtn={true}
-      submitButtonText={"비밀번호 찾기"}
+      submitButtonText="비밀번호 찾기"
       disabledSubmitButton={true}
       onSubmit={handleClickEvent}
     >

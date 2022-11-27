@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
-import { useNavigate } from 'react-router-dom';
-
 import './passwordConfirm.css';
+import { pwdConfirmForm } from "./PasswordConfirm";
 
 export interface PwdConfirmProps {
   isFailed?: boolean;
-  clickSubmit: (data: {currentPwd: string}) => void;
+  clickSubmit: (data: pwdConfirmForm) => void;
 }
 
 const PasswordConfirmView = ({
@@ -31,8 +30,7 @@ const PasswordConfirmView = ({
   return (
     <InputForm 
       showBackBtn={true} 
-      onClickBackBtn={true}
-      submitButtonText={"확인"}
+      submitButtonText="확인"
       disabledSubmitButton={true}
       onSubmit={handleClickEvent}
     >

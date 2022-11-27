@@ -3,10 +3,11 @@ import InputText from "components/common/inputText";
 import InputForm from "components/common/InputForm";
 
 import './newPassword.css';
+import { newPwdForm } from "./NewPassword";
 
 export interface NewPwdProps {
   isFailed?: boolean;
-  onSubmit: (data: {newPwd: string, newPwdConfirm: string}) => void
+  onSubmit: (data: newPwdForm) => void
 }
 
 const NewPasswordView = ({
@@ -32,8 +33,7 @@ const NewPasswordView = ({
   return (
     <InputForm 
       showBackBtn={true} 
-      onClickBackBtn={true}
-      submitButtonText={"비밀번호 수정"}
+      submitButtonText="비밀번호 수정"
       disabledSubmitButton={true}
       onSubmit={handleClickEvent}
     >
@@ -42,7 +42,7 @@ const NewPasswordView = ({
           <InputText
             type='password'
             inputId="newPwd"
-            mode={(modeValue == 'warning')?'normal' : modeValue}
+            mode={modeValue}
             widthSize="medium"
             placeholder='새 비밀번호'
             onChangeValue={(value: string) =>
@@ -52,7 +52,7 @@ const NewPasswordView = ({
           <InputText
             type='password'
             inputId="newPwdConfirm"
-            mode={modeValue}
+            mode={(stateValues.newPwd != stateValues.newPwdConfirm)?"warning": modeValue}
             widthSize="medium"
             placeholder='새 비밀번호 확인'
             onChangeValue={(value: string) =>
