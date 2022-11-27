@@ -6,12 +6,30 @@
 }
 
 .preview {
+  position: relative;
   margin: 0px 24px 28px;
   height: 500px;
   background-color: white;
   text-align: center;
 }
 
+.preiewBottle {
+  width: 70%;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+
+  & * {
+    width: 100%;
+  }
+}
+
+.previewPaper {
+  width: 50%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
 .wrapper {
   margin: 0px 24px;
   height: 230px;
