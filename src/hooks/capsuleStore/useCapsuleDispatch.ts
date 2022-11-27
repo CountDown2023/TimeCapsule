@@ -7,6 +7,18 @@ export const useCapsuleDispatch = () => {
   if (!dispatch) {
     throw new Error("capsule dispatch is undefined");
   }
+  
+  const setBottle = (bottle: number) => {
+    dispatch({ type: "SET_BOTTLE", payload: bottle });
+  };
 
-  return dispatch;
+  const setBottleColor = (bottleColor: number) => {
+    dispatch({ type: "SET_BOTTLE_COLOR", payload: bottleColor });
+  };
+
+  const setLetterPaper = (letterPaper: number) => {
+    dispatch({ type: "SET_LETTER_PAPER", payload: letterPaper });
+  };
+
+  return { dispatch, setBottle, setBottleColor, setLetterPaper };
 };
