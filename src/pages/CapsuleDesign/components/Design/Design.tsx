@@ -17,21 +17,11 @@ const Design = () => {
   const [selectedCategory, setSelectedCategory] = useState<number>(0);
   const categoryLabelList: Category[] = ["병", "병색상", "편지지"];
 
-  // const [selectedItem, setSelectedItem] = useState<Record<Category, number>>({
-  //   병: 0,
-  //   병색상: 0,
-  //   편지지: 0,
-  // });
-
   const BottleItem = () => (
     <DesignItem
       items={Bottles}
       selectedItem={bottle}
       selectTabIdx={(idx: number) => {
-        // setSelectedItem({
-        //   ...selectedItem,
-        //   병: idx,
-        // });
         setBottle(idx);
       }}
     />
@@ -43,10 +33,6 @@ const Design = () => {
         <div
           key={color}
           onClick={() => {
-            // setSelectedItem({
-            //   ...selectedItem,
-            //   병색상: idx,
-            // });
             setBottleColor(idx);
           }}
           className={classnames(styles.colorItem, [
@@ -65,10 +51,6 @@ const Design = () => {
       items={LetterPapers}
       selectedItem={letterPaper}
       selectTabIdx={(idx: number) => {
-        // setSelectedItem({
-        //   ...selectedItem,
-        //   편지지: idx,
-        // });
         setLetterPaper(idx);
       }}
     />
