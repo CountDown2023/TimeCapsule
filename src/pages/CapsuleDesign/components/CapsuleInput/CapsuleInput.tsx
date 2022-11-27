@@ -6,19 +6,16 @@ import CapsuleInputView from "./CapsuleInput.view";
 const CapsuleInput = () => {
   const [isShowSuccessDialog, setIsShowSuccessDialog] =
     useState<boolean>(false);
+  
   return (
     <>
-      <button
-        className={styles.submitButton}
-        onClick={() => {
+      <CapsuleInputView
+        onSubmit={(form) => {
           setIsShowSuccessDialog(true);
-          // TODO: 작성 API 붙이기
+          // TOOD: form API 작성
+          console.log(form);
         }}
-      >
-        작성완료
-      </button>
-
-      <CapsuleInputView />
+      />
 
       <Dialog
         className={styles.dialog}
