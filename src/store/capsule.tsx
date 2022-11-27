@@ -32,9 +32,9 @@ export const capsuleReducer = (
     case "SET_BOTTLE":
       return { ...state, bottle: action.payload };
     case "SET_BOTTLE_COLOR":
-      return { ...state, bottle: action.payload };
+      return { ...state, bottleColor: action.payload };
     case "SET_LETTER_PAPER":
-      return { ...state, bottle: action.payload };
+      return { ...state, letterPaper: action.payload };
     default:
       return state;
   }

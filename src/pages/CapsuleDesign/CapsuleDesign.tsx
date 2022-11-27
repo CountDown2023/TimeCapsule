@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CapsuleContext } from "store";
 import CapsuleInput from "./components/CapsuleInput";
 import Design from "./components/Design";
 import DesignNav from "./components/DesignNav";
@@ -10,7 +11,7 @@ const CapsuleDesign = () => {
   const [isShowGoMainDialog, setIsShowGoMainDialog] = useState<boolean>(false);
 
   return (
-    <>
+    <CapsuleContext>
       <button
         className={styles.backButton}
         onClick={() => setIsShowGoMainDialog(true)}
@@ -41,7 +42,7 @@ const CapsuleDesign = () => {
           // TODO: 페이지 전환 로직 추가
         }}
       />
-    </>
+    </CapsuleContext>
   );
 };
 
