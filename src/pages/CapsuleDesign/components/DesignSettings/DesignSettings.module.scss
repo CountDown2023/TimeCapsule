@@ -1,8 +1,9 @@
 .container {
+  margin: 0px 24px;
   height: 30px;
   display: flex;
-  background-color: gray;
   flex-direction: row;
+  align-items: flex-end;
   font-weight: bold;
   font-size: 18px;
 }
@@ -10,11 +11,13 @@
 .item {
   border: 1px solid black;
   border-radius: 5px 5px 0px 0px;
-  background-color: skyblue;
+  background-color: #C1FEFA;
   text-align: center;
   flex-grow: 1;
+  line-height: 30px;
 }
 
 .active {
-  background-color: blue;
+  height: 40px;
+  line-height: 40px;
 }
