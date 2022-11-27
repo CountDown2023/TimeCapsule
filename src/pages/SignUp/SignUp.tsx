@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 
 import SignUpView from './SignUp.view';
 
+export type signUpForm = {nickname: string, password: string, passwordConfirm: string};
+
 const SignUp = () => {
 
-  const clickSubmit = (data: {email: string, password: string, passwordConfirm: string}) => {
+  const clickSubmit = (data: signUpForm) => {
     console.log("회원가입 테스트");
-    console.log("email : ", data.email);
+    console.log("email : ", data.nickname);
     console.log("pwd : ", data.password);
     console.log("pwd confirm : ", data.passwordConfirm);
 

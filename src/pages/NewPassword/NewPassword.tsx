@@ -1,7 +1,9 @@
 import NewPasswordView from "./NewPassword.view";
 
+export type newPwdForm = {newPwd: string, newPwdConfirm: string};
+
 const NewPassword = () => {
-  const clickSubmit = (data: {newPwd: string, newPwdConfirm: string}) => {
+  const clickSubmit = (data: newPwdForm) => {
     console.log("비밀번호 수정 테스트");
     console.log("newPwd : ", data.newPwd);
     console.log("newPwdConfirm : ", data.newPwdConfirm);

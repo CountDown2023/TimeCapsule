@@ -1,11 +1,13 @@
 import SignInView from "./SignIn.view";
 
+export type signInForm = {nickname: string, password: string};
+
 const SignIn = () => {
 
-  const clickSubmit = (data: {email: string, password: string}) => {
+  const clickSubmit = (data: signInForm) => {
     //TODO: 클릭 이벤트 적용하기
     console.log("로그인 테스트");
-    console.log("email : ", data.email);
+    console.log("email : ", data.nickname);
     console.log("password: ", data.password);
   }
   
