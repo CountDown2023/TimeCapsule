@@ -1,58 +1,21 @@
 import React, { useState } from "react";
 import DesignItem from "../DesignItem";
 import DesignSettings from "../DesignSettings";
-import {
-  CirclePaper,
-  CloudPaper,
-  CrossPaper,
-  FlowerPaper,
-  GrassPaper,
-  HeartPaper,
-  NotePaper,
-  StarPaper,
-} from "assets/images/letterPaper";
-import { Bottle01Src, Bottle01 } from "assets/images/bottle";
+import { Bottle01 } from "assets/images/bottle";
 import { Light } from "assets/images/palette";
+import { useCapsuleDispatch } from "hooks/capsuleStore";
+import { Bottles, BottlesColors, LetterPapers } from "../../constants";
 import classnames from "classnames";
 import styles from "./Design.module.scss";
 
 type Category = "병" | "병색상" | "편지지";
 
 const Design = () => {
+  const { setBottle, setBottleColor, setLetterPaper } = useCapsuleDispatch();
+
   const [selectedCategory, setSelectedCategory] = useState<number>(0);
   const categoryLabelList: Category[] = ["병", "병색상", "편지지"];
 
-  // TODO: 병 이미지 수정
-  const bottles: string[] = [
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-    Bottle01Src,
-  ];
-  const bottlesColors: string[] = [
-    "#F24C4C",
-    "#EC9B3B",
-    "#F9D923",
-    "#6BCB77",
-    "#4D96FF",
-    "#293462",
-    "#52006A",
-    "#FF577F",
-  ];
-  const letterPapers: string[] = [
-    CirclePaper,
-    CloudPaper,
-    CrossPaper,
-    FlowerPaper,
-    GrassPaper,
-    HeartPaper,
-    NotePaper,
-    StarPaper,
-  ];
   const [selectedItem, setSelectedItem] = useState<Record<Category, number>>({
     병: 0,
     병색상: 0,
@@ -61,28 +24,30 @@ const Design = () => {
 
   const BottleItem = () => (
     <DesignItem
-      items={bottles}
+      items={Bottles}
       selectedItem={selectedItem["병"]}
       selectTabIdx={(idx: number) => {
         setSelectedItem({
           ...selectedItem,
           병: idx,
         });
+        setBottle(idx);
       }}
     />
   );
 
   const ColorItem = () => (
     <div className={styles.itemWrapper}>
-      {bottlesColors.map((color, idx) => (
+      {BottlesColors.map((color, idx) => (
         <div
           key={color}
-          onClick={() =>
+          onClick={() => {
             setSelectedItem({
               ...selectedItem,
               병색상: idx,
-            })
-          }
+            });
+            setBottleColor(idx);
+          }}
           className={classnames(styles.colorItem, [
             selectedItem["병색상"] === idx && styles.active,
           ])}
@@ -96,27 +61,28 @@ const Design = () => {
 
   const PaperItem = () => (
     <DesignItem
-      items={letterPapers}
+      items={LetterPapers}
       selectedItem={selectedItem["편지지"]}
       selectTabIdx={(idx: number) => {
         setSelectedItem({
           ...selectedItem,
           편지지: idx,
         });
+        setLetterPaper(idx);
       }}
     />
   );
 
   const ChoiceComponentList = [BottleItem(), ColorItem(), PaperItem()];
   const PreviewBottleList = [
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
-    <Bottle01 fill={bottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
+    <Bottle01 fill={BottlesColors[selectedItem["병색상"]]} />,
   ];
 
   return (
@@ -124,7 +90,7 @@ const Design = () => {
       <div className={styles.preview}>
         <img
           className={styles.previewPaper}
-          src={letterPapers[selectedItem["편지지"]]}
+          src={LetterPapers[selectedItem["편지지"]]}
           alt=""
         />
         <div className={styles.preiewBottle}>
