@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import InputText from "components/common/inputText";
@@ -7,30 +7,36 @@ import InputForm from "components/common/InputForm";
 
 import "./signIn.css";
 import Icon from "components/common/Icon"
+import { SignInForm } from "./SignIn";
 
 export interface Props {
   isLoggedIn?: boolean;
+  clickSubmit: (data: SignInForm) => void;
 }
 
 const SignInView = ({
-  isLoggedIn = true
+  isLoggedIn = true,
+  clickSubmit
 }: Props) => {
 
   const navigate = useNavigate();
   
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(!isLoggedIn ? "warning" : "normal")
-  const [stateValues, setStateValues] = useState({
-    email: "",
-    password: "",
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
+  const [stateValues, setStateValues] = useState<SignInForm>({
+    nickname: "",
+    password: ""
   });
 
-  const clickSubmit = () => {
-    //TODO: 클릭 이벤트 적용하기
-    console.log("로그인 테스트");
+  const handleButtonEvent = () => {
+    clickSubmit(stateValues);
   }
 
+  useEffect(() => {
+    setModeValue(isLoggedIn ? "normal" : "warning");
+  }, [isLoggedIn])
+
   return (
-    <InputForm submitButtonText={"로그인"} disabledSubmitButton={true} onSubmit={clickSubmit}>
+    <InputForm submitButtonText="로그인" disabledSubmitButton={true} onSubmit={handleButtonEvent}>
       <div className='signIn-wrap'>
         <div className='logo-wrap'>
           <div className='logo'>
@@ -46,7 +52,7 @@ const SignInView = ({
               widthSize="medium"
               placeholder='닉네임'
               onChangeValue={(value: string) =>
-                setStateValues({ ...stateValues, email: value})
+                setStateValues({ ...stateValues, nickname: value})
               }
             />
             <InputText

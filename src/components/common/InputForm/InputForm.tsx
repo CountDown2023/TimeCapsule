@@ -16,7 +16,6 @@ export interface InputFormProps {
 
 const InputForm = ({
   showBackBtn = false,
-  onClickBackBtn = false,
   submitButtonText = "",
   disabledSubmitButton = true,
   children,
@@ -27,7 +26,7 @@ const InputForm = ({
 
   return  (
     <div className="page-wrap">
-      {(showBackBtn && onClickBackBtn) && (
+      {(showBackBtn) && (
         <Button
           size='backBtn'
           onClick={() => navigate(-1)}
