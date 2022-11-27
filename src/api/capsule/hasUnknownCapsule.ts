@@ -8,6 +8,6 @@ export type HasUnknownCapsuleResponse = {
 
 export const hasUnknownCapsule = () => {
   return resultData<HasUnknownCapsuleResponse>(
-    axios.post(CapsuleApiUrls.hasUnknownCapsule())
+    axios.get(CapsuleApiUrls.hasUnknownCapsule())
   );
 };
