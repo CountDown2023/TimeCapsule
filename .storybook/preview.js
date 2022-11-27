@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const queryClient = new QueryClient();
 
 export const parameters = {
+  layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
