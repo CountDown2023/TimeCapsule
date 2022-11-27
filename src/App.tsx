@@ -17,6 +17,7 @@ import {
 } from "configs/errorBoundaries";
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "configs/query";
+import { CapsuleContext } from "store";
 
 const Main = () => {
   return (
@@ -45,7 +46,9 @@ const User = () => {
 const Capsule = () => {
   return (
     <Routes>
-      <Route path={UrlPaths.capsule.design} element={<CapsuleDesign />} />
+      <CapsuleContext>
+        <Route path={UrlPaths.capsule.design} element={<CapsuleDesign />} />
+      </CapsuleContext>
     </Routes>
   );
 };
