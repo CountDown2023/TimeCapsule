@@ -9,7 +9,7 @@ const CapsuleInput = () => {
   const [saveComplete, setIsSaveComplete] = useState<boolean>(false);
 
   return (
-    <div className={styles.container}>
+    <>
       <button
         className={styles.submitButton}
         onClick={() => {
@@ -49,34 +49,22 @@ const CapsuleInput = () => {
           type="text"
           placeholder="캡슐 이름을 입력하세요."
         />
-        <ul className={styles.capsuleInput}>
+        <div className={styles.content}>
           <div className={styles.description}>이루고싶은 목표를 적어보세요</div>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-          <li className={styles.content}>
-            <input type="text" />
-          </li>
-        </ul>
+          <textarea />
+          <textarea />
+          <textarea />
+          <textarea />
+          <textarea />
+          <textarea />
+        </div>
 
         <textarea
           className={styles.mySelf}
           placeholder="12월 31일의 나에게 한마디"
         />
       </div>
-    </div>
+    </>
   );
 };
 
