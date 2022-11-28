@@ -5,8 +5,7 @@ on: # Event 감지
       - feature/bongbong/codedelpoy-1 # 이 브랜치의 푸쉬가 일어날 때 CI/CD를 진행하겠다는 뜻
 jobs: # Job 설정
   build:
-	# 내 EC2는 CentOS라서 바꿔야 할 것 같지만, 여기는 아래 상태로 둔다. 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout source code. # Repo checkout
         uses: actions/checkout@v2
