@@ -3,7 +3,8 @@ on:
   push: # master Branch에서 push 이벤트가 일어났을 때만 실행
     branches:
       - feature/bongbong/codedeploy-1
-
+env:
+  CI: ""
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -24,8 +25,6 @@ jobs:
 
       - name: Build # React Build
         run: npm run build
-        env:
-          CI: ""
 
       - name: Deploy # S3에 배포하기
         env:
