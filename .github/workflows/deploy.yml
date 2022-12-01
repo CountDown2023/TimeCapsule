@@ -25,7 +25,7 @@ jobs:
       - name: Build # React Build
         run: npm run build
         env:
-          CI: false
+          CI: ""
 
       - name: Deploy # S3에 배포하기
         env:
