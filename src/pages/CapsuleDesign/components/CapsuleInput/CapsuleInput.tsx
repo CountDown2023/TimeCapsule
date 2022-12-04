@@ -1,3 +1,4 @@
+import { useCapsuleState } from "hooks/capsuleStore";
 import React, { useState } from "react";
 import Dialog from "../../../../components/common/dialog";
 import CapsuleInputView from "./CapsuleInput.view";
@@ -5,10 +6,12 @@ import CapsuleInputView from "./CapsuleInput.view";
 const CapsuleInput = () => {
   const [isShowSuccessDialog, setIsShowSuccessDialog] =
     useState<boolean>(false);
+  const { letterPaper } = useCapsuleState();
 
   return (
     <>
       <CapsuleInputView
+        letterPaper={letterPaper}
         onSubmit={(form) => {
           setIsShowSuccessDialog(true);
           // TOOD: form API 작성

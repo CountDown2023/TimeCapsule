@@ -1,6 +1,7 @@
 import React from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CapsuleContext } from "store";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +19,13 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={Story()} />
-        </Routes>
-      </BrowserRouter>
+      <CapsuleContext>
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={Story()} />
+          </Routes>
+        </BrowserRouter>
+      </CapsuleContext>
     </QueryClientProvider>
   ),
 ];
