@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import DesignItem from "../DesignItem";
 import DesignSettings from "../DesignSettings";
-import { Bottle01 } from "assets/images/bottle";
-import { Light } from "assets/images/palette";
-import { useCapsuleDispatch, useCapsuleState } from "hooks/capsuleStore";
+import { Bottle01 } from "../../../../assets/images/bottle";
+import { Light } from "../../../../assets/images/palette";
+import {
+  useCapsuleDispatch,
+  useCapsuleState,
+} from "../../../../hooks/capsuleStore";
 import { Bottles, BottlesColors, LetterPapers } from "../../constants";
 import classnames from "classnames";
 import styles from "./Design.module.scss";

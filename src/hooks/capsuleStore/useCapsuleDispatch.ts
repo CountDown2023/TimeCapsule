@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CapsuleDispatchContext } from "store";
+import { CapsuleDispatchContext } from "../../store";
 
 export const useCapsuleDispatch = () => {
   const dispatch = useContext(CapsuleDispatchContext);

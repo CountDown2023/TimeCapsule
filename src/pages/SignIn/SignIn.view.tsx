@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import InputText from "components/common/inputText";
-import Button from "components/common/button";
-import InputForm from "components/common/InputForm";
-
-import "./signIn.css";
+import InputText from "../../components/common/inputText";
+import Button from "../../components/common/button";
+import InputForm from "../../components/common/InputForm";
 import Icon from "components/common/Icon";
 import { SignInForm } from "./SignIn";
+
+import "./signIn.css";
 
 export interface Props {
   isLoggedIn?: boolean;

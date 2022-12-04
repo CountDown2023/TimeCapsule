@@ -1,4 +1,4 @@
-import { getCapsuleInfo, GetCapsuleInfoResponse } from "api/capsule";
+import { getCapsuleInfo, GetCapsuleInfoResponse } from "../../api/capsule";
 import { useQuery, UseQueryOptions } from "react-query";
 
 const useCapsuleInfoQuery = (

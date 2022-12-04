@@ -1,5 +1,5 @@
-import useCapsuleDayInfoQuery from "queries/capsule/useCapsuleDayInfoQuery";
-import useCapsuleInfoQuery from "queries/capsule/useCapsuleInfoQuery";
+import useCapsuleDayInfoQuery from "../../../queries/capsule/useCapsuleDayInfoQuery";
+import useCapsuleInfoQuery from "../../../queries/capsule/useCapsuleInfoQuery";
 
 const useMainMap = () => {
   const {

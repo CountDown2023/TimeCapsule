@@ -1,4 +1,4 @@
-import { useCapsuleState } from "hooks/capsuleStore";
+import { useCapsuleState } from "../../../../hooks/capsuleStore";
 import React, { useState } from "react";
 import Dialog from "../../../../components/common/dialog";
 import CapsuleInputView from "./CapsuleInput.view";

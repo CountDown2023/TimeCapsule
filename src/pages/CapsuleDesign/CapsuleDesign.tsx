@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CapsuleContext } from "store";
+import { CapsuleContext } from "../../store";
 import CapsuleInput from "./components/CapsuleInput";
 import Design from "./components/Design";
 import DesignNav from "./components/DesignNav";

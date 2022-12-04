@@ -1,5 +1,5 @@
-import Button from "components/common/button";
-import useDiscloser from "hooks/useDiscloser";
+import Button from "../../components/common/button";
+import useDiscloser from "../../hooks/useDiscloser";
 import { useState } from "react";
 import styles from "./Information.module.scss";
 

@@ -1,7 +1,6 @@
-import Button from "components/common/button";
 import React, { ReactNode } from "react";
-
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Button from "../../../components/common/button";
 
 import "./InputForm.css";
 
@@ -19,9 +18,8 @@ const InputForm = ({
   submitButtonText = "",
   disabledSubmitButton = true,
   children,
-  onSubmit
+  onSubmit,
 }: InputFormProps) => {
-  
   const navigate = useNavigate();
 
   return (

@@ -1,5 +1,5 @@
-import useCapsuleInfoQuery from "queries/capsule/useCapsuleInfoQuery";
-import useUnknownCapsuleQuery from "queries/capsule/useUnknownCapsuleQuery";
+import useCapsuleInfoQuery from "../../../queries/capsule/useCapsuleInfoQuery";
+import useUnknownCapsuleQuery from "../../../queries/capsule/useUnknownCapsuleQuery";
 
 const useMainSea = () => {
   const {

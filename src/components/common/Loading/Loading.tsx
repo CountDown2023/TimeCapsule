@@ -1,6 +1,6 @@
 import styles from "./Loading.module.scss";
 import classNames from "classnames";
-import { SpinnerBottom, SpinnerTop } from "static/logo";
+import { SpinnerBottom, SpinnerTop } from "../../../static/logo";
 
 export interface Props {
   isFull?: boolean;
