@@ -36,6 +36,7 @@ const InformationView = ({ onSubmitVoc }: Props) => {
             }}
           />
           <Button
+            className={styles.submitButton}
             size="bottom"
             label="제출하기"
             onClick={() => {
