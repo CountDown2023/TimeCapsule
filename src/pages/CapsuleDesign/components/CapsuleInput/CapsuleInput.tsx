@@ -19,7 +19,7 @@ const CapsuleInput = () => {
       <Dialog
         useDim
         isShow={isShowSuccessDialog}
-        title={"캡슐 생성이 완료되었습니다."}
+        title="캡슐 생성이 완료되었습니다."
         okButton="확인"
         onClickOkButton={() => setIsShowSuccessDialog(false)}
       />
