@@ -28,28 +28,35 @@ const PasswordConfirmView = ({
   }, [isFailed])
 
   return (
-    <InputForm 
-      showBackBtn={true} 
+    <InputForm
+      showBackBtn={true}
       submitButtonText="확인"
       disabledSubmitButton={true}
       onSubmit={handleClickEvent}
     >
-      <div className='pwdConfirm-wrap'>
+      <div className="pwdConfirm-wrap">
         <div
-          className={['div-info', (modeValue != "normal")? 'div-hidden' : ''].join(' ')}
+          className="input-comp-wrap"
+          onFocus={() => setModeValue("focus")}
+          onBlur={() => setModeValue("normal")}
         >
-          <p>본인 확인을 위해</p>
-          <p>비밀번호를 입력해주세요</p>
-        </div>
-        <div className='input-comp-wrap' onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
+          <div
+            className={[
+              "div-info",
+              modeValue !== "normal" ? "div-hidden" : "",
+            ].join(" ")}
+          >
+            <p>본인 확인을 위해</p>
+            <p>비밀번호를 입력해주세요</p>
+          </div>
           <InputText
-            type='password'
+            type="password"
             inputId="confirmPwd"
             mode={modeValue}
             widthSize="medium"
-            placeholder='현재 비밀번호'
+            placeholder="현재 비밀번호"
             onChangeValue={(value: string) =>
-              setStateValues({ currentPwd: value})
+              setStateValues({ currentPwd: value })
             }
           />
         </div>
