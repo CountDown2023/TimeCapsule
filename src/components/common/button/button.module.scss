@@ -3,50 +3,44 @@
   font-weight: 700;
   border: none;
   border-radius: 48px;
-  cursor: pointer;
   display: inline-block;
-  line-height: 1;
+  cursor: pointer;
+
+  &:disabled{
+    background-color: grey !important;
+  }
 }
 
-.button--primary {
+.primary {
   color: white;
   background-color: #1ea7fd;
 }
 
-.button--secondary {
+.secondary {
   color: #333;
   background-color: transparent;
 }
 
-.button--small {
+.small {
   font-size: 12px;
   padding: 10px 16px;
 }
 
-.button--medium {
+.medium {
   font-size: 14px;
   padding: 11px 20px;
 }
 
-.button--large {
+.large {
   font-size: 16px;
   padding: 12px 24px;
 }
 
-.button--bottom {
+.bottom {
   width: 100vw;
-  height: 80px;
+  padding: 20px 0px;
   color: #fff;
-  font-size: xx-large;
+  font-size: 25px;
   background-color: #3180F6;
   border-radius: 0;
-}
-
-.button--backBtn {
-  font-size: 50px;
-  color: white;
-  font-family: inherit;
-  position: absolute;
-  left: 0;
-  margin: 16px;
 }

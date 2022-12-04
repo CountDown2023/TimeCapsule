@@ -1,42 +1,40 @@
 import React from 'react';
-import './button.css'
+import styles from "./button.module.scss";
 
-interface ButtonProps {
-  primary?: boolean;
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
+
+export interface Props {
+  theme?: "primary" | "secondary";
   backgroundColor?: string;
-  size?: "small" | "medium" | "large" | "bottom" | "backBtn";
-  label?: string;
+  size?: "small" | "medium" | "large" | "bottom";
   isDisable?: boolean;
   onClick?: () => void;
+  isDisabled?: boolean;
+  children?: React.ReactNode;
   className?: string;
 }
 
 const Button = ({
-  primary = false,
+  theme = "secondary",
   size = "medium",
   backgroundColor,
-  label = "",
   isDisable = false,
   className,
+  isDisabled = false,
+  children,
   ...props
-}: ButtonProps) => {
-  const mode = primary ? "button--primary" : "button--secondary";
-
-  // TODO disabled 로직, css 추가하기
+}: Props) => {
   return (
     <button
       type="button"
-      className={[
-        "button",
-        `button--${size}`,
-        mode,
-        isDisable ? "btn-disabled" : "",
-        className,
-      ].join(" ")}
+      className={cx("button", size, theme, className)}
       style={{ backgroundColor }}
+      disabled={isDisabled}
       {...props}
     >
-      {size === "backBtn" ? "<" : label}
+      {children}
     </button>
   );
 };
