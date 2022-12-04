@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import MainSea from "./pages/MainSea";
 import { UrlPaths } from "./routes";

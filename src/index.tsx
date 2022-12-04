@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import "./static/fonts/font.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { initAxios } from "configs/axios";
 
