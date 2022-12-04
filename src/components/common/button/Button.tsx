@@ -9,7 +9,6 @@ export interface Props {
   theme?: "primary" | "secondary";
   backgroundColor?: string;
   size?: "small" | "medium" | "large" | "bottom";
-  isDisable?: boolean;
   onClick?: () => void;
   isDisabled?: boolean;
   children?: React.ReactNode;
@@ -20,7 +19,6 @@ const Button = ({
   theme = "secondary",
   size = "medium",
   backgroundColor,
-  isDisable = false,
   className,
   isDisabled = false,
   children,

@@ -6,7 +6,7 @@ import Button from "components/common/button";
 import InputForm from "components/common/InputForm";
 
 import "./signIn.css";
-import Icon from "components/common/Icon"
+import Icon from "components/common/Icon";
 import { SignInForm } from "./SignIn";
 
 export interface Props {
@@ -14,69 +14,70 @@ export interface Props {
   clickSubmit: (data: SignInForm) => void;
 }
 
-const SignInView = ({
-  isLoggedIn = true,
-  clickSubmit
-}: Props) => {
-
+const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
   const navigate = useNavigate();
-  
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(isLoggedIn ? "normal" : "warning")
+
+  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(
+    isLoggedIn ? "normal" : "warning"
+  );
   const [stateValues, setStateValues] = useState<SignInForm>({
     nickname: "",
-    password: ""
+    password: "",
   });
 
   const handleButtonEvent = () => {
     clickSubmit(stateValues);
-  }
+  };
 
   useEffect(() => {
     setModeValue(isLoggedIn ? "normal" : "warning");
-  }, [isLoggedIn])
+  }, [isLoggedIn]);
 
   return (
-    <InputForm submitButtonText="로그인" disabledSubmitButton={true} onSubmit={handleButtonEvent}>
-      <div className='signIn-wrap'>
-        <div className='logo-wrap'>
-          <div className='logo'>
-            <Icon classNames="logo-container"/>
+    <InputForm
+      submitButtonText="로그인"
+      disabledSubmitButton={true}
+      onSubmit={handleButtonEvent}
+    >
+      <div className="signIn-wrap">
+        <div className="logo-wrap">
+          <div className="logo">
+            <Icon classNames="logo-container" />
           </div>
         </div>
-        <div className='input-comp-wrap'>
-          <div onFocus={() => setModeValue('focus')} onBlur={() => setModeValue('normal')}>
+        <div className="input-comp-wrap">
+          <div
+            onFocus={() => setModeValue("focus")}
+            onBlur={() => setModeValue("normal")}
+          >
             <InputText
-              type='text'
+              type="text"
               inputId="signInNickNm"
               mode={modeValue}
               widthSize="medium"
-              placeholder='닉네임'
+              placeholder="닉네임"
               onChangeValue={(value: string) =>
-                setStateValues({ ...stateValues, nickname: value})
+                setStateValues({ ...stateValues, nickname: value })
               }
             />
             <InputText
-              type='password'
+              type="password"
               inputId="signInPw"
               mode={modeValue}
               widthSize="medium"
-              placeholder='비밀번호'
+              placeholder="비밀번호"
               onChangeValue={(value: string) =>
                 setStateValues({ ...stateValues, password: value })
               }
             />
           </div>
-          <Button
-            size='medium'
-            label='비밀번호 찾기'
-            onClick={() => navigate("/user/password")}
-          />
+          <Button size="medium" onClick={() => navigate("/user/password")}>
+            비밀번호 찾기
+          </Button>
           |
-          <Button
-            size='medium'
-            label='회원가입'
-            onClick={() => navigate("/user/signUp")}
-          />
+          <Button size="medium" onClick={() => navigate("/user/signUp")}>
+            회원가입
+          </Button>
         </div>
       </div>
     </InputForm>

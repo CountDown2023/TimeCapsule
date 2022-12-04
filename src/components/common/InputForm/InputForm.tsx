@@ -24,18 +24,20 @@ const InputForm = ({
   
   const navigate = useNavigate();
 
-  return  (
+  return (
     <div className="page-wrap">
-      {(showBackBtn) && (
-        <Button
-          size='backBtn'
-          onClick={() => navigate(-1)}
-        />
-      )}
+      {showBackBtn && <Button onClick={() => navigate(-1)}>{`<`}</Button>}
       {children}
-      <div className='btn-wrap'>
+      <div className="btn-wrap">
         {/* TODO: isDisable 처리용 로직 필요 */}
-        <Button size='bottom' label={submitButtonText} isDisable={disabledSubmitButton} onClick={onSubmit} />
+        <Button
+          size="bottom"
+          theme="primary"
+          isDisabled={disabledSubmitButton}
+          onClick={onSubmit}
+        >
+          {submitButtonText}
+        </Button>
       </div>
     </div>
   );
