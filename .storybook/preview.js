@@ -2,7 +2,7 @@ import React from "react";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CapsuleContext } from "../store";
+import { CapsuleContext } from "store";
 import "../src/index.scss";
 
 const queryClient = new QueryClient();
