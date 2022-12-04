@@ -1,4 +1,4 @@
-import IconButton from "components/common/IconButton";
+import IconButton from "../../components/common/IconButton";
 import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
 import "./MainMap.scss";

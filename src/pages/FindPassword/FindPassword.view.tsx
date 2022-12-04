@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import InputText from "components/common/inputText";
-import InputForm from "components/common/InputForm";
+import InputText from "../../components/common/inputText";
+import InputForm from "../../components/common/InputForm";
 
 import './findPassword.css';
 import { FindPwdForm } from "./FindPassword";

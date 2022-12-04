@@ -1,4 +1,7 @@
-import { getCapsuleDayInfo, GetCapsuleDayInfoResponse } from "api/capsule";
+import {
+  getCapsuleDayInfo,
+  GetCapsuleDayInfoResponse,
+} from "../../api/capsule";
 import { useQuery, UseQueryOptions } from "react-query";
 
 type Props = {

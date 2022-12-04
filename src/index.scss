@@ -1,3 +1,5 @@
+@import "./static/fonts/font.scss";
+
 * {
   font-family: "Jua";
 }
@@ -11,4 +13,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button{
+  border: none;
+  background: none;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./DesignNav.module.css";
+import styles from "./DesignNav.module.scss";
 
 interface Props {
   current: number;

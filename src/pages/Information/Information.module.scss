@@ -15,8 +15,13 @@
   resize: none;
   margin: 20px auto;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
 hr {
   margin: 20px 0px;
+}
+
+.submitButton{
+  width: 100%;
 }

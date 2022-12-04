@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import MainSea from "./pages/MainSea";
 import { UrlPaths } from "./routes";
@@ -10,11 +9,11 @@ import NewPassword from "./pages/NewPassword";
 import PasswordConfirm from "./pages/PasswordConfirm";
 import NotFound from "./pages/NotFound";
 import CapsuleDesign from "./pages/CapsuleDesign";
-import Information from "pages/Information";
+import Information from "./pages/Information";
 import {
   GlobalApiErrorBoundary,
   GlobalErrorBoundary,
-} from "configs/errorBoundaries";
+} from "./configs/errorBoundaries";
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "configs/query";
 

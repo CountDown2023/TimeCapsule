@@ -1,5 +1,5 @@
-import Button from "components/common/button";
-import useDiscloser from "hooks/useDiscloser";
+import Button from "../../components/common/button";
+import useDiscloser from "../../hooks/useDiscloser";
 import { useState } from "react";
 import styles from "./Information.module.scss";
 
@@ -36,14 +36,16 @@ const InformationView = ({ onSubmitVoc }: Props) => {
             }}
           />
           <Button
+            className={styles.submitButton}
             size="bottom"
-            label="제출하기"
             onClick={() => {
               onSubmitVoc(content);
               setClose();
             }}
-            isDisable={content.length === 0}
-          />
+            isDisabled={content.length === 0}
+          >
+            제출하기
+          </Button>
         </>
       )}
     </div>

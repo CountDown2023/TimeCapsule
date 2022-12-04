@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import InputText from "components/common/inputText";
-import InputForm from "components/common/InputForm";
-
-import './newPassword.css';
+import InputText from "../../components/common/inputText";
+import InputForm from "../../components/common/InputForm";
 import { NewPwdForm } from "./NewPassword";
+
+import "./newPassword.css";
 
 export interface NewPwdProps {
   isFailed?: boolean;

@@ -1,4 +1,4 @@
-import { LetterPapers } from "pages/CapsuleDesign/constants";
+import { LetterPapers } from "../../../../pages/CapsuleDesign/constants";
 import React, { useState } from "react";
 import styles from "./CapsuleInput.module.scss";
 

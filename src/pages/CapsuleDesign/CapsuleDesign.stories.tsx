@@ -4,7 +4,7 @@ import { Story, Meta } from "@storybook/react";
 import CapsuleDesign from "./CapsuleDesign";
 
 export default {
-  title: "Page/CapsuleDesign/views",
+  title: "Capsule/CapsuleDesign/views",
   component: CapsuleDesign,
 } as Meta;
 

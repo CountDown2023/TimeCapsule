@@ -1,4 +1,7 @@
-import { hasUnknownCapsule, HasUnknownCapsuleResponse } from "api/capsule";
+import {
+  hasUnknownCapsule,
+  HasUnknownCapsuleResponse,
+} from "../../api/capsule";
 import { useQuery, UseQueryOptions } from "react-query";
 
 const useUnknownCapsuleQuery = (
