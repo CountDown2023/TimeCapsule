@@ -1,4 +1,5 @@
 import React from "react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CapsuleContext } from "store";
@@ -13,6 +14,10 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+    defaultViewport: "iphonex",
   },
 };
 
