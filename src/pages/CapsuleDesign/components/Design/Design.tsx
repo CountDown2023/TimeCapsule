@@ -120,7 +120,7 @@ const Design = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.preview}>
         <img
           className={styles.previewPaper}
@@ -131,17 +131,15 @@ const Design = () => {
           {PreviewBottleList[selectedItem["병"] as number]}
         </div>
       </div>
-
       <DesignSettings
         setCurrent={setSelectedCategory}
         items={categoryLabelList}
         current={selectedCategory}
       />
-
       <div className={styles.wrapper}>
         {ChoiceComponentList[selectedCategory]}
       </div>
-    </div>
+    </>
   );
 };
 
