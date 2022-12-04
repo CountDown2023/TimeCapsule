@@ -11,5 +11,5 @@ const Template: Story<Props> = (args) => <MainMapView {...args} />;
 
 export const 캡슐_있음 = Template.bind({});
 캡슐_있음.args = {
-  days: "10",
+  days: 10,
 };
