@@ -1,8 +1,8 @@
-import { SignUpRequestData } from "api/user";
+import { SignUpBody } from "api/user";
 import { HTTP_STATUS } from "configs/axios";
 import useSignUpQuery from "queries/user/useSignUpQuery";
 
-const useSignUp = (data: SignUpRequestData) => {
+const useSignUp = (data: SignUpBody) => {
   const {
     isLoading: isSignUpLoading,
     data: signUp,

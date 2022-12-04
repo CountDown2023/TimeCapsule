@@ -1,4 +1,4 @@
-import { SignUpRequestData } from 'api/user';
+import { SignUpBody } from 'api/user';
 import { useState } from 'react';
 import useSignUp from './hook/useSignUp';
 
@@ -8,7 +8,7 @@ export type SignUpForm = {nickname: string, password: string, passwordConfirm: s
 
 const SignUp = () => {
 
-  const [ reqSignUpData, setReqSignUpData ] = useState<SignUpRequestData>({
+  const [ reqSignUpData, setReqSignUpData ] = useState<SignUpBody>({
     nickname: "",
     password: ""
   });
@@ -22,7 +22,7 @@ const SignUp = () => {
     console.log("pwd confirm : ", data.passwordConfirm);
 
     //TODO: 비밀번호/비밀번호 확인 validation 체크 로직 구현
-    const requestData:SignUpRequestData = {
+    const requestData:SignUpBody = {
       nickname: data.nickname,
       password: data.password
     };

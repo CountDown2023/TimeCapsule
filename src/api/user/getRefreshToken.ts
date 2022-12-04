@@ -1,11 +1,11 @@
 import axiosInstance from "api";
 import { UserApiUrls } from "api/path";
 
-export type GetRefreshTokenRequestData = {
+export type GetRefreshTokenBody = {
   nickname: string,
   refreshToken: string
 }
 
-export const getRefreshToken = (data: GetRefreshTokenRequestData) => {
+export const getRefreshToken = (data: GetRefreshTokenBody) => {
   return axiosInstance.post(UserApiUrls.getRefreshToken(), data);
 }
