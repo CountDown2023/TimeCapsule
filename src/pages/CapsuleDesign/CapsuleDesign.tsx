@@ -5,8 +5,10 @@ import Design from "./components/Design";
 import DesignNav from "./components/DesignNav";
 import Dialog from "components/common/dialog";
 import styles from "./CapsuleDesign.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const CapsuleDesign = () => {
+  const navigation = useNavigate();
   const [page, setPage] = useState<number>(0);
   const [isShowGoMainDialog, setIsShowGoMainDialog] = useState<boolean>(false);
 
@@ -39,7 +41,7 @@ const CapsuleDesign = () => {
         onClickCancleButton={() => setIsShowGoMainDialog(false)}
         onClickOkButton={() => {
           setIsShowGoMainDialog(false);
-          // TODO: 페이지 전환 로직 추가
+          navigation(-1);
         }}
       />
     </CapsuleContext>
