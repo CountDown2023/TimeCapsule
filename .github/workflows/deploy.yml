@@ -45,4 +45,4 @@ jobs:
           --application-name bongbong-practice
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name bongbong-deploy-groupName
-          --s3-location bucket=bongbong-github-actions-tutorial,key=/build-fe.zip,bundleType=zip
+          --s3-location bucket=bongbong-github-actions-tutorial,key=build-fe.zip,bundleType=zip
