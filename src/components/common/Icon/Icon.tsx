@@ -1,4 +1,4 @@
-import { SpinnerBigBottom, SpinnerTop } from "static/logo";
+import { SpinnerBigBottom, SpinnerTop } from "../../../static/logo";
 import classnames from "classnames";
 import styles from "./Icon.module.scss";
 

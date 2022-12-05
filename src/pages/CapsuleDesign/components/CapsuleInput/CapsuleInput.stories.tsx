@@ -4,7 +4,7 @@ import { Story, Meta } from "@storybook/react";
 import CapsuleInput from "./CapsuleInput";
 
 export default {
-  title: "Page/CapsuleDesign/components/capsuleInput",
+  title: "Capsule/CapsuleDesign/components/capsuleInput",
   component: CapsuleInput,
 } as Meta;
 

@@ -1,10 +1,10 @@
-import IconButton from "components/common/IconButton";
+import IconButton from "../../components/common/IconButton";
 import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
 import "./MainMap.scss";
 
 export interface Props {
-  days?: string;
+  days?: number;
 }
 
 const MainMapView = ({ days }: Props) => {

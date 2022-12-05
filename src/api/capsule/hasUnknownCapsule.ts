@@ -1,6 +1,6 @@
-import { CapsuleApiUrls } from "api/path";
+import { CapsuleApiUrls } from "../../api/path";
 import axios from "axios";
-import { resultData } from "configs/axios";
+import { resultData } from "../../configs/axios";
 
 export type HasUnknownCapsuleResponse = {
   // TODO
@@ -8,6 +8,6 @@ export type HasUnknownCapsuleResponse = {
 
 export const hasUnknownCapsule = () => {
   return resultData<HasUnknownCapsuleResponse>(
-    axios.post(CapsuleApiUrls.hasUnknownCapsule())
+    axios.get(CapsuleApiUrls.hasUnknownCapsule())
   );
 };

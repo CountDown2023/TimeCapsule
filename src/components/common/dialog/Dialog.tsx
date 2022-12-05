@@ -1,5 +1,6 @@
 import Button from "./Button";
-import "./Dialog.scss";
+import classnames from "classnames";
+import styles from "./Dialog.module.scss";
 
 export interface Props {
   isShow: boolean;
@@ -7,6 +8,7 @@ export interface Props {
   description?: string;
   okButton?: string;
   cancleButton?: string;
+  useDim?: boolean;
   onClickOkButton?: () => void;
   onClickCancleButton?: () => void;
   className?: string;
@@ -18,31 +20,34 @@ const Dialog = ({
   description,
   okButton,
   cancleButton,
+  useDim = false,
   onClickOkButton,
   onClickCancleButton,
   className,
 }: Props) => {
+  if (!isShow) {
+    return null;
+  }
+
   return (
-    <>
-      {isShow && (
-        <div className={`dialog`}>
-          <div className="dialog__title">{title}</div>
-          <div className="dialog__description">{description}</div>
-          <div className="dialog__button">
-            {okButton && (
-              <Button onClick={onClickOkButton} color="blue">
-                {okButton}
-              </Button>
-            )}
-            {cancleButton && (
-              <Button onClick={onClickCancleButton} color="red">
-                {cancleButton}
-              </Button>
-            )}
-          </div>
+    <div className={classnames([useDim && styles.dark])}>
+      <div className={classnames([styles.dialog, className])}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.description}>{description}</div>
+        <div className={styles.button}>
+          {okButton && (
+            <Button onClick={onClickOkButton} color="blue">
+              {okButton}
+            </Button>
+          )}
+          {cancleButton && (
+            <Button onClick={onClickCancleButton} color="red">
+              {cancleButton}
+            </Button>
+          )}
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 

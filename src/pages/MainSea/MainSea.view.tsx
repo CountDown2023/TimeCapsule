@@ -1,5 +1,5 @@
-import IconButton from "components/common/IconButton";
-import Sea from "components/Sea";
+import IconButton from "../../components/common/IconButton";
+import Sea from "../../components/Sea";
 import { useState } from "react";
 import Dialog from "../../components/common/dialog";
 import Setting from "../../components/Setting";
