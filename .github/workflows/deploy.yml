@@ -42,7 +42,7 @@ jobs: # Job 설정
 
       - name: Deploy # Deploy to EC2
         run: aws deploy create-deployment
-          --aplication-name bongbong-practice
+          --application-name bongbong-practice
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name bongbong-deploy-groupName
           --s3-location bucket=bongbong-github-actions-tutorial,key=/build-fe.zip,bundleType=zip
