@@ -4,7 +4,7 @@ export const CapsuleApiUrls = {
   getCapsuleInfo: () => `${BASE_URL}/capsule/my`,
   getCapsuleDayInfo: (capsuleId: number) =>
     `${BASE_URL}/capsule/${capsuleId}/days`,
-  hasUnknownCapsule: () => `${BASE_URL}/`,
+  hasUnknownCapsule: () => `${BASE_URL}/capsule/floating`,
   postCapsule: () => `${BASE_URL}/capsule`,
 };
 
