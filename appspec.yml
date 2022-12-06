@@ -1,12 +1,14 @@
 version: 0.0
 os: linux
+
+files:
   - source: /
     destination: /home/ubuntu/deploy-fe
     overwrite: yes
 permissions:
   - object: /home/ubuntu/deploy-fe
-    owner: root
-    group: root
+    owner: ubuntu
+    group: ubuntu
     mode: 755
 hooks:
   AfterInstall:
