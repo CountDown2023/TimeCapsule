@@ -2,7 +2,7 @@ name: Deploy # Workflow 이름
 on: # Event 감지
   push:
     branches:
-      - develop # 브랜치의 푸쉬가 일어날 때 CI/CD를 진행하겠다는 뜻
+      - feature/bongbong/codedeploy-2 # 브랜치의 푸쉬가 일어날 때 CI/CD를 진행하겠다는 뜻
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -22,7 +22,7 @@ jobs:
           CI: ""
 
       - name: zip create
-        # zip 파일을 만듭니다(파일명은 자유, 대신 아래 workflow에 적을 파일명과 동일하게 맞춰주세요).
+        # zip 파일을 만듭니다 (파일명은 자유, 대신 아래 workflow에 적을 파일명과 동일하게 맞춰주세요).
         run: zip -qq -r ./build-fe.zip .
         shell: bash
 
