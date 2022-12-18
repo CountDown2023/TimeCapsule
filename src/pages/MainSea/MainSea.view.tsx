@@ -32,7 +32,7 @@ const MainSeaView = ({
     <div className="main-sea">
       <Sea />
       <div className="main-sea__button-container">
-        <IconButton alt="설정" onClick={setToggle} />
+        <IconButton alt="설정" onClick={setToggle} type="SETTING" />
         {hasCapsule ? (
           <IconButton alt="지도로 가기" onClick={onClickMap} />
         ) : (
