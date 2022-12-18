@@ -20,7 +20,7 @@ const IconButton = ({ type, onClick, className }: Props) => {
       className={classnames([styles.container, className])}
       onClick={onClick}
     >
-      {type === "SETTING" && <AiOutlineSetting size={40} />}
+      {type === "SETTING" && <AiOutlineSetting size={50} color="#ffffff" />}
       {type === "BACK" && <AiOutlineLeft size={30} />}
       {type === "SAVE" && <AiFillCheckCircle size={40} color="#C1FEFA" />}
     </div>
