@@ -26,8 +26,8 @@ const IconButton = ({ alt, type, onClick, className }: Props) => {
       {type === "SETTING" && <AiFillSetting size={50} color="#ffffff" />}
       {type === "BACK" && <AiOutlineLeft size={30} />}
       {type === "SAVE" && <AiFillCheckCircle size={40} color="#C1FEFA" />}
-      {type === "SEA" && <AiFillCompass size={50} color="#ffffff" />}
-      {type === "MAP" && <AiFillPushpin size={50} color="#ffffff" />}
+      {type === "MAP" && <AiFillCompass size={50} color="#ffffff" />}
+      {type === "SEA" && <AiFillPushpin size={50} color="#ffffff" />}
       {type === "PLUS" && <AiFillPlusCircle size={50} color="#ffffff" />}
     </div>
   );
