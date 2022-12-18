@@ -39,7 +39,7 @@ const MainSeaView = ({
           <IconButton
             alt="캡술 만들러 가기"
             onClick={onClickCapsule}
-            type="CAPSULE"
+            type="PLUS"
           />
         )}
       </div>
