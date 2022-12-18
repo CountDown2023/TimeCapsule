@@ -1,7 +1,9 @@
 import classnames from "classnames";
 import {
   AiFillCheckCircle,
+  AiFillCompass,
   AiFillPlusCircle,
+  AiFillPushpin,
   AiFillSetting,
   AiOutlineLeft,
 } from "react-icons/ai";
@@ -24,8 +26,8 @@ const IconButton = ({ alt, type, onClick, className }: Props) => {
       {type === "SETTING" && <AiFillSetting size={50} color="#ffffff" />}
       {type === "BACK" && <AiOutlineLeft size={30} />}
       {type === "SAVE" && <AiFillCheckCircle size={40} color="#C1FEFA" />}
-      {type === "SEA" && alt}
-      {type === "MAP" && alt}
+      {type === "SEA" && <AiFillCompass size={50} color="#ffffff" />}
+      {type === "MAP" && <AiFillPushpin size={50} color="#ffffff" />}
       {type === "PLUS" && <AiFillPlusCircle size={50} color="#ffffff" />}
     </div>
   );
