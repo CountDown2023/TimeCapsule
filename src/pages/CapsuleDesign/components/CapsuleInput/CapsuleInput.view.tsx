@@ -1,5 +1,6 @@
 import { LetterPapers } from "../../../../pages/CapsuleDesign/constants";
 import React, { useState } from "react";
+import IconButton from "components/common/IconButton";
 import styles from "./CapsuleInput.module.scss";
 
 export type Form = {
@@ -34,14 +35,14 @@ const CapsuleInputView = ({ letterPaper, onSubmit }: Props) => {
 
   return (
     <>
-      <button
+      <IconButton
         className={styles.submitButton}
+        alt="작성완료"
         onClick={() => {
           onSubmit({ ...form, content: contentList });
         }}
-      >
-        작성완료
-      </button>
+        type="SAVE"
+      />
 
       <div className={styles.form}>
         <img className={styles.paper} src={LetterPapers[letterPaper]} alt="" />
