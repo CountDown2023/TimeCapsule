@@ -17,7 +17,12 @@ const useMainSea = () => {
   return {
     isLoading: isUnknownCapsuleLoading || isCapsuleLoading,
     isError: isUnknownCapsuleError || isCapsuleError,
-    unknownCapsule,
+    unknownCapsule: unknownCapsule
+      ? {
+          title: unknownCapsule.name,
+          contents: unknownCapsule.goals,
+        }
+      : undefined,
     hasCapsule: capsule ? true : false,
   };
 };
