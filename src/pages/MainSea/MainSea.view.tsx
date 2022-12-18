@@ -4,7 +4,7 @@ import { useState } from "react";
 import Dialog from "../../components/common/dialog";
 import Setting from "../../components/Setting";
 import useDiscloser from "../../hooks/useDiscloser";
-import "./MainSea.scss";
+import styles from "./MainSea.module.scss";
 
 export interface Props {
   unknownCapsule?: string;
@@ -29,9 +29,9 @@ const MainSeaView = ({
   const { isOpen, setToggle } = useDiscloser();
 
   return (
-    <div className="main-sea">
+    <div>
       <Sea />
-      <div className="main-sea__button-container">
+      <div className={styles.buttonContainer}>
         <IconButton alt="설정" onClick={setToggle} type="SETTING" />
         {hasCapsule ? (
           <IconButton alt="지도로 가기" onClick={onClickMap} />
