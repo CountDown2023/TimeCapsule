@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
 import Map from "components/Map";
 import styles from "./MainMap.module.scss";
+import { SpinnerTop } from "static/logo";
 
 export interface Props {
   days?: number;
@@ -14,6 +15,8 @@ const MainMapView = ({ days }: Props) => {
 
   return (
     <>
+      {/* TODO: 병이미지 재 확인 필요 */}
+      <img src={SpinnerTop} alt="" className={styles.bottle} />
       <Map />
       <div className={styles.buttonContainer}>
         <IconButton
