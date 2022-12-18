@@ -29,7 +29,7 @@ const MainSeaView = ({
   const { isOpen, setToggle } = useDiscloser();
 
   return (
-    <div>
+    <>
       <Sea />
       <div className={styles.buttonContainer}>
         <IconButton alt="설정" onClick={setToggle} type="SETTING" />
@@ -77,7 +77,7 @@ const MainSeaView = ({
         }}
       />
       <Setting isShow={isOpen} onClose={setToggle} />
-    </div>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ const MainMapView = ({ days }: Props) => {
   const isShow = days ? true : false;
 
   return (
-    <>
+    <div className={styles.container}>
       {/* TODO: 병이미지 재 확인 필요 */}
       <img src={SpinnerTop} alt="" className={styles.bottle} />
       <Map />
@@ -32,7 +32,7 @@ const MainMapView = ({ days }: Props) => {
         title={`${days}일 째 여행 중`}
         className={styles.dialog}
       />
-    </>
+    </div>
   );
 };
 
