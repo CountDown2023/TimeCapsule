@@ -1,7 +1,8 @@
 import IconButton from "../../components/common/IconButton";
 import { useNavigate } from "react-router-dom";
 import Dialog from "../../components/common/dialog";
-import "./MainMap.scss";
+import Map from "components/Map";
+import styles from "./MainMap.module.scss";
 
 export interface Props {
   days?: number;
@@ -13,7 +14,8 @@ const MainMapView = ({ days }: Props) => {
 
   return (
     <>
-      <div className="main-map__button-container">
+      <Map />
+      <div className={styles.buttonContainer}>
         <IconButton
           alt="바다로 가기"
           onClick={() => {
@@ -21,7 +23,11 @@ const MainMapView = ({ days }: Props) => {
           }}
         />
       </div>
-      <Dialog isShow={isShow} title={`${days}일 째 여행 중`} />
+      <Dialog
+        isShow={isShow}
+        title={`${days}일 째 여행 중`}
+        className={styles.dialog}
+      />
     </>
   );
 };
