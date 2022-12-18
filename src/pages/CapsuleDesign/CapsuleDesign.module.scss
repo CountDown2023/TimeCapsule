@@ -1,13 +1,13 @@
 .container {
   background-color: #DADADA;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 60px);
   width: 100%;
-  padding: 30px 0 0;
+  padding: 60px 0 0;
   overflow: hidden;
 }
 
 .backButton {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10px;
+  top: 10px;
 }

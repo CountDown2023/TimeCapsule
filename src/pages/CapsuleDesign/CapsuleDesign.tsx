@@ -6,6 +6,7 @@ import DesignNav from "./components/DesignNav";
 import Dialog from "components/common/dialog";
 import styles from "./CapsuleDesign.module.scss";
 import { useNavigate } from "react-router-dom";
+import IconButton from "components/common/IconButton";
 
 const CapsuleDesign = () => {
   const navigation = useNavigate();
@@ -14,12 +15,12 @@ const CapsuleDesign = () => {
 
   return (
     <CapsuleContext>
-      <button
+      <IconButton
         className={styles.backButton}
+        alt="메인으로 가기"
         onClick={() => setIsShowGoMainDialog(true)}
-      >
-        메인으로 가기
-      </button>
+        type="BACK"
+      />
 
       <div className={styles.container}>
         {page === 0 && <Design />}
