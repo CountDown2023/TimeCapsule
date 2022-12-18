@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/common/button";
+import IconButton from "../IconButton";
 
-import "./InputForm.css";
+import styles from "./InputForm.module.css";
 
 export interface InputFormProps {
   showBackBtn?: boolean;
@@ -23,10 +24,17 @@ const InputForm = ({
   const navigate = useNavigate();
 
   return (
-    <div className="page-wrap">
-      {showBackBtn && <Button onClick={() => navigate(-1)}>{`<`}</Button>}
+    <div className={styles.container}>
+      {showBackBtn && (
+        <IconButton
+          className={styles.backButton}
+          type="BACK"
+          onClick={() => navigate(-1)}
+        />
+      )}
+
       {children}
-      <div className="btn-wrap">
+      <div className={styles.buttonContainer}>
         {/* TODO: isDisable 처리용 로직 필요 */}
         <Button
           size="bottom"
