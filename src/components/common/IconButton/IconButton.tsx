@@ -16,8 +16,7 @@ interface Props {
   className?: string;
 }
 
-const IconButton = ({ alt, type, onClick, className }: Props) => {
-  // TODO: Icon 타입 추가하기
+const IconButton = ({ type, onClick, className }: Props) => {
   return (
     <div
       className={classnames([styles.container, className])}
