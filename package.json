@@ -78,5 +78,5 @@
     "msw": "^0.39.2",
     "webpack": "^5.74.0"
   },
-  "proxy": "http://www.na-vi.xyz/"
+  "proxy": "http://www.na-vi.xyz:8080"
 }
