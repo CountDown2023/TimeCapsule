@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import DesignItem from "../DesignItem";
 import DesignSettings from "../DesignSettings";
-import { Bottle01 } from "../../../../assets/images/bottle";
+import {
+  Bottle01,
+  Bottle02,
+  Bottle03,
+  Bottle04,
+  Bottle05,
+  Bottle06,
+  Bottle07,
+  Bottle08,
+} from "../../../../assets/images/bottle";
 import { Light } from "../../../../assets/images/palette";
 import {
   useCapsuleDispatch,
@@ -62,13 +71,13 @@ const Design = () => {
   const ChoiceComponentList = [BottleItem(), ColorItem(), PaperItem()];
   const PreviewBottleList = [
     <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
-    <Bottle01 fill={BottlesColors[bottleColor]} />,
+    <Bottle02 fill={BottlesColors[bottleColor]} />,
+    <Bottle03 fill={BottlesColors[bottleColor]} />,
+    <Bottle04 fill={BottlesColors[bottleColor]} />,
+    <Bottle05 fill={BottlesColors[bottleColor]} />,
+    <Bottle06 fill={BottlesColors[bottleColor]} />,
+    <Bottle07 fill={BottlesColors[bottleColor]} />,
+    <Bottle08 fill={BottlesColors[bottleColor]} />,
   ];
 
   return (
