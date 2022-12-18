@@ -8,6 +8,7 @@ interface InputTxtProps extends React.HTMLProps<HTMLInputElement> {
   widthSize?: "small" | "medium" | "large";
   mode?: "normal" | "warning" | "focus";
   placeholder: string;
+  warningMsg?: string;
   onFocus?: () => void;
   onChangeValue: (val: string) => void;
 }
@@ -16,6 +17,7 @@ const InputText = ({
   type = "text",
   widthSize = "medium",
   placeholder = "placeholder",
+  warningMsg = "",
   inputId="",
   mode,
   onFocus,
@@ -38,6 +40,9 @@ const InputText = ({
         placeholder={mode !== "normal" ? "" : placeholder}
         onChange={(e) => onChangeValue(e.target.value)}
       />
+      {warningMsg !== "" && (
+        <div>{warningMsg}</div>
+      )}
     </>
   );
 };
