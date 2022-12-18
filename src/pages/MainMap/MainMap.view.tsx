@@ -24,6 +24,7 @@ const MainMapView = ({ days }: Props) => {
           onClick={() => {
             navigate("/main/sea");
           }}
+          type="SEA"
         />
       </div>
       <Dialog

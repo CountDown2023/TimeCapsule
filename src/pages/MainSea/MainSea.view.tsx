@@ -34,9 +34,13 @@ const MainSeaView = ({
       <div className={styles.buttonContainer}>
         <IconButton alt="설정" onClick={setToggle} type="SETTING" />
         {hasCapsule ? (
-          <IconButton alt="지도로 가기" onClick={onClickMap} />
+          <IconButton alt="지도로 가기" onClick={onClickMap} type="MAP" />
         ) : (
-          <IconButton alt="캡술 만들러 가기" onClick={onClickCapsule} />
+          <IconButton
+            alt="캡술 만들러 가기"
+            onClick={onClickCapsule}
+            type="CAPSULE"
+          />
         )}
       </div>
       <Dialog

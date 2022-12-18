@@ -8,12 +8,12 @@ import styles from "./IconButton.module.scss";
 
 interface Props {
   alt?: string;
-  type?: "SETTING" | "BACK" | "SAVE";
+  type?: "SETTING" | "BACK" | "SAVE" | "SEA" | "MAP" | "CAPSULE";
   onClick: () => void;
   className?: string;
 }
 
-const IconButton = ({ type, onClick, className }: Props) => {
+const IconButton = ({ alt, type, onClick, className }: Props) => {
   // TODO: Icon 타입 추가하기
   return (
     <div
@@ -23,6 +23,9 @@ const IconButton = ({ type, onClick, className }: Props) => {
       {type === "SETTING" && <AiFillSetting size={50} color="#ffffff" />}
       {type === "BACK" && <AiOutlineLeft size={30} />}
       {type === "SAVE" && <AiFillCheckCircle size={40} color="#C1FEFA" />}
+      {type === "SEA" && alt}
+      {type === "MAP" && alt}
+      {type === "CAPSULE" && alt}
     </div>
   );
 };
