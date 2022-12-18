@@ -7,70 +7,68 @@
   z-index: -10;
 }
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e5d5b1;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  & > img {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.sky {
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .sea {
-  .container {
-    width: 100vw;
-    height: 100vh;
-    background-color: #e5d5b1;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  animation: upDown 8s ease-in-out infinite;
+}
 
-    & > img {
-      margin: 0;
-      padding: 0;
-    }
-  }
+.bubbleCenter {
+  width: 17%;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  transform:translateX(-50%);
+}
 
-  .sky {
-    width: 100%;
-    z-index: 1;
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.bubbleAll{
+  width: 120%;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  animation: leftRight 5s ease-in-out infinite;
+}
 
-  .sea {
-    width: 100%;
-    position: absolute;
-    left: 0px;
-    animation: upDown 8s ease-in-out infinite;
-  }
+.cloudLeft{
+  width: 60%;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  transform: translate(-40%, -100%);
+  animation: size 10s ease-in-out infinite;
+}
 
-  .bubbleCenter {
-    width: 17%;
-    z-index: 1;
-    position: absolute;
-    left: 50%;
-    transform:translateX(-50%);
-  }
-
-  .bubbleAll{
-    width: 120%;
-    z-index: 1;
-    position: absolute;
-    left: 50%;
-    animation: leftRight 5s ease-in-out infinite;
-  }
-
-  .cloudLeft{
-    width: 60%;
-    z-index: 2;
-    position: absolute;
-    left: 0px;
-    transform: translate(-40%, -100%);
-    animation: size 10s ease-in-out infinite;
-  }
-
-  .cloudRight{
-    width: 60%;
-    z-index: 2;
-    position: absolute;
-    right: 0px;
-    transform: translate(40%, -100%);
-    animation: size 10s ease-in-out infinite;
-  }
+.cloudRight{
+  width: 60%;
+  z-index: 2;
+  position: absolute;
+  right: 0px;
+  transform: translate(40%, -100%);
+  animation: size 10s ease-in-out infinite;
 }
 
 @keyframes leftRight {
