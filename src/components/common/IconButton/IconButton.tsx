@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import {
   AiFillCheckCircle,
+  AiFillSetting,
   AiOutlineLeft,
-  AiOutlineSetting,
 } from "react-icons/ai";
 import styles from "./IconButton.module.scss";
 
@@ -20,7 +20,7 @@ const IconButton = ({ type, onClick, className }: Props) => {
       className={classnames([styles.container, className])}
       onClick={onClick}
     >
-      {type === "SETTING" && <AiOutlineSetting size={50} color="#ffffff" />}
+      {type === "SETTING" && <AiFillSetting size={50} color="#ffffff" />}
       {type === "BACK" && <AiOutlineLeft size={30} />}
       {type === "SAVE" && <AiFillCheckCircle size={40} color="#C1FEFA" />}
     </div>
