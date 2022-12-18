@@ -2,20 +2,28 @@ import { useCapsuleState } from "../../../../hooks/capsuleStore";
 import React, { useState } from "react";
 import Dialog from "../../../../components/common/dialog";
 import CapsuleInputView from "./CapsuleInput.view";
+import { postCapsule } from "api/capsule";
 
 const CapsuleInput = () => {
   const [isShowSuccessDialog, setIsShowSuccessDialog] =
     useState<boolean>(false);
-  const { letterPaper } = useCapsuleState();
+  const { letterPaper, bottle, bottleColor } = useCapsuleState();
 
   return (
     <>
       <CapsuleInputView
         letterPaper={letterPaper}
-        onSubmit={(form) => {
+        onSubmit={({ title, mySelf, content }) => {
           setIsShowSuccessDialog(true);
-          // TOOD: form API 작성
-          console.log(form);
+
+          postCapsule({
+            name: title,
+            bottle_choice: bottle,
+            bottle_color: bottleColor,
+            letter_paper: letterPaper,
+            content: mySelf,
+            goals: content,
+          });
         }}
       />
 

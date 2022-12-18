@@ -1,5 +1,11 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
+type ErrorResponse = {
+  errorCode: string;
+  errorMessage?: string;
+  code: string;
+};
+
 /**
  * 토큰이 필요한 요청인데 토큰이 없는 경우,
  * 잘못된 요청이라는 안내 메세지 노출
@@ -27,7 +33,7 @@ const responseOnFullFilled = async (
   // TODO: 토큰 새로 발급이 필요한 경우 처리 로직 케이스 추가
   // 서버에서 내려오는 응답값 확인 후 수정 예정
   if (response.data === "SUCCESS") {
-    return { ...response, data: response.data.data };
+    return { ...response, data: response.data };
   } else {
     throw new AxiosError(
       response.data.error.message,
@@ -46,9 +52,34 @@ const responseOnFullFilled = async (
  *
  * GlobalErrorBoundary에서 처리할 에러 발생
  */
-const responseOnRejected = async (error: AxiosError): Promise<AxiosError> => {
-  // TODO: 에러 처리 로직 작성
-  return error;
+const responseOnRejected = async (
+  error: AxiosError
+): Promise<AxiosError<ErrorResponse>> => {
+  return new Promise((_, reject) => {
+    const { code } = error;
+
+    if (code) {
+      switch (code) {
+        case "ERR_BAD_REQUEST":
+        case "INVALID_REQUEST":
+          reject(new Error("잘못된 요청입니다."));
+          return;
+        case "DUPLICATED_USER":
+          reject(new Error("중복된 이메일 혹은 닉네임이 존재합니다."));
+          return;
+        case "AUTHENTICATION_FAILED":
+          reject(new Error("다시 로그인해주세요."));
+          return;
+        case "ENTRY_NOT_FOUND":
+          reject(new Error("해당 항목 조회에 실패했습니다."));
+          return;
+        case "CAPSULE_ALREADY_EXISTS":
+          reject(new Error("이미 캡슐이 존재합니다."));
+          return;
+      }
+      reject(new Error("알 수 없는 에러가 발생했습니다."));
+    }
+  });
 };
 
 export function initAxios() {

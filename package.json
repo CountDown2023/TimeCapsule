@@ -77,5 +77,6 @@
     "@storybook/testing-library": "^0.0.9",
     "msw": "^0.39.2",
     "webpack": "^5.74.0"
-  }
+  },
+  "proxy": "http://www.na-vi.xyz/"
 }
