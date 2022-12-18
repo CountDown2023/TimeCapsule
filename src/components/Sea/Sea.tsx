@@ -2,7 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import SeaDayView from "./SeaDay";
 import SeaNightView from "./SeaNight";
-import "./Sea.scss";
+import styles from "./Sea.module.scss";
 
 const Sea = () => {
   const [mode, setMode] = useState<"DAY" | "NIGHT">("DAY");
@@ -17,7 +17,7 @@ const Sea = () => {
   }, []);
 
   return (
-    <div className="sea__fixed">
+    <div className={styles.fixed}>
       {mode === "DAY" ? <SeaDayView /> : <SeaNightView />}
     </div>
   );
