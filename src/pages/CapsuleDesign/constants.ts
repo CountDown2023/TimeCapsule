@@ -1,4 +1,13 @@
-import { Bottle01Src } from "../../assets/images/bottle";
+import {
+  Bottle01Src,
+  Bottle02Src,
+  Bottle03Src,
+  Bottle04Src,
+  Bottle05Src,
+  Bottle06Src,
+  Bottle07Src,
+  Bottle08Src,
+} from "../../assets/images/bottle";
 import {
   CirclePaper,
   CloudPaper,
@@ -13,13 +22,13 @@ import {
 // TODO: 병 이미지 수정
 export const Bottles: string[] = [
   Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
-  Bottle01Src,
+  Bottle02Src,
+  Bottle03Src,
+  Bottle04Src,
+  Bottle05Src,
+  Bottle06Src,
+  Bottle07Src,
+  Bottle08Src,
 ];
 
 export const BottlesColors: string[] = [

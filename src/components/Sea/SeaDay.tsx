@@ -7,7 +7,7 @@ import {
   CloudDayLeft,
   CloudDayRight,
 } from "../../assets/images/sea";
-import "./Sea.scss";
+import styles from "./Sea.module.scss";
 
 const SeaDayView = () => {
   const skyRef = useRef<HTMLImageElement>(null);
@@ -30,34 +30,34 @@ const SeaDayView = () => {
   };
 
   return (
-    <div className="sea__container">
+    <div className={styles.container}>
       <img
-        className="sea__sea"
+        className={styles.sea}
         src={SeaDay}
         alt=""
         style={{ top: `${top}px` }}
       />
       <img
-        className="sea__bubble__center"
+        className={styles.bubbleCenter}
         src={BubbleCenter}
         alt=""
         style={{ top: `${top}px` }}
       />
       <img
-        className="sea__bubble__all"
+        className={styles.bubbleAll}
         src={BubbleAll}
         alt=""
         style={{ top: `${top}px` }}
       />
-      <img ref={skyRef} className="sea__sky" src={SkyDay} alt="" />
+      <img ref={skyRef} className={styles.sky} src={SkyDay} alt="" />
       <img
-        className="sea__cloud__left"
+        className={styles.cloudLeft}
         src={CloudDayLeft}
         alt=""
         style={{ top: `${top}px` }}
       />
       <img
-        className="sea__cloud__right"
+        className={styles.cloudRight}
         src={CloudDayRight}
         alt=""
         style={{ top: `${top}px` }}
