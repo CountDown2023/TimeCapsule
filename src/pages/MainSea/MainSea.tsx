@@ -18,7 +18,7 @@ const MainSea = () => {
 
   return (
     <MainSeaView
-      unknownCapsule={unknownCapsule ? "" : ""}
+      unknownCapsule={unknownCapsule}
       hasCapsule={hasCapsule}
       showDescription
       onClickMap={() => navigate("/main/map")}

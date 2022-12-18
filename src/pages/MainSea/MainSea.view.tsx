@@ -7,7 +7,7 @@ import useDiscloser from "../../hooks/useDiscloser";
 import styles from "./MainSea.module.scss";
 
 export interface Props {
-  unknownCapsule?: string;
+  unknownCapsule?: { title: string; contents: string[] };
   hasCapsule: boolean;
   showDescription: boolean;
   onClickMap: () => void;
@@ -26,13 +26,14 @@ const MainSeaView = ({
   );
   const [isShowDescription, setIsShowDescription] =
     useState<boolean>(showDescription);
-  const { isOpen, setToggle } = useDiscloser();
+  const { isOpen: showSetting, setToggle: setToggleSetting } = useDiscloser();
+  const { isOpen: showCapsule, setToggle: setToggleCapsules } = useDiscloser();
 
   return (
     <>
       <Sea />
       <div className={styles.buttonContainer}>
-        <IconButton alt="설정" onClick={setToggle} type="SETTING" />
+        <IconButton alt="설정" onClick={setToggleSetting} type="SETTING" />
         {hasCapsule ? (
           <IconButton alt="지도로 가기" onClick={onClickMap} type="MAP" />
         ) : (
@@ -70,13 +71,20 @@ const MainSeaView = ({
         cancleButton="아니요, 괜찮아요!"
         onClickOkButton={() => {
           setIsShowUnknownCapsule(false);
-          // TODO: 화면 전환? 아니면 모달?
+          setToggleCapsules();
         }}
         onClickCancleButton={() => {
           setIsShowUnknownCapsule(false);
         }}
       />
-      <Setting isShow={isOpen} onClose={setToggle} />
+      <Setting isShow={showSetting} onClose={setToggleSetting} />
+      <Dialog
+        onClickCancleButton={setToggleCapsules}
+        cancleButton="닫기"
+        isShow={showCapsule}
+        title={unknownCapsule?.title}
+        description={unknownCapsule?.contents?.join(", ")}
+      />
     </>
   );
 };
