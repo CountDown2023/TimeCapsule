@@ -1,9 +1,13 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 type ErrorResponse = {
-  errorCode: string;
-  errorMessage?: string;
-  code: string;
+  // errorCode: string;
+  // errorMessage?: string;
+  // code: string;
+
+  message: string,
+  code: string,
+  status: number
 };
 
 /**
@@ -59,9 +63,11 @@ const responseOnRejected = async (
   error: AxiosError
 ): Promise<AxiosError<ErrorResponse>> => {
   return new Promise((_, reject) => {
-    const { code } = error;
+    const { code, response } = error;
+    const data: ErrorResponse = response?.data as unknown as ErrorResponse;
 
     if (code) {
+      if(data !== null && data.code !== undefined) reject(data); 
       switch (code) {
         case "ERR_BAD_REQUEST":
         case "INVALID_REQUEST":
