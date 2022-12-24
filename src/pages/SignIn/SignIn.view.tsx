@@ -6,6 +6,7 @@ import Button from "../../components/common/button";
 import InputForm from "../../components/common/InputForm";
 import Icon from "components/common/Icon";
 import { SignInForm } from "./SignIn";
+import { InputState } from "./type/SignInType"
 
 import "./signIn.css";
 
@@ -14,36 +15,36 @@ export interface Props {
   clickSubmit: (data: SignInForm) => void;
 }
 
-export type SignInValidation = {
-  nicknameValidation: boolean;
-  passwordValidation: boolean;
-}
-
 const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
   const navigate = useNavigate();
 
-  const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(
-    isLoggedIn ? "normal" : "warning"
-  );
   const [stateValues, setStateValues] = useState<SignInForm>({
     nickname: "",
     password: "",
   });
-  const [warningMsg, setWarningMsg] = useState<string>("");
-  const [inputValidation, setInputValidation] = useState<SignInValidation>({
-    nicknameValidation: false,
-    passwordValidation: false
+  const [nicknameState, setNicknameState] = useState<InputState>({
+    state: isLoggedIn? "normal":"warning",
+    validation: isLoggedIn? false: true,
+    warningMsg: ""
   });
-  const [buttonStatus, setButtonStatus] = useState<boolean>(true);
+  const [passwordState, setPasswordState] = useState<InputState>({
+    state: isLoggedIn? "normal":"warning",
+    validation: isLoggedIn? true: false,
+    warningMsg: ""
+  })
+  const [isDisableBtn, setIsDisableBtn] = useState<boolean>(true);
 
   useEffect(() => {
-    setModeValue(isLoggedIn ? "normal" : "warning");
-  }, [isLoggedIn]);
+    setIsDisableBtn((nicknameState.validation && passwordState.validation)? false:true)
+    console.log("btn : ", isDisableBtn);
+  }, [nicknameState, passwordState]);
 
   useEffect(() => {
-    setButtonStatus((inputValidation.nicknameValidation && inputValidation.passwordValidation)? false:true)
-    console.log(buttonStatus);
-  }, [inputValidation]);
+    if(!isLoggedIn) {
+      setNicknameState({...nicknameState, state: "warning", validation: false})
+      setPasswordState({...passwordState, state: "warning", validation: false})
+    }
+  }, [isLoggedIn])
 
   const nicknameValid = (data:string) => {
     // 최소 2 ~ 최대 10자 이하
@@ -52,7 +53,7 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
   }
   const passwordValid = (data:string) => {
     // 영문, 숫자, 특수기호 포함 8~30자 이하
-    const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/;
+    const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"])[A-Za-z\d\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]{8,30}$/;
     return regex.test(data);
   }
   const handleButtonEvent = () => {
@@ -62,7 +63,7 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
   return (
     <InputForm
       submitButtonText="로그인"
-      disabledSubmitButton={buttonStatus}
+      disabledSubmitButton={isDisableBtn}
       onSubmit={handleButtonEvent}
     >
       <div className="signIn-wrap">
@@ -72,53 +73,56 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
           </div>
         </div>
         <div className="input-comp-wrap">
-          <div
-            onFocus={() => setModeValue("focus")}
-            onBlur={() => setModeValue("normal")}
-          >
-            <InputText
-              type="text"
-              inputId="signInNickNm"
-              mode={modeValue}
-              widthSize="medium"
-              placeholder="닉네임"
-              warningMsg={modeValue === "warning" && (warningMsg !== "" || !inputValidation.nicknameValidation)? warningMsg : ""}
-              onChangeValue={(value: string) => {
-                //TODO: 닉네임 중복체크 로직 구현
-                setInputValidation({...inputValidation, nicknameValidation: nicknameValid(value)});
-                if(!nicknameValid(value)) {
-                  setModeValue("warning");
-                  setWarningMsg("닉네임은 최소 2자 ~ 최대 10자 이내로 작성해주세요.");
-                }else {
-                  setModeValue("focus");
-                  setWarningMsg("");
-                }
-                setStateValues({ ...stateValues, nickname: value })
+          <InputText
+            type="text"
+            inputId="signInNickNm"
+            mode={nicknameState.state}
+            widthSize="medium"
+            placeholder="닉네임"
+            warningMsg={nicknameState.state === "warning" && (nicknameState.warningMsg !== "" || !nicknameState.validation)? nicknameState.warningMsg : ""}
+            onFocus={() => setNicknameState({...nicknameState, state: "focus"})}
+            onBlur={() => setNicknameState({...nicknameState, state: "normal"})}
+            onChangeValue={(value: string) => {
+              //TODO: 닉네임 중복체크 로직 구현
+              var valid = nicknameValid(value);
+              var mode:"normal"|"focus"|"warning" = "normal";
+              var warningMsg = "";
+              console.log("nickname validation : ", nicknameValid(value));
+              if(!valid) {
+                mode = "warning";
+                warningMsg = "닉네임은 최소 2자 ~ 최대 10자 이내로 작성해주세요.";
+              }else {
+                mode = "focus";
               }
+              setNicknameState({state: mode, validation: valid, warningMsg: warningMsg});
+              setStateValues({ ...stateValues, nickname: value });
+            }
+            }
+          />
+          <InputText
+            type="password"
+            inputId="signInPw"
+            mode={passwordState.state}
+            widthSize="medium"
+            placeholder="비밀번호"
+            warningMsg={passwordState.state === "warning" && ((passwordState.warningMsg !== "" || !passwordState.validation))? passwordState.warningMsg : ""}
+            onFocus={() => setPasswordState({...passwordState, state: "focus"})}
+            onBlur={() => setPasswordState({...passwordState, state: "normal"})}
+            onChangeValue={(value: string) =>{
+              var valid = passwordValid(value);
+              var warningMsg = "";
+              var mode:"normal"|"focus"|"warning" = "normal";
+              console.log("password validation : ", passwordValid(value));
+              if(!valid) {
+                mode = "warning";
+                warningMsg = "비밀번호는 영문/숫자/특수기호를 포함하여 최소 8자 ~ 30자 이내로 작성해주세요.";
+              }else {
+                mode = "focus";
               }
-            />
-            <InputText
-              type="password"
-              inputId="signInPw"
-              mode={modeValue}
-              widthSize="medium"
-              placeholder="비밀번호"
-              warningMsg={modeValue === "warning" && ((warningMsg !== "" || !inputValidation.passwordValidation))? warningMsg : ""}
-              onChangeValue={(value: string) =>{
-                setInputValidation({...inputValidation, passwordValidation: passwordValid(value)});
-                if(!passwordValid(value)) {
-                  setModeValue("warning");
-                  setWarningMsg("비밀번호는 영문/숫자/특수기호를 포함하여 최소 8자 ~ 30자 이내로 작성해주세요.");
-                }else {
-                  setModeValue("focus");
-                  setWarningMsg("");
-                }
-                setStateValues({ ...stateValues, password: value })
-              }
-                
-              }
-            />
-          </div>
+              setPasswordState({state: mode, validation: valid, warningMsg: warningMsg});
+              setStateValues({ ...stateValues, password: value });
+            }}
+          />
           <Button size="medium" onClick={() => navigate("/user/password")}>
             비밀번호 찾기
           </Button>
