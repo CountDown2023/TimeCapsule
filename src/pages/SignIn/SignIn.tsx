@@ -1,6 +1,9 @@
 import { signIn } from "api/user";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignInView from "./SignIn.view";
+
+import { HTTP_STATUS } from "configs/axios";
 
 export type SignInForm = {
   nickname: string, 
@@ -15,26 +18,21 @@ export type SignInError = {
 
 const SignIn = () => {
   const navigate = useNavigate();  
-
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  
   const clickSubmit = (data: SignInForm) => {
-    //TODO: 클릭 이벤트 적용하기
-    // console.log("로그인 테스트");
-    // console.log("email : ", data.nickname);
-    // console.log("password: ", data.password);
-
     signIn(data)
     .then((res) => {
       navigate(`/main/sea`);
     })
     .catch((err:SignInError) => {
-      //TODO: error 처리 로직 구현
-      // console.log("err : ", err);
-      return <>에러가 발생했습니다. 다시 시도해주세요.</>
+      setIsLoggedIn(false);
+      if(err.status === (HTTP_STATUS.NOT_FOUND || HTTP_STATUS.UNAUTHORIZED)) alert("닉네임 또는 비밀번호가 일치하지 않습니다. 로그인 정보를 다시 확인해주세요.")
     })
   }
 
-  //TODO: isLoggedIn 값 변경 필요
-  return <SignInView isLoggedIn ={true} clickSubmit={clickSubmit}/>
+  return <SignInView isLoggedIn ={isLoggedIn} clickSubmit={clickSubmit}/>
 };
 
 export default SignIn;
