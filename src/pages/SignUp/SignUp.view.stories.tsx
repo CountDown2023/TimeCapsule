@@ -14,17 +14,17 @@ const Template: Story<SignUpProps> = (args) => <SignUpView {...args}/>;
 
 export const 기본 = Template.bind({});
 기본.args = {
-  isJoined : true
+  isError: false,
 };
 
 export const 텍스트창_포커스 = Template.bind({});
 텍스트창_포커스.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const loginButton = await canvas.getByRole('textbox');
+  const loginButton = await canvas.getByRole("textbox");
   await userEvent.click(loginButton);
 };
 
 export const 회원가입_실패 = Template.bind({});
 회원가입_실패.args = {
-  isJoined : false
+  isError: true,
 };

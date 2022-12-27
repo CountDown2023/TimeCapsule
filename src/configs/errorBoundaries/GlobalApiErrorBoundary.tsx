@@ -12,17 +12,17 @@ type Props = React.PropsWithChildren<Record<string, unknown>>;
 const FallbackComponent = ({ error }: FallbackProps) => {
   // TODO: error 객체의 종류를 구분하여 각 에러 상태에 맞는 화면을 return
   // 주로 http 응답 코드별 에러 안내 화면을 구분
-  alert(error.message);
+  console.log("GlobalApiErrorBoundary", error);
 
-  return <>다시 시도해주세요.</>
+  return <>다시 시도해주세요.</>;
 };
 
-  const GlobalApiErrorBoundary = ({ children }: Props) => {
-    return (
-      <ErrorBoundary FallbackComponent={FallbackComponent}>
-        {children}
-      </ErrorBoundary>
-    );
-  };
+const GlobalApiErrorBoundary = ({ children }: Props) => {
+  return (
+    <ErrorBoundary FallbackComponent={FallbackComponent}>
+      {children}
+    </ErrorBoundary>
+  );
+};
 
 export default GlobalApiErrorBoundary;

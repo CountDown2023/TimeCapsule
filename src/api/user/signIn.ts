@@ -14,11 +14,5 @@ export type SignInResponse = {
 
 export const signIn = (data: SignInBody) => {
   console.log("로그인 정보 : ", data.nickname, ", ", data.password);
-  return resultData<SignInResponse>(
-    axios.post(UserApiUrls.signin(), data)
-  )
-  .then((res) => {
-    const accessToken = res.access_token;
-    axios.defaults.headers.common['Authorization'] = `${accessToken}`;
-  })
-}
+  return resultData<SignInResponse>(axios.post(UserApiUrls.signin(), data));
+};

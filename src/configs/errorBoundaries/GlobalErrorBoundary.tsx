@@ -14,7 +14,7 @@ const GlobalErrorBoundary = ({ children }: Props) => {
   const FallbackComponent = ({ error }: FallbackProps) => {
     // TODO: error 객체의 종류를 구분하여 각 에러 상태에 맞는 화면을 return
     // API 요청 에러 외의 에러 안내 화면을 구분
-    alert(error.message);
+    console.log("GlobalErrorBoundary", error);
 
     return <>알 수 없는 에러가 발생하였습니다.</>;
   };
