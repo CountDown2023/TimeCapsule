@@ -35,6 +35,12 @@ const responseOnFullFilled = async (
   response: AxiosResponse
 ): Promise<AxiosResponse> => {
   console.log("API SUCCESS", response);
+
+  if (response.config?.url === "/api/member/login") {
+    localStorage.setItem("accessToken", response?.data?.["access_token"]);
+    localStorage.setItem("refreshToken", response?.data?.["refresh_token"]);
+  }
+
   return response;
 };
 
@@ -51,6 +57,12 @@ const responseOnRejected = async (
   console.log("API ERROR", error);
 
   return new Promise((_, reject) => {
+    if (error.response?.data?.status === 401) {
+      alert("다시 로그인해주세요.");
+      window.location.href = "/user/signIn";
+      return;
+    }
+
     if (error.code) {
       switch (error.code) {
         case "ERR_BAD_REQUEST":
@@ -59,15 +71,17 @@ const responseOnRejected = async (
         case "AUTHENTICATION_FAILED":
         case "ENTRY_NOT_FOUND":
         case "CAPSULE_ALREADY_EXISTS":
-          reject(new AxiosError(error.response?.data.message));
-          return;
+          return reject(new AxiosError(error.response?.data.message));
       }
     }
-    return new AxiosError("UNKNOWN_ERROR");
+    return reject(new AxiosError("UNKNOWN_ERROR"));
   });
 };
 
 export function initAxios() {
+  const accessToken = localStorage.getItem("accessToken");
+  axios.defaults.headers.common["Authorization"] = accessToken;
+
   axios.interceptors.request.use(requestOnFullFilled);
   axios.interceptors.response.use(responseOnFullFilled, responseOnRejected);
 }
