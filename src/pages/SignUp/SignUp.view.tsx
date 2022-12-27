@@ -1,18 +1,18 @@
 import InputText from "../../components/common/inputText";
 import InputForm from "../../components/common/InputForm";
-import React, { useEffect, useState } from "react";
-
-import "./signUp.css";
+import { useEffect, useState } from "react";
 import { SignUpForm } from "./SignUp";
 
+import "./signUp.css";
+
 export interface SignUpProps {
-  isJoined?: boolean;
+  isError: boolean;
   clickSubmit: (data: SignUpForm) => void;
 }
 
-const SignUpView = ({ isJoined = true, clickSubmit }: SignUpProps) => {
+const SignUpView = ({ isError, clickSubmit }: SignUpProps) => {
   const [modeValue, setModeValue] = useState<"normal" | "focus" | "warning">(
-    isJoined ? "normal" : "warning"
+    isError ? "warning" : "normal"
   );
   const [stateValues, setStateValues] = useState<SignUpForm>({
     nickname: "",
@@ -25,14 +25,19 @@ const SignUpView = ({ isJoined = true, clickSubmit }: SignUpProps) => {
   };
 
   useEffect(() => {
-    setModeValue(isJoined ? "normal" : "warning");
-  }, [isJoined]);
+    setModeValue(isError ? "warning" : "normal");
+  }, [isError]);
 
   return (
     <InputForm
       showBackBtn={true}
       submitButtonText="회원가입"
-      disabledSubmitButton={true}
+      //TODO: 비밀번호/비밀번호 확인 validation 체크 로직 구현
+      disabledSubmitButton={
+        stateValues.nickname.length === 0 ||
+        stateValues.password.length === 0 ||
+        stateValues.password !== stateValues.passwordConfirm
+      }
       onSubmit={handleButtonEvent}
     >
       <div className="signUp-wrap">
