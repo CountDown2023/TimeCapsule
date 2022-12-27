@@ -11,11 +11,11 @@ import { InputState } from "./type/SignInType"
 import "./signIn.css";
 
 export interface Props {
-  isLoggedIn?: boolean;
+  isError: boolean;
   clickSubmit: (data: SignInForm) => void;
 }
 
-const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
+const SignInView = ({ isError, clickSubmit }: Props) => {
   const navigate = useNavigate();
 
   const [stateValues, setStateValues] = useState<SignInForm>({
@@ -23,39 +23,49 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
     password: "",
   });
   const [nicknameState, setNicknameState] = useState<InputState>({
-    state: isLoggedIn? "normal":"warning",
-    validation: isLoggedIn? false: true,
-    warningMsg: ""
+    state: isError ? "warning" : "normal",
+    validation: isError,
+    warningMsg: "",
   });
   const [passwordState, setPasswordState] = useState<InputState>({
-    state: isLoggedIn? "normal":"warning",
-    validation: isLoggedIn? true: false,
-    warningMsg: ""
-  })
+    state: isError ? "warning" : "normal",
+    validation: isError,
+    warningMsg: "",
+  });
   const [isDisableBtn, setIsDisableBtn] = useState<boolean>(true);
 
   useEffect(() => {
-    setIsDisableBtn((nicknameState.validation && passwordState.validation)? false:true)
-    console.log("btn : ", isDisableBtn);
+    setIsDisableBtn(
+      nicknameState.validation && passwordState.validation ? false : true
+    );
   }, [nicknameState, passwordState]);
 
   useEffect(() => {
-    if(!isLoggedIn) {
-      setNicknameState({...nicknameState, state: "warning", validation: false})
-      setPasswordState({...passwordState, state: "warning", validation: false})
+    if (isError) {
+      setNicknameState({
+        ...nicknameState,
+        state: "warning",
+        validation: false,
+      });
+      setPasswordState({
+        ...passwordState,
+        state: "warning",
+        validation: false,
+      });
     }
-  }, [isLoggedIn])
+  }, [isError]);
 
-  const nicknameValid = (data:string) => {
+  const nicknameValid = (data: string) => {
     // 최소 2 ~ 최대 10자 이하
     const regex = /^.{2,10}$/;
     return regex.test(data);
-  }
-  const passwordValid = (data:string) => {
+  };
+  const passwordValid = (data: string) => {
     // 영문, 숫자, 특수기호 포함 8~30자 이하
-    const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"])[A-Za-z\d\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]{8,30}$/;
+    const regex =
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"])[A-Za-z\d\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]{8,30}$/;
     return regex.test(data);
-  }
+  };
   const handleButtonEvent = () => {
     clickSubmit(stateValues);
   };
@@ -63,7 +73,7 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
   return (
     <InputForm
       submitButtonText="로그인"
-      disabledSubmitButton={isDisableBtn}
+      disabledSubmitButton={false}
       onSubmit={handleButtonEvent}
     >
       <div className="signIn-wrap">
@@ -79,25 +89,38 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
             mode={nicknameState.state}
             widthSize="medium"
             placeholder="닉네임"
-            warningMsg={nicknameState.state === "warning" && (nicknameState.warningMsg !== "" || !nicknameState.validation)? nicknameState.warningMsg : ""}
-            onFocus={() => setNicknameState({...nicknameState, state: "focus"})}
-            onBlur={() => setNicknameState({...nicknameState, state: "normal"})}
+            warningMsg={
+              nicknameState.state === "warning" &&
+              (nicknameState.warningMsg !== "" || !nicknameState.validation)
+                ? nicknameState.warningMsg
+                : ""
+            }
+            onFocus={() =>
+              setNicknameState({ ...nicknameState, state: "focus" })
+            }
+            onBlur={() =>
+              setNicknameState({ ...nicknameState, state: "normal" })
+            }
             onChangeValue={(value: string) => {
               //TODO: 닉네임 중복체크 로직 구현
               var valid = nicknameValid(value);
-              var mode:"normal"|"focus"|"warning" = "normal";
+              var mode: "normal" | "focus" | "warning" = "normal";
               var warningMsg = "";
               console.log("nickname validation : ", nicknameValid(value));
-              if(!valid) {
+              if (!valid) {
                 mode = "warning";
-                warningMsg = "닉네임은 최소 2자 ~ 최대 10자 이내로 작성해주세요.";
-              }else {
+                warningMsg =
+                  "닉네임은 최소 2자 ~ 최대 10자 이내로 작성해주세요.";
+              } else {
                 mode = "focus";
               }
-              setNicknameState({state: mode, validation: valid, warningMsg: warningMsg});
+              setNicknameState({
+                state: mode,
+                validation: valid,
+                warningMsg: warningMsg,
+              });
               setStateValues({ ...stateValues, nickname: value });
-            }
-            }
+            }}
           />
           <InputText
             type="password"
@@ -105,21 +128,35 @@ const SignInView = ({ isLoggedIn = true, clickSubmit }: Props) => {
             mode={passwordState.state}
             widthSize="medium"
             placeholder="비밀번호"
-            warningMsg={passwordState.state === "warning" && ((passwordState.warningMsg !== "" || !passwordState.validation))? passwordState.warningMsg : ""}
-            onFocus={() => setPasswordState({...passwordState, state: "focus"})}
-            onBlur={() => setPasswordState({...passwordState, state: "normal"})}
-            onChangeValue={(value: string) =>{
+            warningMsg={
+              passwordState.state === "warning" &&
+              (passwordState.warningMsg !== "" || !passwordState.validation)
+                ? passwordState.warningMsg
+                : ""
+            }
+            onFocus={() =>
+              setPasswordState({ ...passwordState, state: "focus" })
+            }
+            onBlur={() =>
+              setPasswordState({ ...passwordState, state: "normal" })
+            }
+            onChangeValue={(value: string) => {
               var valid = passwordValid(value);
               var warningMsg = "";
-              var mode:"normal"|"focus"|"warning" = "normal";
+              var mode: "normal" | "focus" | "warning" = "normal";
               console.log("password validation : ", passwordValid(value));
-              if(!valid) {
+              if (!valid) {
                 mode = "warning";
-                warningMsg = "비밀번호는 영문/숫자/특수기호를 포함하여 최소 8자 ~ 30자 이내로 작성해주세요.";
-              }else {
+                warningMsg =
+                  "비밀번호는 영문/숫자/특수기호를 포함하여 최소 8자 ~ 30자 이내로 작성해주세요.";
+              } else {
                 mode = "focus";
               }
-              setPasswordState({state: mode, validation: valid, warningMsg: warningMsg});
+              setPasswordState({
+                state: mode,
+                validation: valid,
+                warningMsg: warningMsg,
+              });
               setStateValues({ ...stateValues, password: value });
             }}
           />
